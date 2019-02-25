@@ -1,47 +1,31 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
-  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.15.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 
-<!-- begin SEO -->
-
-
-
-
-
-
-
-
-
-<title>About - VoltaicForge</title>
-
-
-
-
+<!-- begin _includes/seo.html --><title>About | VoltaicForge</title>
 <meta name="description" content="About the website, me, and the technology behind the site">
 
 
 
-
-<meta name="author" content="Nat Allan">
-
-<meta property="og:locale" content="en">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="VoltaicForge">
 <meta property="og:title" content="About">
-
-
-  <link rel="canonical" href="https://voltaicforge.com/about/">
-  <meta property="og:url" content="https://voltaicforge.com/about/">
-
+<meta property="og:url" content="https://voltaicforge.com/about/">
 
 
   <meta property="og:description" content="About the website, me, and the technology behind the site">
+
+
+
+  <meta property="og:image" content="https://voltaicforge.com/assets/images/profile.jpg">
 
 
 
@@ -51,26 +35,24 @@
   <meta name="twitter:url" content="https://voltaicforge.com/about/">
 
   
-    <meta name="twitter:card" content="summary">
-    
-  
-
-  
-    <meta name="twitter:creator" content="@Nat Allan">
-  
-
-
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://voltaicforge.com/assets/images/profile.jpg">
   
 
   
 
 
 
-  <meta property="og:image" content="https://voltaicforge.com/assets/images/profile.jpg">
 
 
 
+
+  
+
+  
+
+
+<link rel="canonical" href="https://voltaicforge.com/about/">
 
 
 
@@ -80,11 +62,11 @@
 
   <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
-      "@type" : "Person",
-      "name" : "Nat Allan",
-      "url" : "https://voltaicforge.com",
-      "sameAs" : ["https://twitter.com/voltaicforge"]
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nat Allan",
+      "url": "https://voltaicforge.com",
+      "sameAs": ["https://twitter.com/voltaicforge"]
     }
   </script>
 
@@ -101,14 +83,13 @@
 
   <meta name="yandex-verification" content="41039ce397f24d4e">
 
-<!-- end SEO -->
+
+<!-- end _includes/seo.html -->
 
 
-<link href="https://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
+<!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -116,9 +97,9 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://voltaicforge.com/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
-<!--[if lte IE 9]>
+<!--[if IE ]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -133,48 +114,58 @@
   </style>
 <![endif]-->
 
-<meta http-equiv="cleartype" content="on">
+
+
     <!-- start custom head snippets -->
 
-<!-- insert favicons. use http://realfavicongenerator.net/ -->
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
   </head>
 
   <body class="layout--single">
 
     <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
-    <div class="masthead">
+
+    
+
+<div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://voltaicforge.com/">VoltaicForge</a>
-        <ul class="visible-links">
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/year-archive/">Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/projects/">Projects</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/guides/">Guides</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/about/">About</a></li>
-          
-        </ul>
-        <button><div class="navicon"></div></button>
+        
+        <a class="site-title" href="/">VoltaicForge</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/year-archive/" >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/guides/" >Guides</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
         <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
   </div>
 </div>
 
-    
+
+    <div class="initial-content">
+      
   
+
+
+
+
 
 
 
@@ -183,11 +174,11 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://voltaicforge.com/assets/images/profile.jpg');"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/profile.jpg');"
 >
   
     <div class="wrapper">
-      <h1 class="page__title" itemprop="headline">
+      <h1 id="page-title" class="page__title" itemprop="headline">
         
           About
 
@@ -196,6 +187,7 @@
       
         <p class="page__lead">About the website, me, and the technology behind the site
 </p>
+      
       
       
       
@@ -213,18 +205,23 @@
   <div class="sidebar sticky">
   
 
-<div itemscope itemtype="http://schema.org/Person">
+
+<div itemscope itemtype="https://schema.org/Person">
 
   
     <div class="author__avatar">
       
-        <img src="https://voltaicforge.com/assets/images/profile.jpg" class="author__avatar" alt="Nat Allan" itemprop="image">
+
+      
+        <img src="/assets/images/profile.jpg" alt="Nat Allan" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
-    <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
+      <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
     
       <p class="author__bio" itemprop="description">
         Analogue at birth, digital by design
@@ -236,15 +233,17 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
-        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
-          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
         </li>
+      
+
       
 
       
         <li>
           <a href="http://voltaicforge.com" itemprop="url">
-            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i> Website
           </a>
         </li>
       
@@ -255,8 +254,8 @@
 
       
         <li>
-          <a href="https://twitter.com/voltaicforge" itemprop="sameAs">
-            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          <a href="https://twitter.com/voltaicforge" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
           </a>
         </li>
       
@@ -277,10 +276,12 @@
 
       
         <li>
-          <a href="https://github.com/voltaicforge" itemprop="sameAs">
-            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          <a href="https://github.com/voltaicforge" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
           </a>
         </li>
+      
+
       
 
       
@@ -309,8 +310,8 @@
 
       <!--
   <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
-      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
     </a>
   </li>
 -->
@@ -322,7 +323,7 @@
   </div>
 
 
-  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="About">
     <meta itemprop="description" content="About the website, me, and the technology behind the site">
     
@@ -333,29 +334,29 @@
 
       <section class="page__content" itemprop="text">
         
-<h2 id="-the-site">.. the site</h2>
+        <h2 id="-the-site">.. the site</h2>
 
-<p>A website for me to post progress on my projects, reviews, teardowns and whatever else takes my fancy in the realm of computers and electronics.  I&#8217;ve wanted to get a website up for my hobby projects for a while, and having found the ideal platform to write its time to do it!</p>
+<p>A website for me to post progress on my projects, reviews, teardowns and whatever else takes my fancy in the realm of computers and electronics.  I’ve wanted to get a website up for my hobby projects for a while, and having found the ideal platform to write its time to do it!</p>
 
-<p>I&#8217;m interested in many things, generally revolving around computing and electronics which will find its way here.  I generally don&#8217;t want to spend time discussing things you can search for easily (as I assume your google-fu is strong).  However, I will post on ideas or challenges that are unique, as well as the projects I have on the go.</p>
+<p>I’m interested in many things, generally revolving around computing and electronics which will find its way here.  I generally don’t want to spend time discussing things you can search for easily (as I assume your google-fu is strong).  However, I will post on ideas or challenges that are unique, as well as the projects I have on the go.</p>
 
 <h2 id="-me">.. me</h2>
 
-<p>I&#8217;m a 30 something Aussie that works as a supply chain planner in my profession life.  If I&#8217;m not spending time with my family or friends, I&#8217;m generally found tinkering with a computer or electrical project.</p>
+<p>I’m a 30 something Aussie that works as a supply chain planner in my profession life.  If I’m not spending time with my family or friends, I’m generally found tinkering with a computer or electrical project.</p>
 
-<h2 id="-powered-by">&#8230; powered by</h2>
+<h2 id="-powered-by">… powered by</h2>
 
-<p>I&#8217;ve settled on using <a href="https://aws.amazon.com/">AWS</a> as a host, which is plain <em>awesome</em> added in with <a href="https://jekyllrb.com/">Jekyll</a>.  This gives a nice static site, which is then lightning fast to serve almost anywhere on any server with almost no overhead.</p>
+<p>I’ve settled on using <a href="https://aws.amazon.com/">AWS</a> as a host, which is plain <em>awesome</em> added in with <a href="https://jekyllrb.com/">Jekyll</a>.  This gives a nice static site, which is then lightning fast to serve almost anywhere on any server with almost no overhead.</p>
 
-<p>Finding the right technology was a challenge.  I don&#8217;t have oodles of time to spend maintaining more technology and platforms than I already have setup, and the Internet (as a generalization) has become so bloated with javascript, HTML5, flash ads and whatnot It&#8217;s been a challenge to find a nice, simple clean tech to be able to just <em>write</em>.  Remember when the content of sites was king?</p>
+<p>Finding the right technology was a challenge.  I don’t have oodles of time to spend maintaining more technology and platforms than I already have setup, and the Internet (as a generalization) has become so bloated with javascript, HTML5, flash ads and whatnot It’s been a challenge to find a nice, simple clean tech to be able to just <em>write</em>.  Remember when the content of sites was king?</p>
 
-<h2 id="-the-domain-name">&#8230; the domain name</h2>
+<h2 id="-the-domain-name">… the domain name</h2>
 
-<p>I&#8217;m not good at names.  I tried for a while to figure out a decent name for the blog, and I will let you be the judge as to if I have failed or succeeded.  I aimed to pick a somewhat descriptive word to describe what I would be writing about, that was somewhat unique and sounded good.</p>
+<p>I’m not good at names.  I tried for a while to figure out a decent name for the blog, and I will let you be the judge as to if I have failed or succeeded.  I aimed to pick a somewhat descriptive word to describe what I would be writing about, that was somewhat unique and sounded good.</p>
 
 <p>I came up with VoltaicForge with far too much thesaurus perusing.  <code class="highlighter-rouge">Voltaic</code> is a synonym for electrical, exciting, and <em>stimulating</em> (apparently).  When I saw the word I just knew I wanted it for the title.  I felt this captured the nature of the niche I would be discussing.</p>
 
-<p>I stumbled around a lot because I don&#8217;t like the word <code class="highlighter-rouge">blog</code> much and I wanted a second word that described the creative nature of what I do.  <code class="highlighter-rouge">Forge</code> came up as a synonym of <code class="highlighter-rouge">Create</code> and who doesn&#8217;t like the imagery of toiling over a hot forge, smithy hammer in hand, striking mighty blows to perfect their craft.</p>
+<p>I stumbled around a lot because I don’t like the word <code class="highlighter-rouge">blog</code> much and I wanted a second word that described the creative nature of what I do.  <code class="highlighter-rouge">Forge</code> came up as a synonym of <code class="highlighter-rouge">Create</code> and who doesn’t like the imagery of toiling over a hot forge, smithy hammer in hand, striking mighty blows to perfect their craft.</p>
 
 
         
@@ -381,6 +382,9 @@
   
 </div>
 
+    </div>
+
+    
 
     <div class="page__footer">
       <footer>
@@ -392,40 +396,40 @@
     
       <li><strong>Follow:</strong></li>
     
+
     
-      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
-    
-    
-    
-      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-    
-    
-    <li><a href="https://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
       </footer>
     </div>
 
-    <script src="https://voltaicforge.com/assets/js/main.min.js"></script>
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
 
 
 
 
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77173080-1']);
   
-<script type="text/javascript">
-var clicky_site_ids = clicky_site_ids || [];
-clicky_site_ids.push(101008004);
-(function() {
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//static.getclicky.com/js';
-  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
-})();
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 </script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
 
 
 

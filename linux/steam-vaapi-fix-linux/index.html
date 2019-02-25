@@ -1,47 +1,31 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
-  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.15.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 
-<!-- begin SEO -->
-
-
-
-
-
-
-
-
-
-<title>Fixing Intel Hardware decoding on Linux (Ubuntu) - VoltaicForge</title>
-
-
-
-
+<!-- begin _includes/seo.html --><title>Fixing Intel Hardware decoding on Linux (Ubuntu) | VoltaicForge</title>
 <meta name="description" content="Fixing steams broken libav libraries that break hardware accelerarion on Steam inhome streaming">
 
 
 
-
-<meta name="author" content="Nat Allan">
-
-<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="VoltaicForge">
 <meta property="og:title" content="Fixing Intel Hardware decoding on Linux (Ubuntu)">
-
-
-  <link rel="canonical" href="https://voltaicforge.com/linux/steam-vaapi-fix-linux/">
-  <meta property="og:url" content="https://voltaicforge.com/linux/steam-vaapi-fix-linux/">
-
+<meta property="og:url" content="https://voltaicforge.com/linux/steam-vaapi-fix-linux/">
 
 
   <meta property="og:description" content="Fixing steams broken libav libraries that break hardware accelerarion on Steam inhome streaming">
+
+
+
+  <meta property="og:image" content="https://voltaicforge.com/assets/images/linux_stock.png">
 
 
 
@@ -51,31 +35,26 @@
   <meta name="twitter:url" content="https://voltaicforge.com/linux/steam-vaapi-fix-linux/">
 
   
-    <meta name="twitter:card" content="summary">
-    
-      <meta name="twitter:image" content="https://voltaicforge.com/assets/images/linux_stock.png">
-    
-  
-
-  
-    <meta name="twitter:creator" content="@Nat Allan">
-  
-
-
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://voltaicforge.com/assets/images/linux_stock.png">
   
 
   
 
 
 
-  <meta property="og:image" content="https://voltaicforge.com/assets/images/linux_stock.png">
-
-
-
-  <meta property="og:type" content="article">
   <meta property="article:published_time" content="2016-12-02T00:00:00+11:00">
 
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://voltaicforge.com/linux/steam-vaapi-fix-linux/">
 
 
 
@@ -85,11 +64,11 @@
 
   <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
-      "@type" : "Person",
-      "name" : "Nat Allan",
-      "url" : "https://voltaicforge.com",
-      "sameAs" : ["https://twitter.com/voltaicforge"]
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nat Allan",
+      "url": "https://voltaicforge.com",
+      "sameAs": ["https://twitter.com/voltaicforge"]
     }
   </script>
 
@@ -106,14 +85,13 @@
 
   <meta name="yandex-verification" content="41039ce397f24d4e">
 
-<!-- end SEO -->
+
+<!-- end _includes/seo.html -->
 
 
-<link href="https://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
+<!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -121,9 +99,9 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://voltaicforge.com/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
-<!--[if lte IE 9]>
+<!--[if IE ]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -138,48 +116,58 @@
   </style>
 <![endif]-->
 
-<meta http-equiv="cleartype" content="on">
+
+
     <!-- start custom head snippets -->
 
-<!-- insert favicons. use http://realfavicongenerator.net/ -->
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
   </head>
 
   <body class="layout--single">
 
     <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
-    <div class="masthead">
+
+    
+
+<div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://voltaicforge.com/">VoltaicForge</a>
-        <ul class="visible-links">
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/year-archive/">Posts</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/projects/">Projects</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/guides/">Guides</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://voltaicforge.com/about/">About</a></li>
-          
-        </ul>
-        <button><div class="navicon"></div></button>
+        
+        <a class="site-title" href="/">VoltaicForge</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/year-archive/" >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/guides/" >Guides</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
         <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
   </div>
 </div>
 
-    
+
+    <div class="initial-content">
+      
   
+
+
+
+
 
 
 
@@ -188,11 +176,11 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://voltaicforge.com/assets/images/linux_stock.png');"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/linux_stock.png');"
 >
   
     <div class="wrapper">
-      <h1 class="page__title" itemprop="headline">
+      <h1 id="page-title" class="page__title" itemprop="headline">
         
           Fixing Intel Hardware decoding on Linux (Ubuntu)
 
@@ -200,6 +188,15 @@
       </h1>
       
         <p class="page__lead">Fixing steams broken libav libraries that break hardware accelerarion on Steam inhome streaming
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
 </p>
       
       
@@ -218,18 +215,23 @@
   <div class="sidebar sticky">
   
 
-<div itemscope itemtype="http://schema.org/Person">
+
+<div itemscope itemtype="https://schema.org/Person">
 
   
     <div class="author__avatar">
       
-        <img src="https://voltaicforge.com/assets/images/profile.jpg" class="author__avatar" alt="Nat Allan" itemprop="image">
+
+      
+        <img src="/assets/images/profile.jpg" alt="Nat Allan" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
-    <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
+      <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
     
       <p class="author__bio" itemprop="description">
         Analogue at birth, digital by design
@@ -241,15 +243,17 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
-        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
-          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
         </li>
+      
+
       
 
       
         <li>
           <a href="http://voltaicforge.com" itemprop="url">
-            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i> Website
           </a>
         </li>
       
@@ -260,8 +264,8 @@
 
       
         <li>
-          <a href="https://twitter.com/voltaicforge" itemprop="sameAs">
-            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          <a href="https://twitter.com/voltaicforge" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
           </a>
         </li>
       
@@ -282,10 +286,12 @@
 
       
         <li>
-          <a href="https://github.com/voltaicforge" itemprop="sameAs">
-            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          <a href="https://github.com/voltaicforge" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
           </a>
         </li>
+      
+
       
 
       
@@ -314,8 +320,8 @@
 
       <!--
   <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
-      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
     </a>
   </li>
 -->
@@ -327,7 +333,7 @@
   </div>
 
 
-  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Fixing Intel Hardware decoding on Linux (Ubuntu)">
     <meta itemprop="description" content="Fixing steams broken libav libraries that break hardware accelerarion on Steam inhome streaming">
     <meta itemprop="datePublished" content="December 02, 2016">
@@ -337,6 +343,7 @@
       
 
       <section class="page__content" itemprop="text">
+        
         <h2 id="fix-for-lack-of-hardware-decoding-on-linux">Fix for lack of hardware decoding on Linux</h2>
 
 <p>So I’ve switched to Linux recently (Mint 18).  I realised that since I was moving to Steam in-home streaming, I could move my clunky desktop tower out into the living room/server closet and run Linux on my desktop.  The only reason I’ve kept Windows running for so long was for gaming needs (and not wanting to fiddle around getting games to work on Linux)</p>
@@ -367,29 +374,26 @@
 
 <p>Simply put, drop into terminal and <code class="highlighter-rouge">apt</code> the below:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt install i965-va-driver:i386
-apt install libva1:i386
-apt install libva-x11-1:i386
-apt install libva-glx1:i386
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>i965-va-driver:i386
+apt <span class="nb">install </span>libva1:i386
+apt <span class="nb">install </span>libva-x11-1:i386
+apt <span class="nb">install </span>libva-glx1:i386
+</code></pre></div></div>
 
 <p>This will install the proper drivers into <code class="highlighter-rouge">/usr/lib/i386-linux-gnu</code>.</p>
 
 <p>Remove the old drivers from Steams folder (or <code class="highlighter-rouge">mv</code> them if you prefer)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rm ~/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm ~/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*
+</code></pre></div></div>
 
 <p>The last step is to symlink these to Steam’s local folder.  You can <code class="highlighter-rouge">ln -s</code> if you wish, but a kind folk has created a bash script to do it for us!</p>
 
 <p>Grab the gist below (kindly created by Github user <a href="https://gist.github.com/benleov">Benleov</a>).  Alternatively, <code class="highlighter-rouge">wget</code> it with the below shell command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wget https://gist.githubusercontent.com/benleov/dc44ca9505a807e7dcc9/raw/673a82ff3d2356d27c9355088f58335bc89ab46b/fix_steam_links &amp;&amp; chmod +x fix_steam_links
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://gist.githubusercontent.com/benleov/dc44ca9505a807e7dcc9/raw/673a82ff3d2356d27c9355088f58335bc89ab46b/fix_steam_links &amp;&amp; chmod +x fix_steam_links
 ./fix_steam_links
-</code></pre>
-</div>
+</code></pre></div></div>
 <p class="notice--info"><strong>Warning:</strong> Always check out the code that you are downloading code before executing to ensure its not malicious!</p>
 
 <noscript><pre>400: Invalid request
@@ -411,20 +415,20 @@ apt install libva-glx1:i386
   
 
   <p class="page__taxonomy">
-    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
       
       
-      <a href="https://voltaicforge.com/tags/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
+      <a href="/tags/#linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
     
       
       
-      <a href="https://voltaicforge.com/tags/#steam" class="page__taxonomy-item" rel="tag">Steam</a><span class="sep">, </span>
+      <a href="/tags/#steam" class="page__taxonomy-item" rel="tag">Steam</a><span class="sep">, </span>
     
       
       
-      <a href="https://voltaicforge.com/tags/#vaapi" class="page__taxonomy-item" rel="tag">VAAPI</a>
+      <a href="/tags/#vaapi" class="page__taxonomy-item" rel="tag">VAAPI</a>
     
     </span>
   </p>
@@ -440,19 +444,19 @@ apt install libva-glx1:i386
   
 
   <p class="page__taxonomy">
-    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
       
       
-      <a href="https://voltaicforge.com/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a>
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-02T00:00:00+11:00">December 02, 2016</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-12-02T00:00:00+11:00">December 02, 2016</time></p>
         
       </footer>
 
@@ -461,24 +465,24 @@ apt install libva-glx1:i386
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=voltaicforge&text=Fixing Intel Hardware decoding on Linux (Ubuntu) https://voltaicforge.com/linux/steam-vaapi-fix-linux/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=voltaicforge&text=Fixing+Intel+Hardware+decoding+on+Linux+%28Ubuntu%29%20https%3A%2F%2Fvoltaicforge.com%2Flinux%2Fsteam-vaapi-fix-linux%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://voltaicforge.com/linux/steam-vaapi-fix-linux/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvoltaicforge.com%2Flinux%2Fsteam-vaapi-fix-linux%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=https://voltaicforge.com/linux/steam-vaapi-fix-linux/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=https%3A%2F%2Fvoltaicforge.com%2Flinux%2Fsteam-vaapi-fix-linux%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://voltaicforge.com/linux/steam-vaapi-fix-linux/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fvoltaicforge.com%2Flinux%2Fsteam-vaapi-fix-linux%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="https://voltaicforge.com/games/steam-controller-worthy-addition/" class="pagination--pager" title="Steam Controller - Worthy addition?
+      <a href="/games/steam-controller-worthy-addition/" class="pagination--pager" title="Steam Controller - Worthy addition?
 ">Previous</a>
     
     
-      <a href="https://voltaicforge.com/3dprinting/scp-upload-octopi/" class="pagination--pager" title="SCP upload to Octoprint on Linux
+      <a href="/3dprinting/scp-upload-octopi/" class="pagination--pager" title="SCP upload to Octoprint on Linux
 ">Next</a>
     
   </nav>
@@ -489,9 +493,9 @@ apt install libva-glx1:i386
       <div class="page__comments">
   
   
-    <h4 class="page__comments-title">Leave a Comment</h4>
-    <section id="disqus_thread"></section>
-  
+      <h4 class="page__comments-title">Leave a Comment</h4>
+      <section id="disqus_thread"></section>
+    
 </div>
 
     
@@ -508,24 +512,24 @@ apt install libva-glx1:i386
 
 
 <div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
         <img src=
           
-            "https://voltaicforge.com/assets/images/Code.jpg"
+            "/assets/images/Code.jpg"
           
           alt="">
       </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="permalink">Setup pfSense for TPG NBN
+        <a href="/homelab/setup-pfsense-for-tpg-nbn/" rel="permalink">Setup pfSense for TPG NBN
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
@@ -537,30 +541,31 @@ apt install libva-glx1:i386
 </p>
   </article>
 </div>
+
         
           
 
 
 
 <div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
         <img src=
           
-            "https://voltaicforge.com/assets/images/homebrew_fermenter.png"
+            "/assets/images/homebrew_fermenter.png"
           
           alt="">
       </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://voltaicforge.com/homebrew/homebrewing-again/" rel="permalink">Homebrewing Again
+        <a href="/homebrew/homebrewing-again/" rel="permalink">Homebrewing Again
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
@@ -572,30 +577,31 @@ apt install libva-glx1:i386
 </p>
   </article>
 </div>
+
         
           
 
 
 
 <div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
         <img src=
           
-            "https://voltaicforge.com/assets/images/encrypted_encfs_dropbox.png"
+            "/assets/images/encrypted_encfs_dropbox.png"
           
           alt="">
       </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://voltaicforge.com/games/dropbox-encfs/" rel="permalink">Setting up Dropbox and encryption in Linux
+        <a href="/games/dropbox-encfs/" rel="permalink">Setting up Dropbox and encryption in Linux
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
@@ -607,30 +613,31 @@ apt install libva-glx1:i386
 </p>
   </article>
 </div>
+
         
           
 
 
 
 <div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
         <img src=
           
-            "https://voltaicforge.com/assets/images/chromium-gnome-banner.png"
+            "/assets/images/chromium-gnome-banner.png"
           
           alt="">
       </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://voltaicforge.com/games/chromium-gnome-keyring/" rel="permalink">Stop Chromium asking for keyring unlock
+        <a href="/games/chromium-gnome-keyring/" rel="permalink">Stop Chromium asking for keyring unlock
 </a>
       
     </h2>
     
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
@@ -642,12 +649,17 @@ apt install libva-glx1:i386
 </p>
   </article>
 </div>
+
         
       </div>
     </div>
   
+  
 </div>
 
+    </div>
+
+    
 
     <div class="page__footer">
       <footer>
@@ -659,70 +671,62 @@ apt install libva-glx1:i386
     
       <li><strong>Follow:</strong></li>
     
+
     
-      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
-    
-    
-    
-      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-    
-    
-    <li><a href="https://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
       </footer>
     </div>
 
-    <script src="https://voltaicforge.com/assets/js/main.min.js"></script>
-
-
-
-
-  
-<script type="text/javascript">
-var clicky_site_ids = clicky_site_ids || [];
-clicky_site_ids.push(101008004);
-(function() {
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//static.getclicky.com/js';
-  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
-})();
-</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
 
 
 
 
 
 
-  
+
   <script type="text/javascript">
-  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-  	var disqus_shortname = 'voltaicforge';
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-77173080-1']);
+  
+  _gaq.push(['_trackPageview']);
 
-  	/* * * DON'T EDIT BELOW THIS LINE * * */
-  	(function() {
-  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  	})();
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 
-  	/* * * DON'T EDIT BELOW THIS LINE * * */
-  	(function () {
-  		var s = document.createElement('script'); s.async = true;
-  		s.type = 'text/javascript';
-  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  	}());
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://voltaicforge.com/linux/steam-vaapi-fix-linux/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/linux/steam-vaapi-fix-linux"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://voltaicforge.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
-
+  
 
 
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.1">Jekyll</generator><link href="https://voltaicforge.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://voltaicforge.com/" rel="alternate" type="text/html" /><updated>2019-02-25T22:40:02+11:00</updated><id>https://voltaicforge.com/</id><title type="html">VoltaicForge</title><subtitle>A personal website for my hobby projects</subtitle><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><entry><title type="html">Setup pfSense for TPG NBN</title><link href="https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="alternate" type="text/html" title="Setup pfSense for TPG NBN" /><published>2017-08-13T00:00:00+10:00</published><updated>2017-08-13T00:00:00+10:00</updated><id>https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn</id><content type="html" xml:base="https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/">&lt;h2 id=&quot;setting-up-pfsense-for-tpg-nbn&quot;&gt;Setting up pfSense for TPG NBN&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://voltaicforge.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://voltaicforge.com/" rel="alternate" type="text/html" /><updated>2019-02-25T23:47:52+11:00</updated><id>https://voltaicforge.com/feed.xml</id><title type="html">VoltaicForge</title><subtitle>A personal website for my hobby projects</subtitle><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><entry><title type="html">Setup pfSense for TPG NBN</title><link href="https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="alternate" type="text/html" title="Setup pfSense for TPG NBN" /><published>2017-08-13T00:00:00+10:00</published><updated>2017-08-13T00:00:00+10:00</updated><id>https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn</id><content type="html" xml:base="https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/">&lt;h2 id=&quot;setting-up-pfsense-for-tpg-nbn&quot;&gt;Setting up pfSense for TPG NBN&lt;/h2&gt;
 
 &lt;p&gt;After much frustration, I have finially buggered off the terrible HG659 router that is provided with TPG NBN.&lt;/p&gt;
 
@@ -92,7 +92,25 @@
 
 &lt;p&gt;Unfortunately, its been a pain to get temperature control correct.  This means that I think its timie to finally build what I always wanted to build: a fermenting fridge.&lt;/p&gt;
 
-&lt;p&gt;I’m now eyeing off a legacy &lt;a href=&quot;https://www.brewpi.com/&quot;&gt;BrewPi&lt;/a&gt; build, sans the fancy LCD controller and just using a Raspberry PI and a Arduino.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Homebrew" /><summary type="html">Beginning a homebrewing journey</summary></entry><entry><title type="html">Setting up Dropbox and encryption in Linux</title><link href="https://voltaicforge.com/games/dropbox-encfs/" rel="alternate" type="text/html" title="Setting up Dropbox and encryption in Linux" /><published>2017-02-25T00:00:00+11:00</published><updated>2017-02-25T00:00:00+11:00</updated><id>https://voltaicforge.com/games/dropbox-encfs</id><content type="html" xml:base="https://voltaicforge.com/games/dropbox-encfs/">&lt;h2 id=&quot;premise&quot;&gt;Premise&lt;/h2&gt;
+&lt;p&gt;I’m now eyeing off a legacy &lt;a href=&quot;https://www.brewpi.com/&quot;&gt;BrewPi&lt;/a&gt; build, sans the fancy LCD controller and just using a Raspberry PI and a Arduino.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Homebrew" /><summary type="html">Beginning a homebrewing journey</summary></entry><entry><title type="html">Stop Chromium asking for keyring unlock</title><link href="https://voltaicforge.com/games/chromium-gnome-keyring/" rel="alternate" type="text/html" title="Stop Chromium asking for keyring unlock" /><published>2017-02-25T00:00:00+11:00</published><updated>2017-02-25T00:00:00+11:00</updated><id>https://voltaicforge.com/games/chromium-gnome-keyring</id><content type="html" xml:base="https://voltaicforge.com/games/chromium-gnome-keyring/">&lt;h2 id=&quot;removing-keychain-login-from-chormium&quot;&gt;Removing keychain login from Chormium&lt;/h2&gt;
+
+&lt;p&gt;I recently started using (sigh) Chromium over Firefox due to very slow webgl performance (and general overall faster performance)&lt;/p&gt;
+
+&lt;p&gt;However, annoyingly it asks for the Gnome keychain to be unlocked upon launch.&lt;/p&gt;
+
+&lt;p&gt;A simple fix I found is to simply change the shortcut to&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chromium --password-store=basic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will drop chromium to a basic password store machanism, so it doesn’t use gnome-keyring&lt;/p&gt;
+
+&lt;p&gt;Of course, this assumes your not wanting to use the features of chromium to store login details into the OS’s password manager. 
+However, since you should be using a service like KeePass or LastPass to manage passwords securely, this shouldn’t be an issue.&lt;/p&gt;
+
+&lt;p&gt;I canged my Cinnamon settings by selecting ‘Open Editor’ in the Menu options in settings, then finding the chromium shortcut.  I then added the ‘–password-store=basic’ to the shortcut.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://voltaicforge.com/assets/images/chromium-password-basic.gif&quot; alt=&quot;Stopping chromium keyring unlock warning&quot; /&gt;&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">Stopping Chromium asking for gnome-keyring login on launch</summary></entry><entry><title type="html">Setting up Dropbox and encryption in Linux</title><link href="https://voltaicforge.com/games/dropbox-encfs/" rel="alternate" type="text/html" title="Setting up Dropbox and encryption in Linux" /><published>2017-02-25T00:00:00+11:00</published><updated>2017-02-25T00:00:00+11:00</updated><id>https://voltaicforge.com/games/dropbox-encfs</id><content type="html" xml:base="https://voltaicforge.com/games/dropbox-encfs/">&lt;h2 id=&quot;premise&quot;&gt;Premise&lt;/h2&gt;
 
 &lt;p&gt;Due to the fact that I now run Linux across my Homelab, Desktop and Laptop, I’ve been looking into keeping everything in sync.&lt;/p&gt;
 
@@ -104,15 +122,14 @@
 
 &lt;p&gt;Installing Dropbox should be easy across most distributions from core repositories.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Debain
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Debain
 cd ~ &amp;amp;&amp;amp; wget -O - &quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot; | tar xzf -
 ~/.dropbox-dist/dropboxd
 
 
 # Arch
 pacaur -S dropbox
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;setup-script&quot;&gt;Setup script&lt;/h2&gt;
 
@@ -120,18 +137,16 @@ pacaur -S dropbox
 
 &lt;p&gt;You can modify the file location if you wish.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir ~/.config/certificates/
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir ~/.config/certificates/
 echo &quot;&amp;lt;password&amp;gt;&quot; &amp;gt; ~/.config/certificates/encfs
 chmod 0600 ~/.config/certificates/encfs
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, create the script.  Again, you can change the location.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;~/scripts/dropbox.sh&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat ~/.config/certificates/encfs | encfs -S ~/Dropbox/encrypted/ ~/Private/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat ~/.config/certificates/encfs | encfs -S ~/Dropbox/encrypted/ ~/Private/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;When called, this calls encfs, and supply the password by outputting the file created earlier into it.&lt;/p&gt;
 
@@ -148,26 +163,7 @@ chmod 0600 ~/.config/certificates/encfs
   &lt;/picture&gt;
 &lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Now, place your files in the &lt;code class=&quot;highlighter-rouge&quot;&gt;~Private folder&lt;/code&gt;.  They will be encryped into the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Dropbox/encrypted/&lt;/code&gt; folder.  Repead on another computer to have shared sync.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">My approach to setting up Dropbox and Encfs in Linux</summary></entry><entry><title type="html">Stop Chromium asking for keyring unlock</title><link href="https://voltaicforge.com/games/chromium-gnome-keyring/" rel="alternate" type="text/html" title="Stop Chromium asking for keyring unlock" /><published>2017-02-25T00:00:00+11:00</published><updated>2017-02-25T00:00:00+11:00</updated><id>https://voltaicforge.com/games/chromium-gnome-keyring</id><content type="html" xml:base="https://voltaicforge.com/games/chromium-gnome-keyring/">&lt;h2 id=&quot;removing-keychain-login-from-chormium&quot;&gt;Removing keychain login from Chormium&lt;/h2&gt;
-
-&lt;p&gt;I recently started using (sigh) Chromium over Firefox due to very slow webgl performance (and general overall faster performance)&lt;/p&gt;
-
-&lt;p&gt;However, annoyingly it asks for the Gnome keychain to be unlocked upon launch.&lt;/p&gt;
-
-&lt;p&gt;A simple fix I found is to simply change the shortcut to&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chromium --password-store=basic
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;This will drop chromium to a basic password store machanism, so it doesn’t use gnome-keyring&lt;/p&gt;
-
-&lt;p&gt;Of course, this assumes your not wanting to use the features of chromium to store login details into the OS’s password manager. 
-However, since you should be using a service like KeePass or LastPass to manage passwords securely, this shouldn’t be an issue.&lt;/p&gt;
-
-&lt;p&gt;I canged my Cinnamon settings by selecting ‘Open Editor’ in the Menu options in settings, then finding the chromium shortcut.  I then added the ‘–password-store=basic’ to the shortcut.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://voltaicforge.com/assets/images/chromium-password-basic.gif&quot; alt=&quot;Stopping chromium keyring unlock warning&quot; /&gt;&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">Stopping Chromium asking for gnome-keyring login on launch</summary></entry><entry><title type="html">Guide added for Steam Emulation</title><link href="https://voltaicforge.com/games/emulators-in-steam/" rel="alternate" type="text/html" title="Guide added for Steam Emulation" /><published>2017-02-05T00:00:00+11:00</published><updated>2017-02-05T00:00:00+11:00</updated><id>https://voltaicforge.com/games/emulators-in-steam</id><content type="html" xml:base="https://voltaicforge.com/games/emulators-in-steam/">&lt;h3 id=&quot;new-guide-added-for-steam-emulation&quot;&gt;New guide added for steam emulation&lt;/h3&gt;
+&lt;p&gt;Now, place your files in the &lt;code class=&quot;highlighter-rouge&quot;&gt;~Private folder&lt;/code&gt;.  They will be encryped into the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Dropbox/encrypted/&lt;/code&gt; folder.  Repead on another computer to have shared sync.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">My approach to setting up Dropbox and Encfs in Linux</summary></entry><entry><title type="html">Guide added for Steam Emulation</title><link href="https://voltaicforge.com/games/emulators-in-steam/" rel="alternate" type="text/html" title="Guide added for Steam Emulation" /><published>2017-02-05T00:00:00+11:00</published><updated>2017-02-05T00:00:00+11:00</updated><id>https://voltaicforge.com/games/emulators-in-steam</id><content type="html" xml:base="https://voltaicforge.com/games/emulators-in-steam/">&lt;h3 id=&quot;new-guide-added-for-steam-emulation&quot;&gt;New guide added for steam emulation&lt;/h3&gt;
 
 &lt;p&gt;I have added a tutorial for a excelent, tidy setup for running all your retro consoles via Big Picture mode.&lt;/p&gt;
 
@@ -184,18 +180,18 @@ However, since you should be using a service like KeePass or LastPass to manage 
   &lt;/picture&gt;
 &lt;/a&gt;&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">Guide to adding emulators to your Steam Link or Big Picture setup.</summary></entry><entry><title type="html">SCP upload to Octoprint on Linux</title><link href="https://voltaicforge.com/3dprinting/scp-upload-octopi/" rel="alternate" type="text/html" title="SCP upload to Octoprint on Linux" /><published>2017-01-19T00:00:00+11:00</published><updated>2017-01-19T00:00:00+11:00</updated><id>https://voltaicforge.com/3dprinting/scp-upload-octopi</id><content type="html" xml:base="https://voltaicforge.com/3dprinting/scp-upload-octopi/">&lt;h2 id=&quot;uploading-automatically-to-octoprint-via-bash--scp&quot;&gt;Uploading automatically to Octoprint via bash &amp;amp; scp&lt;/h2&gt;
 
-&lt;p&gt;I&amp;#8217;ve been using &lt;a href=&quot;https://www.simplify3d.com/&quot;&gt;Simplify3d&lt;/a&gt; for my 3D printing, and &lt;a href=&quot;http://octoprint.org/&quot;&gt;Octoprint&lt;/a&gt;.  Octoprint has a very nice web interface, and between it and the advancement in slicers, its been great to not have to slice, carry SD card over to the printer, load via the LCD, etc.&lt;/p&gt;
+&lt;p&gt;I’ve been using &lt;a href=&quot;https://www.simplify3d.com/&quot;&gt;Simplify3d&lt;/a&gt; for my 3D printing, and &lt;a href=&quot;http://octoprint.org/&quot;&gt;Octoprint&lt;/a&gt;.  Octoprint has a very nice web interface, and between it and the advancement in slicers, its been great to not have to slice, carry SD card over to the printer, load via the LCD, etc.&lt;/p&gt;
 
-&lt;p&gt;However, I&amp;#8217;ve always wanted a auto-upload feature.  I&amp;#8217;ve chosen to do it via setting up ssh keys for logging into the Octoprint server, and using &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt; to upload the file automatically.&lt;/p&gt;
+&lt;p&gt;However, I’ve always wanted a auto-upload feature.  I’ve chosen to do it via setting up ssh keys for logging into the Octoprint server, and using &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt; to upload the file automatically.&lt;/p&gt;
 
 &lt;p&gt;I did get the idea from a post at &lt;a href=&quot;https://forum.simplify3d.com/viewtopic.php?f=23&amp;amp;t=1924&quot;&gt;https://forum.simplify3d.com/viewtopic.php?f=23&amp;amp;t=1924&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;I&amp;#8217;ve setup ssh keys for passwordless entry to my Octoprint server (Google SSH keys for more info, or perhaps check out the &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2&quot;&gt;Digital ocean FAQ&lt;/a&gt; )&lt;/p&gt;
+&lt;p&gt;I’ve setup ssh keys for passwordless entry to my Octoprint server (Google SSH keys for more info, or perhaps check out the &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2&quot;&gt;Digital ocean FAQ&lt;/a&gt; )&lt;/p&gt;
 
 &lt;h4 id=&quot;local-pc&quot;&gt;Local PC&lt;/h4&gt;
 
 &lt;p&gt;When &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt; asks for input I entered through it to accept defaults, and no passphrase.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~ $ ssh-keygen -t rsa
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~ $ ssh-keygen -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/nat/.ssh/id_rsa): 
 Enter passphrase (empty for no passphrase): 
@@ -206,26 +202,24 @@ The key fingerprint is:
 &amp;lt;redacted&amp;gt;
 The key's randomart image is:
 &amp;lt;redacted&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;We now have a private key in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa&lt;/code&gt; and a public key in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;I logged into the remote PC (Octoprint) to copy the public key.  I chose to open up the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt; file in &lt;code class=&quot;highlighter-rouge&quot;&gt;nano&lt;/code&gt; and copy it via clipboard, but you could use &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ftp&lt;/code&gt; or any other method.&lt;/p&gt;
 
 &lt;h4 id=&quot;remote-pc&quot;&gt;Remote PC&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@octopi:~ $ nano .ssh/authorized_keys
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@octopi:~ $ nano .ssh/authorized_keys
 
 &amp;lt;append contents of local ~/.ssh/id_rsa.pub file&amp;gt;
 
 pi@octopi:~ $ chmod 700 .ssh/authorized_keys 
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Now we should be OK to login with no password to the Octoprint server&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~ $ ssh pi@192.168.1.9
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~ $ ssh pi@192.168.1.9
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -235,26 +229,23 @@ Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Thu Jan 19 11:52:32 2017 from 192.168.1.7
 pi@octopi:~ $ 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; You can setup bookmarks for &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh&lt;/code&gt; via &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh_config&lt;/code&gt;.  This enables you to quickly ssh into servers quickly without remembering IP&amp;#8217;s or usernames, especially coupled with ssh_keys for password less entry.  Check out &lt;code class=&quot;highlighter-rouge&quot;&gt;man ssh_config&lt;/code&gt; or Google for more info.&lt;/p&gt;
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; You can setup bookmarks for &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh&lt;/code&gt; via &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh_config&lt;/code&gt;.  This enables you to quickly ssh into servers quickly without remembering IP’s or usernames, especially coupled with ssh_keys for password less entry.  Check out &lt;code class=&quot;highlighter-rouge&quot;&gt;man ssh_config&lt;/code&gt; or Google for more info.&lt;/p&gt;
 
 &lt;p&gt;Once that is setup, we can easily &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt; the file to Octoprint.  Setup a bash file with the one liner below.&lt;/p&gt;
 
 &lt;h4 id=&quot;scriptsputpish&quot;&gt;~/scripts/putpi.sh&lt;/h4&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp &quot;$1&quot; pi@192.168.1.9:.octoprint/uploads/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp &quot;$1&quot; pi@192.168.1.9:.octoprint/uploads/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Remember to &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x putpi.sh&lt;/code&gt; to ensure the file is executable.  Also, substitute the IP above for your Octoprint&amp;#8217;s IP (or hostname).&lt;/p&gt;
+&lt;p&gt;Remember to &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x putpi.sh&lt;/code&gt; to ensure the file is executable.  Also, substitute the IP above for your Octoprint’s IP (or hostname).&lt;/p&gt;
 
 &lt;p&gt;We can ensure it works by running it manually.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~/scripts $ ./putpi.sh ~/Documents/3dPrinting/gcode/nat.gcode 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~/scripts $ ./putpi.sh ~/Documents/3dPrinting/gcode/nat.gcode 
 nat.gcode                                       100% 1477KB   5.9MB/s   00:00
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;And refreshing the file list on the octoprint will make it appear.&lt;/p&gt;
 
 &lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/octoprint_upload_refresh.png&quot;&gt;&lt;picture&gt;
@@ -268,13 +259,12 @@ nat.gcode                                       100% 1477KB   5.9MB/s   00:00
   &lt;/picture&gt;
 &lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Now, to automate the upload from Simplify3D.  Select your 3D Printers process settings is selected in the list box to the left and go to the &amp;#8216;Edit process settings&amp;#8217; tab at the lower left corner of the main screen.  Ensure the advanced settings are visible in the box, if not click the &amp;#8216;Show Advanced&amp;#8217; Button.&lt;/p&gt;
+&lt;p&gt;Now, to automate the upload from Simplify3D.  Select your 3D Printers process settings is selected in the list box to the left and go to the ‘Edit process settings’ tab at the lower left corner of the main screen.  Ensure the advanced settings are visible in the box, if not click the ‘Show Advanced’ Button.&lt;/p&gt;
 
-&lt;p&gt;Here, select the &amp;#8216;Scripts&amp;#8217; tab, and in the bottom of the box underneath &amp;#8216;Post Processing&amp;#8217; and &amp;#8216;Additional terminal commands for post processing&amp;#8217; enter the command to call your bash script.&lt;/p&gt;
+&lt;p&gt;Here, select the ‘Scripts’ tab, and in the bottom of the box underneath ‘Post Processing’ and ‘Additional terminal commands for post processing’ enter the command to call your bash script.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/scripts/putpi.sh [output_filepath]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/scripts/putpi.sh [output_filepath]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/simplify3d_scp_upload_to_octoprint.png&quot;&gt;&lt;picture&gt;
     &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-868by748-0d75ca.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
@@ -319,29 +309,26 @@ nat.gcode                                       100% 1477KB   5.9MB/s   00:00
 
 &lt;p&gt;Simply put, drop into terminal and &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt; the below:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install i965-va-driver:i386
-apt install libva1:i386
-apt install libva-x11-1:i386
-apt install libva-glx1:i386
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;i965-va-driver:i386
+apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libva1:i386
+apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libva-x11-1:i386
+apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libva-glx1:i386
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This will install the proper drivers into &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/i386-linux-gnu&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Remove the old drivers from Steams folder (or &lt;code class=&quot;highlighter-rouge&quot;&gt;mv&lt;/code&gt; them if you prefer)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm ~/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm ~/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The last step is to symlink these to Steam’s local folder.  You can &lt;code class=&quot;highlighter-rouge&quot;&gt;ln -s&lt;/code&gt; if you wish, but a kind folk has created a bash script to do it for us!&lt;/p&gt;
 
 &lt;p&gt;Grab the gist below (kindly created by Github user &lt;a href=&quot;https://gist.github.com/benleov&quot;&gt;Benleov&lt;/a&gt;).  Alternatively, &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; it with the below shell command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://gist.githubusercontent.com/benleov/dc44ca9505a807e7dcc9/raw/673a82ff3d2356d27c9355088f58335bc89ab46b/fix_steam_links &amp;amp;&amp;amp; chmod +x fix_steam_links
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://gist.githubusercontent.com/benleov/dc44ca9505a807e7dcc9/raw/673a82ff3d2356d27c9355088f58335bc89ab46b/fix_steam_links &amp;amp;&amp;amp; chmod +x fix_steam_links
 ./fix_steam_links
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Always check out the code that you are downloading code before executing to ensure its not malicious!&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request
@@ -459,7 +446,7 @@ apt install libva-glx1:i386
 &lt;!-- Courtesy of embedresponsively.com //--&gt;
 &lt;div class=&quot;responsive-video-container&quot;&gt;
 
-  &lt;iframe src=&quot;https://www.youtube.com/embed/uCgnWqoP4MM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/uCgnWqoP4MM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;/div&gt;
 
@@ -473,7 +460,109 @@ apt install libva-glx1:i386
 
 &lt;p&gt;If you are a PC gamer looking for a customizable controller, look no further.  Don’t be put off by the swath of options - if that’s not what you’re into, there’s always a community config that will be perfect (or close) for what you want.&lt;/p&gt;
 
-&lt;p&gt;For steam link users - I feel this unlocks the true potential of the device.  It &lt;em&gt;can&lt;/em&gt; work with any old controller - but this controller really lets you unlock away from your PC with almost any game.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><summary type="html">My experiences with a month of the Steam Controller.</summary></entry><entry><title type="html">Steam Link - The ultimate console?</title><link href="https://voltaicforge.com/games/steam-link-ultimate-console/" rel="alternate" type="text/html" title="Steam Link - The ultimate console?" /><published>2016-07-24T00:00:00+10:00</published><updated>2016-07-24T00:00:00+10:00</updated><id>https://voltaicforge.com/games/steam-link-ultimate-console</id><content type="html" xml:base="https://voltaicforge.com/games/steam-link-ultimate-console/">&lt;h2 id=&quot;why-steam-link-and-what-is-it&quot;&gt;Why Steam Link and what is it?&lt;/h2&gt;
+&lt;p&gt;For steam link users - I feel this unlocks the true potential of the device.  It &lt;em&gt;can&lt;/em&gt; work with any old controller - but this controller really lets you unlock away from your PC with almost any game.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><summary type="html">My experiences with a month of the Steam Controller.</summary></entry><entry><title type="html">Multiroom audio with the Raspberry PI</title><link href="https://voltaicforge.com/electronics/raspi-muiltiroom-audio/" rel="alternate" type="text/html" title="Multiroom audio with the Raspberry PI" /><published>2016-07-24T00:00:00+10:00</published><updated>2016-07-24T00:00:00+10:00</updated><id>https://voltaicforge.com/electronics/raspi-muiltiroom-audio</id><content type="html" xml:base="https://voltaicforge.com/electronics/raspi-muiltiroom-audio/">&lt;h2 id=&quot;multiroom-audio-with-the-raspi&quot;&gt;Multiroom Audio with the Raspi&lt;/h2&gt;
+
+&lt;p&gt;I’ve wanted some sort of audio system for years, a set of speakers in multiple rooms you could setup to be controlled via an app that would be able to play my music collection, and radio.  In the past I’ve experimented with just having iTunes on a laptop with speakers solely for it, putting speakers on my server and some other options.  None have ever hit the ‘neat and tidy’ aspect.&lt;/p&gt;
+
+&lt;p&gt;Recently I started playing around with the RasPI squeezebox solution &lt;a href=&quot;https://sites.google.com/site/picoreplayer/home&quot;&gt;piCorePlayer&lt;/a&gt; which was a big step in the right direction I was looking for.  Surely I could find a cheap set of speakers that would look neat, but have enough space to squeeze (pun intended) a RasPi inside of?&lt;/p&gt;
+
+&lt;p&gt;Off to AliExpress I went and found a cheap(ish) little Bluetooth speaker set.  It actually had a decent set of features, pity I would not be using most of them.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/raspi_squeezebox_player_and_app.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-1200by795-0962f4.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-900by596-0962f4.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-1200by795-0962f4.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-900by596-0962f4.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; /&gt;
+    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; alt=&quot;Raspi Squeesebox player&quot; title=&quot;Raspi Squeesebox player&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Above is the finished player (which looks the same as how it comes out of the box).  I managed to fit a RasPI 1 inside of it, wired up to the power and aux input jack.  The PI connects wirelessly to my wireless network by a Wifi dongle and runs off the Logitec Media Server software.  So via an app or internal website I can play music or radio and media server will kick off the RasPI to play, pause, volume, etc.&lt;/p&gt;
+
+&lt;p&gt;It’s truly a poor man’s &lt;a href=&quot;http://www.sonos.com&quot;&gt;Sonos&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;hacking-the-speaker&quot;&gt;Hacking the speaker&lt;/h2&gt;
+
+&lt;p&gt;The speaker is a cheap Bluetooth-capable speaker off AliExpress.  It’s got more functionality than I wanted but was the only one I liked the look of that could potentially fit a RasPI.  I got it Friday night and quickly tore it down.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/cheap_speaker_teardown.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-1200by795-12ed53.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-900by596-12ed53.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-1200by795-12ed53.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-900by596-12ed53.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; /&gt;
+    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; alt=&quot;Teardown of a cheap chinese bluetooth speaker&quot; title=&quot;Teardown of a cheap chinese bluetooth speaker&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I found that it indeed did have enough room to hide a RasPI.  But only just, and only after the RasPI has undergone some radical weight reduction.  I setup a wifi dongle I had lying around to run on the RasPi and verified it worked before proceeding - I already had Logitec Media Player on a virtual machine running on my server.&lt;/p&gt;
+
+&lt;p&gt;I then played around and inspected the circuitry to find where I could hijack power from the speaker power.  It had a power input which was just a standard micro USB-B connector, so it would be running +5V which I could just tap the RasPI into.  I cut one end of the USB to Micro USB-B connector that came with it and soldered it to GND and the closest point I could tap +5V.  I suspect it was a regulator to drop to +3V or so - the lithium battery included only had 3.7V in it so one would suspect the logic to be +3V.  I tried pulling direct from the battery charge points but it only gave out 4.7V, which the RasPI flat out refused to boot on.&lt;/p&gt;
+
+&lt;p&gt;I did accidently blow a resistor to GND during probing for voltage (which a bodge wire quickly fixed, shorting the plugs housing to another GND point on the board).&lt;/p&gt;
+
+&lt;p&gt;Then it was on to the drastic reduction - the RasPi would have to havethe RCA plug, line-out, Ethernet and the USB plugs stripped.  I either cut or desoldered these as what was easiest (cut off all but the Ethernet and USB, which required adding fresh solder and then sucking it out).  The solder on the RasPI melts a LOT hotter than usual, so adding fresh solder was the trick.&lt;/p&gt;
+
+&lt;p&gt;After the rapid weight loss, I had to find a way to get the USB wifi adaptor back on it.  I threw any concept of the USB spec out the window and directly connected the USB pins to the WIFI dongle with a ribbon cable.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modifying_wifi_dongle_direct_wire.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-1200by795-7821d3.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-900by596-7821d3.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-1200by795-7821d3.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-900by596-7821d3.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; /&gt;
+    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; alt=&quot;Hacking Usb Wifi direct to RasPI with ribbon cable&quot; title=&quot;Hacking Usb Wifi direct to RasPI with ribbon cable&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After everything, it looked a little worse for wear but it worked fine.  Then I started probing around to figure out how to connect the Pi’s line out direct to the speaker system.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_raspi_with_wifi_dongle.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-1200by795-f98645.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-900by596-f98645.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-1200by795-f98645.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-900by596-f98645.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; /&gt;
+    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; alt=&quot;Wifi Dongle hacked onto RasPi&quot; title=&quot;Wifi Dongle hacked onto RasPi&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I bodged wires from the aux input jack of the speaker system to the pi - guessing the left and right channel would be the pins connected to the capacitors I could see on the board.  The centre pin turned out, as I suspected, to be ground.&lt;/p&gt;
+
+&lt;p&gt;I tested it as it was and it worked.  The speakers had some bad line noise (as you’d expect from a cheap set) so I turned them right down and the Pi right up.  Once I had done that, it was great!&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_speakers_with_raspi.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-1200by795-58d700.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-900by596-58d700.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-1200by795-58d700.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-900by596-58d700.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; /&gt;
+    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; alt=&quot;Modified bluetooth speaker to raspi running picoreplayer (squeezebox player)&quot; title=&quot;Modified bluetooth speaker to raspi running picoreplayer (squeezebox player)&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Afterwards, it was merely a case of fitting the PI into the housing and it fit like it was designed to be there.  Some hot glue and a zip tie, and it was time for reassembly.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_speakers_with_raspi_installed.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-1200by795-6887aa.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-900by596-6887aa.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-1200by795-6887aa.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-900by596-6887aa.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; /&gt;
+    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; alt=&quot;Fitting a RasPi into a cheap set of bluetooth speakers&quot; title=&quot;Fitting a RasPi into a cheap set of bluetooth speakers&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once reassembled, it looked like it was new out of the box.  All it required was a home to be found for it and for it to be plugged in with any old wall plug &amp;amp; USB Micro B cable.  Once it’s powered up, the PI boots up into piCorePlayer, connects to the Wifi, and is ready to receive music or radio streams!  Just running the Andriod app &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.angrygoat.android.squeezectrl&amp;amp;hl=en&quot;&gt;Squeeze Ctrl&lt;/a&gt; allows me to control the Logitec Medis Server, which finds the RasPi and considered it an output device.  A tap of the app and we have music control.&lt;/p&gt;
+
+&lt;p&gt;All I need to do is order a few more and I have a Sonos-like experience, for a fraction of the price.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Audio" /><summary type="html">Hacking together a multiroom audio solution with a Raspberry PI, Logitec Media Server and a cheap speaker set</summary></entry><entry><title type="html">Steam Link - The ultimate console?</title><link href="https://voltaicforge.com/games/steam-link-ultimate-console/" rel="alternate" type="text/html" title="Steam Link - The ultimate console?" /><published>2016-07-24T00:00:00+10:00</published><updated>2016-07-24T00:00:00+10:00</updated><id>https://voltaicforge.com/games/steam-link-ultimate-console</id><content type="html" xml:base="https://voltaicforge.com/games/steam-link-ultimate-console/">&lt;h2 id=&quot;why-steam-link-and-what-is-it&quot;&gt;Why Steam Link and what is it?&lt;/h2&gt;
 
 &lt;p&gt;In short, Valve’s &lt;a href=&quot;http://store.steampowered.com/app/353380/&quot;&gt;Steam Link&lt;/a&gt; is a small box (not much larger the size of a deck of cards) that you can plug into your network and TV and stream games from your PC to your TV, in glorious 1080p @ 60hz.  It also takes care of ensuring your controllers talk to your PC, and turns on like a console via turning on your controller.  If you ever wanted to play your PC games from the couch with a controller, this is for you.  If you have a wired network already it is literally as simple as plug into TV and Ethernet, plug in controller adaptor/pair with Bluetooth, enter PIN on PC running steam, and you are literally playing games from your couch within 5 mins.&lt;/p&gt;
 
@@ -628,106 +717,4 @@ apt install libva-glx1:i386
 
 &lt;p&gt;I have had nothing but perfect streaming experiences, smooth FPS, no artefacts, lag, etc.  That said, I have built a robust network, it is wired, and I have given it an optimal network to run on - and it is delivering in spades.  If you want to run on Wireless then it’s your funeral - even with AC dual band, you’re going to get input lag.  I think it’s a simple fact of the way wireless works.&lt;/p&gt;
 
-&lt;p&gt;Also keep in mind that when you stream you are also asking your PC to run the game AND encode the audio/video - this means you need the grunt to run the game at 1080p as well as the stream encoding overhead.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><summary type="html">My experiences one week in with the steam link, and why it's the ultimate console nobody has heard about.</summary></entry><entry><title type="html">Multiroom audio with the Raspberry PI</title><link href="https://voltaicforge.com/electronics/raspi-muiltiroom-audio/" rel="alternate" type="text/html" title="Multiroom audio with the Raspberry PI" /><published>2016-07-24T00:00:00+10:00</published><updated>2016-07-24T00:00:00+10:00</updated><id>https://voltaicforge.com/electronics/raspi-muiltiroom-audio</id><content type="html" xml:base="https://voltaicforge.com/electronics/raspi-muiltiroom-audio/">&lt;h2 id=&quot;multiroom-audio-with-the-raspi&quot;&gt;Multiroom Audio with the Raspi&lt;/h2&gt;
-
-&lt;p&gt;I’ve wanted some sort of audio system for years, a set of speakers in multiple rooms you could setup to be controlled via an app that would be able to play my music collection, and radio.  In the past I’ve experimented with just having iTunes on a laptop with speakers solely for it, putting speakers on my server and some other options.  None have ever hit the ‘neat and tidy’ aspect.&lt;/p&gt;
-
-&lt;p&gt;Recently I started playing around with the RasPI squeezebox solution &lt;a href=&quot;https://sites.google.com/site/picoreplayer/home&quot;&gt;piCorePlayer&lt;/a&gt; which was a big step in the right direction I was looking for.  Surely I could find a cheap set of speakers that would look neat, but have enough space to squeeze (pun intended) a RasPi inside of?&lt;/p&gt;
-
-&lt;p&gt;Off to AliExpress I went and found a cheap(ish) little Bluetooth speaker set.  It actually had a decent set of features, pity I would not be using most of them.&lt;/p&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/raspi_squeezebox_player_and_app.jpg&quot;&gt;&lt;picture&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-1200by795-0962f4.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-900by596-0962f4.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-1200by795-0962f4.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-900by596-0962f4.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; /&gt;
-    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; alt=&quot;Raspi Squeesebox player&quot; title=&quot;Raspi Squeesebox player&quot; /&gt;
-  &lt;/picture&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Above is the finished player (which looks the same as how it comes out of the box).  I managed to fit a RasPI 1 inside of it, wired up to the power and aux input jack.  The PI connects wirelessly to my wireless network by a Wifi dongle and runs off the Logitec Media Server software.  So via an app or internal website I can play music or radio and media server will kick off the RasPI to play, pause, volume, etc.&lt;/p&gt;
-
-&lt;p&gt;It’s truly a poor man’s &lt;a href=&quot;http://www.sonos.com&quot;&gt;Sonos&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;hacking-the-speaker&quot;&gt;Hacking the speaker&lt;/h2&gt;
-
-&lt;p&gt;The speaker is a cheap Bluetooth-capable speaker off AliExpress.  It’s got more functionality than I wanted but was the only one I liked the look of that could potentially fit a RasPI.  I got it Friday night and quickly tore it down.&lt;/p&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/cheap_speaker_teardown.jpg&quot;&gt;&lt;picture&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-1200by795-12ed53.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-900by596-12ed53.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-1200by795-12ed53.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-900by596-12ed53.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; /&gt;
-    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; alt=&quot;Teardown of a cheap chinese bluetooth speaker&quot; title=&quot;Teardown of a cheap chinese bluetooth speaker&quot; /&gt;
-  &lt;/picture&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I found that it indeed did have enough room to hide a RasPI.  But only just, and only after the RasPI has undergone some radical weight reduction.  I setup a wifi dongle I had lying around to run on the RasPi and verified it worked before proceeding - I already had Logitec Media Player on a virtual machine running on my server.&lt;/p&gt;
-
-&lt;p&gt;I then played around and inspected the circuitry to find where I could hijack power from the speaker power.  It had a power input which was just a standard micro USB-B connector, so it would be running +5V which I could just tap the RasPI into.  I cut one end of the USB to Micro USB-B connector that came with it and soldered it to GND and the closest point I could tap +5V.  I suspect it was a regulator to drop to +3V or so - the lithium battery included only had 3.7V in it so one would suspect the logic to be +3V.  I tried pulling direct from the battery charge points but it only gave out 4.7V, which the RasPI flat out refused to boot on.&lt;/p&gt;
-
-&lt;p&gt;I did accidently blow a resistor to GND during probing for voltage (which a bodge wire quickly fixed, shorting the plugs housing to another GND point on the board).&lt;/p&gt;
-
-&lt;p&gt;Then it was on to the drastic reduction - the RasPi would have to havethe RCA plug, line-out, Ethernet and the USB plugs stripped.  I either cut or desoldered these as what was easiest (cut off all but the Ethernet and USB, which required adding fresh solder and then sucking it out).  The solder on the RasPI melts a LOT hotter than usual, so adding fresh solder was the trick.&lt;/p&gt;
-
-&lt;p&gt;After the rapid weight loss, I had to find a way to get the USB wifi adaptor back on it.  I threw any concept of the USB spec out the window and directly connected the USB pins to the WIFI dongle with a ribbon cable.&lt;/p&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modifying_wifi_dongle_direct_wire.jpg&quot;&gt;&lt;picture&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-1200by795-7821d3.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-900by596-7821d3.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-1200by795-7821d3.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-900by596-7821d3.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; /&gt;
-    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; alt=&quot;Hacking Usb Wifi direct to RasPI with ribbon cable&quot; title=&quot;Hacking Usb Wifi direct to RasPI with ribbon cable&quot; /&gt;
-  &lt;/picture&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;After everything, it looked a little worse for wear but it worked fine.  Then I started probing around to figure out how to connect the Pi’s line out direct to the speaker system.&lt;/p&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_raspi_with_wifi_dongle.jpg&quot;&gt;&lt;picture&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-1200by795-f98645.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-900by596-f98645.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-1200by795-f98645.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-900by596-f98645.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; /&gt;
-    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; alt=&quot;Wifi Dongle hacked onto RasPi&quot; title=&quot;Wifi Dongle hacked onto RasPi&quot; /&gt;
-  &lt;/picture&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I bodged wires from the aux input jack of the speaker system to the pi - guessing the left and right channel would be the pins connected to the capacitors I could see on the board.  The centre pin turned out, as I suspected, to be ground.&lt;/p&gt;
-
-&lt;p&gt;I tested it as it was and it worked.  The speakers had some bad line noise (as you’d expect from a cheap set) so I turned them right down and the Pi right up.  Once I had done that, it was great!&lt;/p&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_speakers_with_raspi.jpg&quot;&gt;&lt;picture&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-1200by795-58d700.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-900by596-58d700.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-1200by795-58d700.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-900by596-58d700.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; /&gt;
-    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; alt=&quot;Modified bluetooth speaker to raspi running picoreplayer (squeezebox player)&quot; title=&quot;Modified bluetooth speaker to raspi running picoreplayer (squeezebox player)&quot; /&gt;
-  &lt;/picture&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Afterwards, it was merely a case of fitting the PI into the housing and it fit like it was designed to be there.  Some hot glue and a zip tie, and it was time for reassembly.&lt;/p&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_speakers_with_raspi_installed.jpg&quot;&gt;&lt;picture&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-1200by795-6887aa.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-900by596-6887aa.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-1200by795-6887aa.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-900by596-6887aa.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
-    &lt;source srcset=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; /&gt;
-    &lt;img src=&quot;https://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; alt=&quot;Fitting a RasPi into a cheap set of bluetooth speakers&quot; title=&quot;Fitting a RasPi into a cheap set of bluetooth speakers&quot; /&gt;
-  &lt;/picture&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Once reassembled, it looked like it was new out of the box.  All it required was a home to be found for it and for it to be plugged in with any old wall plug &amp;amp; USB Micro B cable.  Once it’s powered up, the PI boots up into piCorePlayer, connects to the Wifi, and is ready to receive music or radio streams!  Just running the Andriod app &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.angrygoat.android.squeezectrl&amp;amp;hl=en&quot;&gt;Squeeze Ctrl&lt;/a&gt; allows me to control the Logitec Medis Server, which finds the RasPi and considered it an output device.  A tap of the app and we have music control.&lt;/p&gt;
-
-&lt;p&gt;All I need to do is order a few more and I have a Sonos-like experience, for a fraction of the price.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Audio" /><summary type="html">Hacking together a multiroom audio solution with a Raspberry PI, Logitec Media Server and a cheap speaker set</summary></entry></feed>
+&lt;p&gt;Also keep in mind that when you stream you are also asking your PC to run the game AND encode the audio/video - this means you need the grunt to run the game at 1080p as well as the stream encoding overhead.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><summary type="html">My experiences one week in with the steam link, and why it's the ultimate console nobody has heard about.</summary></entry></feed>

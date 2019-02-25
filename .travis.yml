@@ -2,10 +2,9 @@ language: ruby
 cache: bundler
 branches:
   only:
-    - release
+  - release
 script:
-    - JEKYLL_ENV=production bundle exec jekyll build --destination
-site
+  - JEKYLL_ENV=production bundle exec jekyll build --destination site
 deploy:
   provider: pages
   local-dir: ./site
@@ -17,4 +16,3 @@ deploy:
   keep-history: true
   on:
     branch: release
-

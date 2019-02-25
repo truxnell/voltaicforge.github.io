@@ -4,7 +4,6 @@ permalink: /guides/steam_emulators/emulator_list/
 header:
     overlay_filter: 0.5
     overlay_image: /assets/images/steam_bigpicutre_retrogaming.png
-comments:true
 ---
 
 #### Emulator list

@@ -1,0 +1,724 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Responsive Images in Jekyll - VoltaicForge</title>
+
+
+
+
+<meta name="description" content="How I’m getting responsive images in Jekyll with Jekyll-picture-tag">
+
+
+
+
+<meta name="author" content="Nat Allan">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="VoltaicForge">
+<meta property="og:title" content="Responsive Images in Jekyll">
+
+
+  <link rel="canonical" href="http://voltaicforge.com/website/jekyll-responsive-images/">
+  <meta property="og:url" content="http://voltaicforge.com/website/jekyll-responsive-images/">
+
+
+
+  <meta property="og:description" content="How I’m getting responsive images in Jekyll with Jekyll-picture-tag">
+
+
+
+  <meta name="twitter:site" content="@voltaicforge">
+  <meta name="twitter:title" content="Responsive Images in Jekyll">
+  <meta name="twitter:description" content="How I’m getting responsive images in Jekyll with Jekyll-picture-tag">
+  <meta name="twitter:url" content="http://voltaicforge.com/website/jekyll-responsive-images/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://voltaicforge.com/assets/images/Ipad_images_stock.jpg">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@Nat Allan">
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://voltaicforge.com/assets/images/avr_attiny_2313a_first_blinky.jpg">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-05-10T00:00:00+10:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Nat Allan",
+      "url" : "http://voltaicforge.com",
+      "sameAs" : ["https://twitter.com/voltaicforge"]
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="iK_FoY5mh80PyafnPtAX6YOOtXL8eQ3Z8MqGBnTqK60" />
+
+
+  <meta name="msvalidate.01" content="81692DABF6D3A748A99701D5182C57AB">
+
+
+  <meta name="alexaVerifyID" content="mQysQJJ0XzBFJy5Y0GfkGmRIc_8">
+
+
+  <meta name="yandex-verification" content="41039ce397f24d4e">
+
+<!-- end SEO -->
+
+
+<link href="http://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://voltaicforge.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://voltaicforge.com/">VoltaicForge</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/guides/">Guides</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/about/">About</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://voltaicforge.com/assets/images/avr_attiny_2313a_first_blinky.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Responsive Images in Jekyll
+
+        
+      </h1>
+      
+        <p class="page__lead">How I’m getting responsive images in Jekyll with Jekyll-picture-tag
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://voltaicforge.com/assets/images/profile.jpg" class="author__avatar" alt="Nat Allan" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
+      <p class="author__bio" itemprop="description">
+        Analogue at birth, digital by design
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="http://voltaicforge.com" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Responsive Images in Jekyll">
+    <meta itemprop="description" content="How I’m getting responsive images in Jekyll with Jekyll-picture-tag">
+    <meta itemprop="datePublished" content="May 10, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="responsive-images-the-jekyll-way">Responsive images, the Jekyll way</h2>
+
+<p>One of the first things I did in my exploration of Jekyll was to go away from using GitHub to generate the site.  The first limitation that frustrated me was the inability to use plugins.  Currently, I only use one plugin that I couldn’t use on GitHub - which relates to responsive images.</p>
+
+<p>I shoot most of my pictures that I’m using for the site on my DSLR - which means I’m getting large pictures.  I export from lightroom via a preset I have setup.  However, the process of resizing images for the web is an additional step in publishing a post.  I want to be able to toss the image into a folder, type out some text in Notepad++, and upload the site without worrying about image size, resizing, srcset, etc.</p>
+
+<p>Without plugins, this means that all the images you have on your site are going to be resized in the browser - which is a big detractor for page load speed and general usability of the site.</p>
+
+<p>So I set out to find a plugin that would do responsive images (via srcset or picture tags) as well as automatically resizing the images so I didn’t have to worry about anything except the parent image.</p>
+
+<h2 id="jekyll-picture-tags">Jekyll-picture-tags</h2>
+
+<p>After a bit of searching, I found three candidates for creating responsive images.</p>
+
+<ul>
+  <li><a href="https://github.com/wildlyinaccurate/jekyll-responsive-image">Jekyll-responsive-images</a></li>
+  <li><a href="https://github.com/robwierzbowski/jekyll-picture-tag">Jekyll-picture-tags</a></li>
+  <li><a href="https://github.com/netlify/jekyll-srcset">Jekyll-srcset</a></li>
+</ul>
+
+<p>I found Jekyll-srset broken as of May 2016, and it did not generate multiple images.  I couldn’t get Jekyll-responsive-images to run properly either.</p>
+
+<p>Jekyll-picture-tags works a treat after some setup.  Unfortunately, it has poor error messages (generic Ruby messages) and was tough to debug.</p>
+
+<p>After installing into my <code class="highlighter-rouge">gemfile</code>, I ended up on the following addition to <code class="highlighter-rouge">_config.yml</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>picture:
+  source: "images"
+  output: "images/resize"
+  markup: "picture"
+  presets:
+    default:
+      ppi: [1, 1.5, 2.0]
+      source_medium:
+        media: "(min-width: 40em)"
+        width: "600"
+      source_default:
+        width: "600"
+</code></pre>
+</div>
+
+<p class="notice--info"><strong>Note:</strong> Ensure your indentation is correct if copying a config - misalignments will give you a dreaded generic error message <code class="highlighter-rouge">Liquid Exception: undefined method [] for nil:NilClass in _drafts/JekyllAnchors.md/#excerpt</code></p>
+
+<p class="notice--warning"><strong>Warning:</strong> Also ensure your <code class="highlighter-rouge">base-url</code> in <code class="highlighter-rouge">_config.yml</code> is set to an empty string “” (<code class="highlighter-rouge">base-url:   ""</code>).  Without this, the images won’t be found or load correctly, even if it generates correctly.</p>
+
+<p>After much fiddling and debugging, I had it working.  I decided to add it to my shortcuts in Notepad++ using <a href="https://github.com/erinata/FingerText">FingerText</a>.  I came up with the following code, wich also allowed me to have an alt and title text in the tag.</p>
+
+<p>FingerText enables me Notepad++ users to write blocks of text with a single keyword (amongst other uses).  So now when I type <code class="highlighter-rouge">respimage</code> with a tab immediately after, the below code will be automatically inserted and the text between <code class="highlighter-rouge">$[![</code> and <code class="highlighter-rouge">]!]</code> will be selected upon each tab to allow me to enter the relevant details.  Entering an Image Filename (from my /assets/images/ folder) and an Image title defines the image, and the Preset name will tell Jekyll-picture-tag which config branch to run - which dictates the which sets of images to include.</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="na">imagesrc</span><span class="w"> </span><span class="p">%}</span>$[![Image_Filename]!]<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="na">imagetitle</span><span class="w"> </span><span class="p">%}</span>$[![Image_Title]!]<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
+&lt;a href="/assets/images/<span class="p">{{</span><span class="w"> </span><span class="nv">imagesrc</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{%</span><span class="w"> </span><span class="nt">picture</span><span class="w"> </span>$[![Preset_name]!]<span class="w"> </span>{{<span class="w"> </span>imagesrc<span class="w"> </span>}}<span class="w"> </span><span class="na">alt</span><span class="o">=</span><span class="s2">"{{ imagetitle }}"</span><span class="w"> </span><span class="na">title</span><span class="o">=</span><span class="s2">"{{ imagetitle }}"</span><span class="w"> </span><span class="p">%}</span>&lt;/a&gt;
+{: .text-center}
+
+</code></pre>
+</div>
+
+<p class="notice--warning"><strong>Warning:</strong> Jekyll-picture-tag also hates spaces in picture filenames.  Not that you should have spaces in filenames anyway, but that’s another thing I stumbled on</p>
+
+<p>I now have images that (should) be responsive for mobile and desktop, and I don’t have to do the resizing myself!</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/tags/#jekyll" class="page__taxonomy-item" rel="tag">Jekyll</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/categories/#website" class="page__taxonomy-item" rel="tag">Website</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-05-10T00:00:00+10:00">May 10, 2016</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=voltaicforge&text=Responsive Images in Jekyll http://voltaicforge.com/website/jekyll-responsive-images/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://voltaicforge.com/website/jekyll-responsive-images/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://voltaicforge.com/website/jekyll-responsive-images/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://voltaicforge.com/website/jekyll-responsive-images/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://voltaicforge.com/electronics/first-avr-blinky/" class="pagination--pager" title="First AVR LED blinky
+">Previous</a>
+    
+    
+      <a href="http://voltaicforge.com/electronics/avr-device-00102/" class="pagination--pager" title="Error with device 0x000102 whilst programming AVR
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/Code.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="permalink">Setup pfSense for TPG NBN
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">An adventure of frustration with TPG NBN and the missing VLAN setting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/homebrew_fermenter.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homebrew/homebrewing-again/" rel="permalink">Homebrewing Again
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Beginning a homebrewing journey
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/encrypted_encfs_dropbox.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/dropbox-encfs/" rel="permalink">Setting up Dropbox and encryption in Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">My approach to setting up Dropbox and Encfs in Linux
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/chromium-gnome-banner.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/chromium-gnome-keyring/" rel="permalink">Stop Chromium asking for keyring unlock
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Stopping Chromium asking for gnome-keyring login on launch
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://voltaicforge.com/assets/js/main.min.js"></script>
+
+
+
+
+  
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(101008004);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'voltaicforge';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  </body>
+</html>

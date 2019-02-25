@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.1">Jekyll</generator><link href="http://voltaicforge.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://voltaicforge.com/" rel="alternate" type="text/html" /><updated>2019-02-25T22:03:25+11:00</updated><id>http://voltaicforge.com/</id><title type="html">VoltaicForge</title><subtitle>A personal website for my hobby projects</subtitle><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><entry><title type="html">Setup pfSense for TPG NBN</title><link href="http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="alternate" type="text/html" title="Setup pfSense for TPG NBN" /><published>2017-08-13T00:00:00+10:00</published><updated>2017-08-13T00:00:00+10:00</updated><id>http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn</id><content type="html" xml:base="http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/">&lt;h2 id=&quot;setting-up-pfsense-for-tpg-nbn&quot;&gt;Setting up pfSense for TPG NBN&lt;/h2&gt;
+
+&lt;p&gt;After much frustration, I have finially buggered off the terrible HG659 router that is provided with TPG NBN.&lt;/p&gt;
+
+&lt;p&gt;I had significant trouble getting pfSense to connect to the NBN even using the details on their site.  PPPoE should be reasonably simple, connect NBN box to pfSense WAN port, set to PPPoE and enter TPG username/password.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Wrong!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After quite some time I found that they use a VLAN setting, and without it being set right it would not connect at all.  Its not mentioned in their setting site, conspicuously.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/TPG_NBN_Settings.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-1144by985-939608.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-900by775-939608.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-600by517-939608.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-1144by985-939608.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-900by775-939608.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-600by517-939608.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/TPG_NBN_Settings-600by517-939608.png&quot; alt=&quot;TPG's NBN settigns with no VLAN setting mentioned&quot; title=&quot;TPG's NBN settigns with no VLAN setting mentioned&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I got mine working once I set the WAN port to be on a VLAN 2.&lt;/p&gt;
+
+&lt;p&gt;Create a new VLAN, under &lt;em&gt;Interface -&amp;gt; Assign -&amp;gt; VLANs -&amp;gt; Add&lt;/em&gt;.  Setup on the WAN Interface (mine is &lt;code class=&quot;highlighter-rouge&quot;&gt;re0&lt;/code&gt;) and with a VLAN tag of &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/TPG_VLAN_2.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-1055by516-e8aced.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-900by440-e8aced.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-600by293-e8aced.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-1055by516-e8aced.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-900by440-e8aced.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-600by293-e8aced.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/TPG_VLAN_2-600by293-e8aced.png&quot; alt=&quot;pfSense VLAN setting of 2 for TPG NBN&quot; title=&quot;pfSense VLAN setting of 2 for TPG NBN&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Add a PPP configuration under &lt;em&gt;Interface -&amp;gt; Assign -&amp;gt; PPP -&amp;gt; Add&lt;/em&gt;.  Use Link type &lt;code class=&quot;highlighter-rouge&quot;&gt;PPPoE&lt;/code&gt;, Link Interface of the VLAN you set up before.  Enter TPG username/password&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/pfSense_PPP_Config.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-1200by611-ea6c5c.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-900by458-ea6c5c.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-600by305-ea6c5c.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-1200by611-ea6c5c.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-900by458-ea6c5c.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-600by305-ea6c5c.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/pfSense_PPP_Config-600by305-ea6c5c.png&quot; alt=&quot;pfSense PPP configuration&quot; title=&quot;pfSense PPP configuration&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For WAN port, under &lt;em&gt;Interface -&amp;gt; WAN&lt;/em&gt;, ensure we have &lt;code class=&quot;highlighter-rouge&quot;&gt;PPPoE&lt;/code&gt; set for IP4 Configuration Type, and again your Username/Password&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/pfsense_TPG_WAN_Settings.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-1200by714-1f7d5b.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-900by536-1f7d5b.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-600by357-1f7d5b.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-1200by714-1f7d5b.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-900by536-1f7d5b.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-600by357-1f7d5b.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/pfsense_TPG_WAN_Settings-600by357-1f7d5b.png&quot; alt=&quot;pfsense TPG WAN Settings&quot; title=&quot;pfsense TPG WAN Settings&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then under &lt;em&gt;Interface -&amp;gt; Assign&lt;/em&gt;, set the WAN network port to the PPPOE of the VLAN setup above.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/pfSesne_TPG_Interface_Assignment.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-1200by334-d24214.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-900by251-d24214.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-600by167-d24214.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-1200by334-d24214.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-900by251-d24214.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-600by167-d24214.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/pfSesne_TPG_Interface_Assignment-600by167-d24214.png&quot; alt=&quot;pfSense TPG setting of WAN interface to VLAN&quot; title=&quot;pfSense TPG setting of WAN interface to VLAN&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You should now have a working NBN setup under pfSense, and that locked down modem can be thrown in the trash where it belongs!&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="homelab" /><category term="TPG" /><category term="NBN" /><category term="VLAN" /><summary type="html">An adventure of frustration with TPG NBN and the missing VLAN setting</summary></entry><entry><title type="html">Homebrewing Again</title><link href="http://voltaicforge.com/homebrew/homebrewing-again/" rel="alternate" type="text/html" title="Homebrewing Again" /><published>2017-07-20T00:00:00+10:00</published><updated>2017-07-20T00:00:00+10:00</updated><id>http://voltaicforge.com/homebrew/homebrewing-again</id><content type="html" xml:base="http://voltaicforge.com/homebrew/homebrewing-again/">&lt;h2 id=&quot;homebrewing-again&quot;&gt;Homebrewing again&lt;/h2&gt;
+
+&lt;p&gt;After being inspired by a work colleague, I’ve decided to get back into homebrewing.  I have actually done homebrewing for probably a combination of 2 years or so, but stopped due to moving state/house in the past and loosing or giving away gear.&lt;/p&gt;
+
+&lt;p&gt;After grabbing a bit of a starting kit and building a favorite recipe from memory, a Primrose Milk Stout is fermenting away in the server cupboard.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/ homebrew_fermenter.png &quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-1200by1950-18ff68.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-900by1462-18ff68.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-600by975-18ff68.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-1200by1950-18ff68.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-900by1462-18ff68.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-600by975-18ff68.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/homebrew_fermenter-600by975-18ff68.png&quot; alt=&quot; Homebrewing fermenter brewing milk stout &quot; title=&quot; Homebrewing fermenter brewing milk stout &quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, its been a pain to get temperature control correct.  This means that I think its timie to finally build what I always wanted to build: a fermenting fridge.&lt;/p&gt;
+
+&lt;p&gt;I’m now eyeing off a legacy &lt;a href=&quot;https://www.brewpi.com/&quot;&gt;BrewPi&lt;/a&gt; build, sans the fancy LCD controller and just using a Raspberry PI and a Arduino.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Homebrew" /><summary type="html">Beginning a homebrewing journey</summary></entry><entry><title type="html">Setting up Dropbox and encryption in Linux</title><link href="http://voltaicforge.com/games/dropbox-encfs/" rel="alternate" type="text/html" title="Setting up Dropbox and encryption in Linux" /><published>2017-02-25T00:00:00+11:00</published><updated>2017-02-25T00:00:00+11:00</updated><id>http://voltaicforge.com/games/dropbox-encfs</id><content type="html" xml:base="http://voltaicforge.com/games/dropbox-encfs/">&lt;h2 id=&quot;premise&quot;&gt;Premise&lt;/h2&gt;
+
+&lt;p&gt;Due to the fact that I now run Linux across my Homelab, Desktop and Laptop, I’ve been looking into keeping everything in sync.&lt;/p&gt;
+
+&lt;p&gt;Dropbox is reasonably popular for this on Linux systems (outside of P2P sync), but the issues, of course, is security.  My mantra is if you put it on the internet assume that everyone can see it, and you can never remove it.&lt;/p&gt;
+
+&lt;p&gt;I wanted to use a Dropbox-style sync for a number of services (backup dotfiles, zim-wiki files, website code, etc).  The intention was to be able to start something on the laptop, move to the desktop and be able to pick up where I left off.&lt;/p&gt;
+
+&lt;h2 id=&quot;dropbox-install&quot;&gt;Dropbox install.&lt;/h2&gt;
+
+&lt;p&gt;Installing Dropbox should be easy across most distributions from core repositories.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Debain
+cd ~ &amp;amp;&amp;amp; wget -O - &quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot; | tar xzf -
+~/.dropbox-dist/dropboxd
+
+
+# Arch
+pacaur -S dropbox
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;setup-script&quot;&gt;Setup script&lt;/h2&gt;
+
+&lt;p&gt;First, put your password in a file in your home directory, plaintext.  We will pass this as an argument to the script, and ensure it has permissions to be read only by your user.&lt;/p&gt;
+
+&lt;p&gt;You can modify the file location if you wish.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir ~/.config/certificates/
+echo &quot;&amp;lt;password&amp;gt;&quot; &amp;gt; ~/.config/certificates/encfs
+chmod 0600 ~/.config/certificates/encfs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then, create the script.  Again, you can change the location.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;~/scripts/dropbox.sh&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat ~/.config/certificates/encfs | encfs -S ~/Dropbox/encrypted/ ~/Private/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When called, this calls encfs, and supply the password by outputting the file created earlier into it.&lt;/p&gt;
+
+&lt;p&gt;Whilst there are a number of places we could call this upon startup to ensure its loaded upon startup, I chose the lazy option and just had it in my Cinnamon startup apps.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/Add_Startup_Program_Cinnamon.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/Add_Startup_Program_Cinnamon-389by199-773a78.png&quot; alt=&quot;{Add Startup Program Cinnamon&quot; title=&quot;{Add Startup Program Cinnamon&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, place your files in the &lt;code class=&quot;highlighter-rouge&quot;&gt;~Private folder&lt;/code&gt;.  They will be encryped into the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Dropbox/encrypted/&lt;/code&gt; folder.  Repead on another computer to have shared sync.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">My approach to setting up Dropbox and Encfs in Linux</summary></entry><entry><title type="html">Stop Chromium asking for keyring unlock</title><link href="http://voltaicforge.com/games/chromium-gnome-keyring/" rel="alternate" type="text/html" title="Stop Chromium asking for keyring unlock" /><published>2017-02-25T00:00:00+11:00</published><updated>2017-02-25T00:00:00+11:00</updated><id>http://voltaicforge.com/games/chromium-gnome-keyring</id><content type="html" xml:base="http://voltaicforge.com/games/chromium-gnome-keyring/">&lt;h2 id=&quot;removing-keychain-login-from-chormium&quot;&gt;Removing keychain login from Chormium&lt;/h2&gt;
+
+&lt;p&gt;I recently started using (sigh) Chromium over Firefox due to very slow webgl performance (and general overall faster performance)&lt;/p&gt;
+
+&lt;p&gt;However, annoyingly it asks for the Gnome keychain to be unlocked upon launch.&lt;/p&gt;
+
+&lt;p&gt;A simple fix I found is to simply change the shortcut to&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chromium --password-store=basic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This will drop chromium to a basic password store machanism, so it doesn’t use gnome-keyring&lt;/p&gt;
+
+&lt;p&gt;Of course, this assumes your not wanting to use the features of chromium to store login details into the OS’s password manager. 
+However, since you should be using a service like KeePass or LastPass to manage passwords securely, this shouldn’t be an issue.&lt;/p&gt;
+
+&lt;p&gt;I canged my Cinnamon settings by selecting ‘Open Editor’ in the Menu options in settings, then finding the chromium shortcut.  I then added the ‘–password-store=basic’ to the shortcut.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://voltaicforge.com/assets/images/chromium-password-basic.gif&quot; alt=&quot;Stopping chromium keyring unlock warning&quot; /&gt;&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">Stopping Chromium asking for gnome-keyring login on launch</summary></entry><entry><title type="html">Guide added for Steam Emulation</title><link href="http://voltaicforge.com/games/emulators-in-steam/" rel="alternate" type="text/html" title="Guide added for Steam Emulation" /><published>2017-02-05T00:00:00+11:00</published><updated>2017-02-05T00:00:00+11:00</updated><id>http://voltaicforge.com/games/emulators-in-steam</id><content type="html" xml:base="http://voltaicforge.com/games/emulators-in-steam/">&lt;h3 id=&quot;new-guide-added-for-steam-emulation&quot;&gt;New guide added for steam emulation&lt;/h3&gt;
+
+&lt;p&gt;I have added a tutorial for a excelent, tidy setup for running all your retro consoles via Big Picture mode.&lt;/p&gt;
+
+&lt;p&gt;Check it out &lt;a href=&quot;/guides/steam_emulators/premise/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_bigpicutre_retrogaming.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-1200by694-83ac8c.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-900by520-83ac8c.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-600by347-83ac8c.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-1200by694-83ac8c.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-900by520-83ac8c.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-600by347-83ac8c.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_bigpicutre_retrogaming-600by347-83ac8c.png&quot; alt=&quot;Steam Big Picture list with many super nintendo games&quot; title=&quot;Steam Big Picture list with many super nintendo games&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Emulation" /><summary type="html">Guide to adding emulators to your Steam Link or Big Picture setup.</summary></entry><entry><title type="html">SCP upload to Octoprint on Linux</title><link href="http://voltaicforge.com/3dprinting/scp-upload-octopi/" rel="alternate" type="text/html" title="SCP upload to Octoprint on Linux" /><published>2017-01-19T00:00:00+11:00</published><updated>2017-01-19T00:00:00+11:00</updated><id>http://voltaicforge.com/3dprinting/scp-upload-octopi</id><content type="html" xml:base="http://voltaicforge.com/3dprinting/scp-upload-octopi/">&lt;h2 id=&quot;uploading-automatically-to-octoprint-via-bash--scp&quot;&gt;Uploading automatically to Octoprint via bash &amp;amp; scp&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#8217;ve been using &lt;a href=&quot;https://www.simplify3d.com/&quot;&gt;Simplify3d&lt;/a&gt; for my 3D printing, and &lt;a href=&quot;http://octoprint.org/&quot;&gt;Octoprint&lt;/a&gt;.  Octoprint has a very nice web interface, and between it and the advancement in slicers, its been great to not have to slice, carry SD card over to the printer, load via the LCD, etc.&lt;/p&gt;
+
+&lt;p&gt;However, I&amp;#8217;ve always wanted a auto-upload feature.  I&amp;#8217;ve chosen to do it via setting up ssh keys for logging into the Octoprint server, and using &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt; to upload the file automatically.&lt;/p&gt;
+
+&lt;p&gt;I did get the idea from a post at &lt;a href=&quot;https://forum.simplify3d.com/viewtopic.php?f=23&amp;amp;t=1924&quot;&gt;https://forum.simplify3d.com/viewtopic.php?f=23&amp;amp;t=1924&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve setup ssh keys for passwordless entry to my Octoprint server (Google SSH keys for more info, or perhaps check out the &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2&quot;&gt;Digital ocean FAQ&lt;/a&gt; )&lt;/p&gt;
+
+&lt;h4 id=&quot;local-pc&quot;&gt;Local PC&lt;/h4&gt;
+
+&lt;p&gt;When &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt; asks for input I entered through it to accept defaults, and no passphrase.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~ $ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/nat/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/nat/.ssh/id_rsa.
+Your public key has been saved in /home/nat/.ssh/id_rsa.pub.
+The key fingerprint is:
+&amp;lt;redacted&amp;gt;
+The key's randomart image is:
+&amp;lt;redacted&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We now have a private key in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa&lt;/code&gt; and a public key in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I logged into the remote PC (Octoprint) to copy the public key.  I chose to open up the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt; file in &lt;code class=&quot;highlighter-rouge&quot;&gt;nano&lt;/code&gt; and copy it via clipboard, but you could use &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ftp&lt;/code&gt; or any other method.&lt;/p&gt;
+
+&lt;h4 id=&quot;remote-pc&quot;&gt;Remote PC&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@octopi:~ $ nano .ssh/authorized_keys
+
+&amp;lt;append contents of local ~/.ssh/id_rsa.pub file&amp;gt;
+
+pi@octopi:~ $ chmod 700 .ssh/authorized_keys 
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now we should be OK to login with no password to the Octoprint server&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~ $ ssh pi@192.168.1.9
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Jan 19 11:52:32 2017 from 192.168.1.7
+pi@octopi:~ $ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; You can setup bookmarks for &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh&lt;/code&gt; via &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh_config&lt;/code&gt;.  This enables you to quickly ssh into servers quickly without remembering IP&amp;#8217;s or usernames, especially coupled with ssh_keys for password less entry.  Check out &lt;code class=&quot;highlighter-rouge&quot;&gt;man ssh_config&lt;/code&gt; or Google for more info.&lt;/p&gt;
+
+&lt;p&gt;Once that is setup, we can easily &lt;code class=&quot;highlighter-rouge&quot;&gt;scp&lt;/code&gt; the file to Octoprint.  Setup a bash file with the one liner below.&lt;/p&gt;
+
+&lt;h4 id=&quot;scriptsputpish&quot;&gt;~/scripts/putpi.sh&lt;/h4&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp &quot;$1&quot; pi@192.168.1.9:.octoprint/uploads/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Remember to &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x putpi.sh&lt;/code&gt; to ensure the file is executable.  Also, substitute the IP above for your Octoprint&amp;#8217;s IP (or hostname).&lt;/p&gt;
+
+&lt;p&gt;We can ensure it works by running it manually.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nat@nat-desktop ~/scripts $ ./putpi.sh ~/Documents/3dPrinting/gcode/nat.gcode 
+nat.gcode                                       100% 1477KB   5.9MB/s   00:00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;And refreshing the file list on the octoprint will make it appear.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/octoprint_upload_refresh.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/octoprint_upload_refresh-300by491-cb115d.png&quot; alt=&quot;Octoprint refreshing webui&quot; title=&quot;Octoprint refreshing webui&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, to automate the upload from Simplify3D.  Select your 3D Printers process settings is selected in the list box to the left and go to the &amp;#8216;Edit process settings&amp;#8217; tab at the lower left corner of the main screen.  Ensure the advanced settings are visible in the box, if not click the &amp;#8216;Show Advanced&amp;#8217; Button.&lt;/p&gt;
+
+&lt;p&gt;Here, select the &amp;#8216;Scripts&amp;#8217; tab, and in the bottom of the box underneath &amp;#8216;Post Processing&amp;#8217; and &amp;#8216;Additional terminal commands for post processing&amp;#8217; enter the command to call your bash script.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/scripts/putpi.sh [output_filepath]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/simplify3d_scp_upload_to_octoprint.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-868by748-0d75ca.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-868by748-0d75ca.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-600by517-0d75ca.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-868by748-0d75ca.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-868by748-0d75ca.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-600by517-0d75ca.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/simplify3d_scp_upload_to_octoprint-600by517-0d75ca.png&quot; alt=&quot;Simplify3D script for scp upload to Octoprint&quot; title=&quot;Simplify3D script for scp upload to Octoprint&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then when you save the gcode in Simplify3D, it will call the script and upload the resulting GCode to Octoprint!  Just refresh the file, review and print.&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; You need to actually save the gcode file somewhere on your computer before the post processing (and thus file upload) will occur.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="octoprint" /><summary type="html">Uploading via SCP automatically to Octoprint on Linux</summary></entry><entry><title type="html">Fixing Intel Hardware decoding on Linux (Ubuntu)</title><link href="http://voltaicforge.com/linux/steam-vaapi-fix-linux/" rel="alternate" type="text/html" title="Fixing Intel Hardware decoding on Linux (Ubuntu)" /><published>2016-12-02T00:00:00+11:00</published><updated>2016-12-02T00:00:00+11:00</updated><id>http://voltaicforge.com/linux/steam-vaapi-fix-linux</id><content type="html" xml:base="http://voltaicforge.com/linux/steam-vaapi-fix-linux/">&lt;h2 id=&quot;fix-for-lack-of-hardware-decoding-on-linux&quot;&gt;Fix for lack of hardware decoding on Linux&lt;/h2&gt;
+
+&lt;p&gt;So I’ve switched to Linux recently (Mint 18).  I realised that since I was moving to Steam in-home streaming, I could move my clunky desktop tower out into the living room/server closet and run Linux on my desktop.  The only reason I’ve kept Windows running for so long was for gaming needs (and not wanting to fiddle around getting games to work on Linux)&lt;/p&gt;
+
+&lt;p&gt;Thankfully, with Steams push into the Linux front and throwing its weight behind the Debian side, gaming in Linux is a thing.  But it only supports about ~30% of my library, so my gaming PC needs to stay Windows.&lt;/p&gt;
+
+&lt;p&gt;After years of running Debian servers at home (and Freenas for years before that) linux feels more comfortable than Windows.  So I build a new mini-ITX, Intel i5 PC for desktop use, and moved the tower out into the living room.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, my experience with steam streaming was jelly mouse!  A quick check with setting ‘Display Performance information’ in the in home streaming client area revealed it was not using hardware acceleration.  It was using ‘libavcodec’, which is a software decoder.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/Steam_Advanced_Client_Options.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/Steam_Advanced_Client_Options-440by444-169df3.png&quot; alt=&quot;Steam Controller Unboxing&quot; title=&quot;Steam Controller Unboxing&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Check the ‘Display performance information box’ to enable perfomance info, and press F6 ingame to check.  Also, ensure you have ‘Enable Hardware decoding’ checked on the client.&lt;/p&gt;
+
+&lt;p&gt;This introduced a bit of lag in the decoding (&amp;gt;50ms) which I could definitely notice.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-fix&quot;&gt;The fix&lt;/h2&gt;
+
+&lt;p&gt;After much googling, the problem is that Steam on Ubuntu is bundled with its own libraries for VA-API.  Unfortunately, it is bundled with old drivers that no longer work/are broken.  The solution is to download the drivers from Ubuntu/your distros repo, remove Steams copy and &lt;code class=&quot;highlighter-rouge&quot;&gt;ln&lt;/code&gt; (symlink) them to the host’s updated drivers.&lt;/p&gt;
+
+&lt;p&gt;Simply put, drop into terminal and &lt;code class=&quot;highlighter-rouge&quot;&gt;apt&lt;/code&gt; the below:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install i965-va-driver:i386
+apt install libva1:i386
+apt install libva-x11-1:i386
+apt install libva-glx1:i386
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This will install the proper drivers into &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/i386-linux-gnu&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Remove the old drivers from Steams folder (or &lt;code class=&quot;highlighter-rouge&quot;&gt;mv&lt;/code&gt; them if you prefer)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm ~/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The last step is to symlink these to Steam’s local folder.  You can &lt;code class=&quot;highlighter-rouge&quot;&gt;ln -s&lt;/code&gt; if you wish, but a kind folk has created a bash script to do it for us!&lt;/p&gt;
+
+&lt;p&gt;Grab the gist below (kindly created by Github user &lt;a href=&quot;https://gist.github.com/benleov&quot;&gt;Benleov&lt;/a&gt;).  Alternatively, &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; it with the below shell command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://gist.githubusercontent.com/benleov/dc44ca9505a807e7dcc9/raw/673a82ff3d2356d27c9355088f58335bc89ab46b/fix_steam_links &amp;amp;&amp;amp; chmod +x fix_steam_links
+./fix_steam_links
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Always check out the code that you are downloading code before executing to ensure its not malicious!&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/dc44ca9505a807e7dcc9.js&quot;&gt; &lt;/script&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><category term="Linux" /><category term="VAAPI" /><summary type="html">Fixing steams broken libav libraries that break hardware accelerarion on Steam inhome streaming</summary></entry><entry><title type="html">Steam Controller - Worthy addition?</title><link href="http://voltaicforge.com/games/steam-controller-worthy-addition/" rel="alternate" type="text/html" title="Steam Controller - Worthy addition?" /><published>2016-09-18T00:00:00+10:00</published><updated>2016-09-18T00:00:00+10:00</updated><id>http://voltaicforge.com/games/steam-controller-worthy-addition</id><content type="html" xml:base="http://voltaicforge.com/games/steam-controller-worthy-addition/">&lt;h2 id=&quot;what-is-the-steam-controller&quot;&gt;What is the Steam Controller?&lt;/h2&gt;
+
+&lt;p&gt;The steam controller is Valve’s offering into the controller segment.  With the launch of their Steam Link and upcoming Steam Box offerings, Valve decided to continue their campaign to bridge the gap between PC games and the living room by designing a controller with PC games in mind.&lt;/p&gt;
+
+&lt;p&gt;The Steam Controller boasts 2 trackpads, haptics, by my count 18 buttons, 2 dual-stage analog triggers and an analog joystick.  Two of the buttons hide on the bottom of the controller that double as the battery housing - when your fingers wrap around the wings you naturally rest on both of them.  One feature that doesn’t make the press almost at all is it does contain a gyro, similar to the Wiimote, the playstation thingy, and a whole raft of other completely failed motion controllers.  It’s a pity it isn’t marketed more as they have gotten the gyro completely right and it actually synergizes with the controller - but with how bad most implementations are I don’t blame Valve for not making a song and dance about it.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_controller_unboxing.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-1200by1812-5e7fb8.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-900by1359-5e7fb8.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-600by906-5e7fb8.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-1200by1812-5e7fb8.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-900by1359-5e7fb8.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-600by906-5e7fb8.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing-600by906-5e7fb8.jpg&quot; alt=&quot;Steam Controller Unboxing&quot; title=&quot;Steam Controller Unboxing&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The main feature is customizability.  Playing using Steam’s big picture mode, a raft of configuration options are presented at a click of the steam button (The controller’s home button).  From here, you can customise a massive amount about the controller.  This means that you can bind any button to anything - keyboard press, controller press, joystick, D-pad, mouse, your cat, whatever.  More mind boggling is that there are multiple styles of joystick, D-pad and mouse, with different behaviours.&lt;/p&gt;
+
+&lt;p&gt;On top of that, you can customise dead zones, scalings, haptics, sensitivity, and a massive amount more options that I currently don’t even &lt;strong&gt;understand&lt;/strong&gt;.  Trackpads can be simple joysticks and mouse, or work as touch menus complete with OSD (I.E. weapon swapping, item hot menu, etc).  Oh, also it has mode shifting, to allow buttons to double-duty for those more command intensive games.  It would be like holding down CTRL and having all your keys function different - here you can swap the function of every button again.  Boggles the mind.&lt;/p&gt;
+
+&lt;p&gt;Frankly, it’s intimidating.  It needn’t be, however, as for any game a number of user profiles are shared so you don’t need to setup from scratch every game.  You can simply load a profile from another user (usually the most popular one) and tweak from there.  Sometimes the developer will list an official profile - or perhaps you can just use one of the templates for the game’s genre.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note it is pairs as well with a Steam Link as a PC.  I’ve done a short write up on the Steam Link &lt;a href=&quot;/games/steam-link-ultimate-console/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The controller just works ™ with the Steam Link &lt;em&gt;if&lt;/em&gt; you follow the instructions - like I didn’t.  It does come with a dongle for using with a PC, but it isn’t required if you pair it with a Steam Link.  Read the instructions first, like I didn’t!&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_controller_unboxing_2.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-1200by795-b16b75.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-900by596-b16b75.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-600by397-b16b75.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-1200by795-b16b75.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-900by596-b16b75.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-600by397-b16b75.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_unboxing_2-600by397-b16b75.jpg&quot; alt=&quot;Steam Controller Unboxing&quot; title=&quot;Steam Controller Unboxing&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But how does it handle?&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-used-to-the-steam-controller&quot;&gt;Getting used to the steam controller&lt;/h2&gt;
+
+&lt;p&gt;At a glance, the controller most likely won’t look comfortable.  And you’d be right!  This controller takes time and patience to get used to.  It’s not the comfortable 360 controller you’ve bene using for the last forever; Valve has broken the mould to a degree here.  The resemblance to the 360 controllers is present in the design, however. They have chosen to follow the 360 in the wing design instead of the stubby things the Playstation controllers have had for some time.  It looks big - but put it over the top of a 360 controller and it’s almost dead on the same footprint.&lt;/p&gt;
+
+&lt;p&gt;I have small hands and was concerned that I would struggle to reach the buttons - a fear that seemed founded on unboxing but really hasn’t eventuated.  I’ve had no issues reaching anything, so if I can manage I expect anyone can.&lt;/p&gt;
+
+&lt;p&gt;Overall, it took me under a week to get the hang of it.  Due to the fact Valve chose to move the buttons to the lower right and put the touchpad in the upper right, 360 controller aficionados  can expect the first few hours to be smashing their thumb into the touchpad in frustration as that were the buttons &lt;em&gt;‘should’&lt;/em&gt; be.&lt;/p&gt;
+
+&lt;p&gt;So I cranked out a few different types of games and gave them a good old go.&lt;/p&gt;
+
+&lt;h2 id=&quot;third-person&quot;&gt;Third person&lt;/h2&gt;
+
+&lt;p&gt;I started out playing some third person games.  I played through Shadow over Mordor from scratch, having recently picked up a bundle.  It did take some time to get the hang of it and fiddling with the right trackpad settings/sensitivity to find something I liked - but once I had it down I was cutting down uruks like nobody’s business.  Right trackpad controls the mouse, left analog stick to move, buttons to make people’s lives miserable.  The steam controller did enable me to bind the sprint button to the back bumper, as holding down a button to sprint meant I couldn’t look around at the same time - a problem fixed by a quick rebind.&lt;/p&gt;
+
+&lt;p&gt;Additionally, the gyro can be used as a fine aim which was amazing for this game.  When aiming an arrow I could use the right trackpad to aim generally then wave the controller around to fine aim.  It’s a joy to behold as coupled with the time slowdown it was nothing but constant headshots - probably a little unfair considering the time slowdown mechanic would have been added to give analog stick users a handicap.&lt;/p&gt;
+
+&lt;p&gt;Both the game and the controller were ultimately enjoyable, which game me a good opportunity to get the hang of using it for my next game.&lt;/p&gt;
+
+&lt;p&gt;I resumed my first round of Dark Souls (yet, I know I’m a little late to the party).  I was just finishing off the abyss with no idea was I was about to face - Manus, Father of the Abyss.  The next 4 hours of fighting him was an excellent time to become intimate with the exact dynamics of dodge rolling through attacks, and not throwing my shiny new steam controller through the TV.  I prevailed in the end with what ended up being easily the most satisfying battle in Dark Souls 1, and justification on the controller.  If you can beat Manus with it, you can play any damn game with it.&lt;/p&gt;
+
+&lt;h2 id=&quot;platformer&quot;&gt;Platformer&lt;/h2&gt;
+
+&lt;p&gt;I played both Rouge Legacy and Trine with the controller.  I slotted back into Rogue legacy like a glove but using the analogue stick as a d-pad.  I did swap over to using the left trackpad as a d-pad by turning off the option to require a click for it to trigger.  It was eerie using a trackpad as a d-pad, but amazingly responsive.&lt;/p&gt;
+
+&lt;p&gt;Trine was a bit more of an interesting beast, as it has mouse gesture controls and mouse aiming.  It was great for this, and after a slight adjustment, I had no issue using the trackpad to draw boxes, aim bow/shield.&lt;/p&gt;
+
+&lt;h2 id=&quot;first-person&quot;&gt;First person&lt;/h2&gt;
+
+&lt;p&gt;I have played some Portal 2 with the steam controller.  Only a few hours worth just to give it a shot.  I have it setup to use the left analog stick for movement, triggers for both portals, flaps underneath for crouch/jump, and right trackpad for aiming.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_controller_portal_config.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-1024by576-632973.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-900by506-632973.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-600by338-632973.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-1024by576-632973.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-900by506-632973.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-600by338-632973.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_portal_config-600by338-632973.png&quot; alt=&quot;Steam Controller Unboxing&quot; title=&quot;Steam Controller Unboxing&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s a plain joy to use.  It’s responsive and easy to look around, but precise enough to be able to hit where you need a portal.  Whilst I won’t say it is as good as a keyboard/mouse, it’s certainly going to fit the bill for any slower single player FPS that I might prefer to play on the couch.&lt;/p&gt;
+
+&lt;p&gt;For the more serious, again you can use the gyro to fine aim. I haven’t used it for a twitchy game, but I’ve read posts of people swearing it approaches keyboard/mouse levels of control.&lt;/p&gt;
+
+&lt;p&gt;This is something I need to explore and report back on.&lt;/p&gt;
+
+&lt;h2 id=&quot;third-person-rocket-exploder-simulator&quot;&gt;Third Person… Rocket Exploder Simulator?&lt;/h2&gt;
+
+&lt;p&gt;Yep, you can even play Kerbal Space Program with it.  And it’s actually fantastic.  It’s hard to explain how it works, but analog stick works menus or camera, and right trackpad does mouse.  It.. works.  Building a rocket is not much harder than with keyboard/mouse.  Unfortunately, my rockets still tend to suffer &lt;abbr title=&quot;Rapid Unplanned Disassembly&quot;&gt;RUD&lt;/abbr&gt;’s.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_controller_kerbal_config.png&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-1004by565-55e352.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-900by506-55e352.png&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-600by338-55e352.png&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-1004by565-55e352.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-900by506-55e352.png&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-600by338-55e352.png&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_controller_kerbal_config-600by338-55e352.png&quot; alt=&quot;Steam Controller Unboxing&quot; title=&quot;Steam Controller Unboxing&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;build-quality&quot;&gt;Build quality&lt;/h2&gt;
+
+&lt;p&gt;The build quality is great.  It feels nice and solid, the buttons have a great feel to them.  No Xbox 360 D-pad floppiness here!&lt;/p&gt;
+
+&lt;p&gt;Just check out the construction of one!&lt;/p&gt;
+
+&lt;!-- Courtesy of embedresponsively.com //--&gt;
+&lt;div class=&quot;responsive-video-container&quot;&gt;
+
+  &lt;iframe src=&quot;https://www.youtube.com/embed/uCgnWqoP4MM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;My only real gripe is the way the floppy buttons on the back work - The flaps are part of the battery housing, so when you push in one flap it tends to pull the other flap away toward it, which pulls the other flap away from its respective button.  Little awkward, but if you don’t plan on using both buttons at the same time it should be fine.&lt;/p&gt;
+
+&lt;p&gt;I love the battery housing.  When the housing opens up the batteries slot deep into the wings, using the space efficiently and leaving the rest of the controller thin and allowing space for all the electronics.  I’m surprised more controllers aren’t built like this!&lt;/p&gt;
+
+&lt;p&gt;Additionally, the battery life is insane.  The Duracell’s that came with it ran for over 5 weeks before going flat.  This was with heavy, nightly usage.  My Xbox 360 controllers hardly lasted 2 weeks on regular batteries.&lt;/p&gt;
+
+&lt;h2 id=&quot;closing-thoughts&quot;&gt;Closing thoughts.&lt;/h2&gt;
+
+&lt;p&gt;If you are a PC gamer looking for a customizable controller, look no further.  Don’t be put off by the swath of options - if that’s not what you’re into, there’s always a community config that will be perfect (or close) for what you want.&lt;/p&gt;
+
+&lt;p&gt;For steam link users - I feel this unlocks the true potential of the device.  It &lt;em&gt;can&lt;/em&gt; work with any old controller - but this controller really lets you unlock away from your PC with almost any game.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><summary type="html">My experiences with a month of the Steam Controller.</summary></entry><entry><title type="html">Steam Link - The ultimate console?</title><link href="http://voltaicforge.com/games/steam-link-ultimate-console/" rel="alternate" type="text/html" title="Steam Link - The ultimate console?" /><published>2016-07-24T00:00:00+10:00</published><updated>2016-07-24T00:00:00+10:00</updated><id>http://voltaicforge.com/games/steam-link-ultimate-console</id><content type="html" xml:base="http://voltaicforge.com/games/steam-link-ultimate-console/">&lt;h2 id=&quot;why-steam-link-and-what-is-it&quot;&gt;Why Steam Link and what is it?&lt;/h2&gt;
+
+&lt;p&gt;In short, Valve’s &lt;a href=&quot;http://store.steampowered.com/app/353380/&quot;&gt;Steam Link&lt;/a&gt; is a small box (not much larger the size of a deck of cards) that you can plug into your network and TV and stream games from your PC to your TV, in glorious 1080p @ 60hz.  It also takes care of ensuring your controllers talk to your PC, and turns on like a console via turning on your controller.  If you ever wanted to play your PC games from the couch with a controller, this is for you.  If you have a wired network already it is literally as simple as plug into TV and Ethernet, plug in controller adaptor/pair with Bluetooth, enter PIN on PC running steam, and you are literally playing games from your couch within 5 mins.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_link_unbox.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-1200by795-04c6e0.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-900by596-04c6e0.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-600by397-04c6e0.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-1200by795-04c6e0.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-900by596-04c6e0.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-600by397-04c6e0.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_link_unbox-600by397-04c6e0.jpg&quot; alt=&quot;Steam Link Unboxing&quot; title=&quot;Steam Link Unboxing&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you ever wanted all your emulation in once place, your modern games playing friends side by side with Zelda, Super Mario 3, River Raid, Sonic or perhaps even Goldeneye, you need to get this!&lt;/p&gt;
+
+&lt;p class=&quot;notice--success&quot;&gt;I have written a guide for neatly setting up emulators to work with Steam Big Picture/Steam Link.  Check it out &lt;a href=&quot;/guides/steam_emulators/premise/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;&lt;strong&gt;I call it the ultimate console.&lt;/strong&gt;&lt;/em&gt; Who doesn’t want all your games in one place - from Atari to the latest releases?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Unfortunately, it appears there’s so much confusion about it - if you read the review articles or forums there it appears there’s confusion about what it is, or who it is for.  Unfortunately many of, the reviews for the Steam Link are lukewarm at best for reasons that I don’t feel are valid.  Comments such as input lag or artefacts make me think reviewers simply haven’t tried changing a single setting to adjust - and they are simple to fix.&lt;/p&gt;
+
+&lt;p&gt;However, I will note that I expect any Wireless connection will introduce input lag (doesn’t matter how fast/good it is, radio waves are slow things compared to the speed of an electron) - if you can’t hardwire a Steam Link I don’t think this is for you.&lt;/p&gt;
+
+&lt;p&gt;I used to have an HTPC each for the Projector and the TV, running Plex and Steam for Steam Streaming.  It wasn’t particularly polished, and felt clunky, either using a Xbox 360 controller or an IR remote setup.&lt;/p&gt;
+
+&lt;p&gt;Recently, I upgraded to a shiny new 70” LG 4K TV.  This removed the need for an HTPC for Plex and YouTube.  Using the TV’s remote to browse the in-tv apps for Plex and YouTube was amazing, and far superior to anything I could have down with the HTPC.&lt;/p&gt;
+
+&lt;p&gt;So, now the HTPC was only doing Steam streaming, it was time to find a solution for retiring the HTPC completely.  Enter the Steam Link.&lt;/p&gt;
+
+&lt;p&gt;I think there is confusion and trepidation on Valves latest gear.  Not everyone seems quite sure what is it.&lt;/p&gt;
+
+&lt;p&gt;The Steam link is merely a device to stream your PC’s screen to an HDMI device (i.e. your living room TV).  It doest play the games, it merely extends your PC’s reach.  But it’s also so much more.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_link_closeup.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-1200by795-38bc36.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-900by596-38bc36.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-600by397-38bc36.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-1200by795-38bc36.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-900by596-38bc36.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-600by397-38bc36.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_link_closeup-600by397-38bc36.jpg&quot; alt=&quot;Steam Link closeup&quot; title=&quot;Steam Link closeup&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The Steam link is a little black box with a small, unobtrusive steam logo that includes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3 USB2.0 ports&lt;/li&gt;
+  &lt;li&gt;HDMI out&lt;/li&gt;
+  &lt;li&gt;100mbs Ethernet&lt;/li&gt;
+  &lt;li&gt;Power input&lt;/li&gt;
+  &lt;li&gt;Bluetooth 4.0&lt;/li&gt;
+  &lt;li&gt;Wireless AC&lt;/li&gt;
+  &lt;li&gt;Works with Xbox controllers (requires dongle), a ps4 controller (Bluetooth, no dongle), racing wheels, keyboard/mouse (wired and wireless), just about any input.&lt;/li&gt;
+  &lt;li&gt;Comes with various power point adapters for various regions (AU, US and probably EU)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s about it.  It runs off an ARMv7 with a dedicated h.264 hardware decoding, custom Linux kernel.  Technically speaking, it’s comparable to a Raspberry Pi 2.  And don’t get scared off by the 100mbs ethernet - if you do the math that is more than capable of 1080p @ 60hz.&lt;/p&gt;
+
+&lt;p&gt;But it will stream from your PC at 1080p @ 60hz if your gaming PC is up to the task.  Not only that, but with Big Picture it will do this seamlessly with a nice, functional interface, it will manage your controllers (Xbox, PS4, racing wheel, etc), and it works like a console.  Hell, it’s so tiny that it is easily hideable behind any TV - my wall mounted TV has no need for a shelf to put a bulky console on.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note it is best paired with a Steam Controller.  I’ve done a short write up on the Steam Link &lt;a href=&quot;/games/steam-controller-worthy-addition/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;one-week-with-the-steam-link&quot;&gt;One week with the steam link.&lt;/h2&gt;
+
+&lt;p&gt;It’s been a long time since I’ve been so impressed with a tech purchase. It runs a dream, plays games at 1080p @ 60hz, and as completely unlocked me from being hunched over the PC to game.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/Steam_big_picture_start.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-1080by608-648f84.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-900by507-648f84.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-600by338-648f84.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-1080by608-648f84.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-900by507-648f84.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-600by338-648f84.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_start-600by338-648f84.jpg&quot; alt=&quot;Steam Big Picture mode upon startup&quot; title=&quot;Steam Big Picture mode upon startup&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My living room TV has become the go-to place in the house (I haven’t even wanted to fire up the projector since I got this!).  Once I’ve finished watching a show over dinner, I can hit the logo button on the Xbox controller or my Steam controller, turning on the Steam link. Any controller ‘just works’ assuming you have the PC dongle (for a Xbox controller) or a PS4 controller will connect via Bluetooth, no dongle necessary.  You can choose to connect a keyboard/mouse as well with no issues, again it ‘just works’&lt;/p&gt;
+
+&lt;p&gt;From here, you are presented with a menu of the available PC’s detected on the network you have setup.  Adding a PC is as easy as selecting it and entering a PIN code on the PC - only required once to pair.  On subsequent boots, all you have to do is select the PC from the menu.&lt;/p&gt;
+
+&lt;p&gt;From there, it’s all over to the PC in terms of work - the steam link will request the PC to go into big picture mode and begin streaming the window.  From your seat, at the TV it seamlessly transitions to the Big Picture launch intro.&lt;/p&gt;
+
+&lt;p&gt;Then it’s just like using Big Picture on your PC.  You have a nice interface for the store, your library, etc.  Launching a game will drop you directly into the game and big picture will jump to streaming that window without you noticing any transition.  It’s just like having a console - but it’s your PC!&lt;/p&gt;
+
+&lt;p&gt;This has opened up a realm of games that I’ve wanted to play but didn’t want to hunch over the PC with a controller.&lt;/p&gt;
+
+&lt;h2 id=&quot;running-emulators-on-the-steam-link&quot;&gt;Running emulators on the steam link&lt;/h2&gt;
+
+&lt;p&gt;Now, if you are like me and you love emulating old games - you’re in for a treat.  You can ditch fiddly front ends and use steam to manage your games - and stream them via your Steam Link as if you had your SNES, N64, Playstation, Atari, Sega, whatever plugged in.  A GitHub project called &lt;a href=&quot;https://github.com/scottrice/Ice&quot;&gt;Ice&lt;/a&gt; can be setup to run through a ROM directory, and manage adding/removing a custom game to your steam list that will launch an emulator of your choice, passing the game as a command and launching the emulator directly into the ROM.&lt;/p&gt;
+
+&lt;p&gt;I’ve written a guide &lt;a href=&quot;/guides/steam_emulators/premise/&quot;&gt;here&lt;/a&gt; covering how to set this up.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/steam_big_picture_snes_super_mario_all_stars.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-1200by675-36f5e1.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-900by506-36f5e1.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-600by338-36f5e1.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-1200by675-36f5e1.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-900by506-36f5e1.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-600by338-36f5e1.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/steam_big_picture_snes_super_mario_all_stars-600by338-36f5e1.jpg&quot; alt=&quot;Emulating SNES via Steam Big Picture and Steam Link&quot; title=&quot;Emulating SNES via Steam Big Picture and Steam Link&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As a result, I have a multitude of my favourite old games in my steam library (complete with artwork, and tagging the game with the console name).  From my couch, I can thus filter my game list into the “SNES” category, and see a list of SNES games.  Launching one will drop directly into Retroarch with bsnes core with full controller support.  Dropping into a emulated game instantly at a button press and getting the intro screen for the console of choice is mind blowing - it’s like having a SNES or N64 plugged into your TV.  All this in a package the size of a pack of cards.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/Steam_big_picture_snes_filter.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-1080by608-2315d2.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-900by507-2315d2.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-600by338-2315d2.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-1080by608-2315d2.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-900by507-2315d2.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-600by338-2315d2.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/Steam_big_picture_snes_filter-600by338-2315d2.jpg&quot; alt=&quot;Emulation on big picutre with Steam Big Picture, Steam Link and a github project called ICE, filtering by console&quot; title=&quot;Emulation on big picutre with Steam Big Picture, Steam Link and a github project called ICE, filtering by console&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So I can go from Shadow of Mordor to Donkey Kong Country to Pitfall, all within 20 seconds of each other using whatever controller I chose.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-is-this-better-than-a-console&quot;&gt;Why is this better than a console?&lt;/h2&gt;
+
+&lt;p&gt;I can think of a multitude of reasons&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Emulator support - build the ultimate console!  Heck, play old DOS games with DOSBox and a Steam controller!&lt;/li&gt;
+  &lt;li&gt;Mod support!  You get the modding of PC, with the comfort of couch and controller (or keyboard/mouse if you still choose)&lt;/li&gt;
+  &lt;li&gt;Better graphics - sorry, but a decent PC will plain outperform a console, especially as the console lifecycle drags on.&lt;/li&gt;
+  &lt;li&gt;Massive games library, not bound to one manufacturer&lt;/li&gt;
+  &lt;li&gt;Multi-room support - move from TV to Home Theater to PC.  Or connect to different PCs with different steam accounts running.&lt;/li&gt;
+  &lt;li&gt;Customization - especially with a Steam Controller, customise to your hearts content either the game or the control set.&lt;/li&gt;
+  &lt;li&gt;Games are plain cheaper on PC with Steam Sales.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The downsides&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;MUST&lt;/strong&gt; be hardwired!  I can’t see any solution on wifi that won’t introduce too much input lag&lt;/li&gt;
+  &lt;li&gt;Comes with the inherent possibility of crashes on PC - Steam has bugged out on occasion.&lt;/li&gt;
+  &lt;li&gt;The odd console exclusive game&lt;/li&gt;
+  &lt;li&gt;Requires decent PC (mind you, I’m running MGS:V at 1080p @ 60hz with a Nvidia 670 no problems)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h2&gt;
+
+&lt;p&gt;If you haven’t already run out and bought 10 Steam Links then I don’t know what’s wrong with you and you require professional help.  Assuming you have a wired network and can’t/won’t have your PC directly hooked up to your TV, this is for you.&lt;/p&gt;
+
+&lt;p&gt;I have had nothing but perfect streaming experiences, smooth FPS, no artefacts, lag, etc.  That said, I have built a robust network, it is wired, and I have given it an optimal network to run on - and it is delivering in spades.  If you want to run on Wireless then it’s your funeral - even with AC dual band, you’re going to get input lag.  I think it’s a simple fact of the way wireless works.&lt;/p&gt;
+
+&lt;p&gt;Also keep in mind that when you stream you are also asking your PC to run the game AND encode the audio/video - this means you need the grunt to run the game at 1080p as well as the stream encoding overhead.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Steam" /><summary type="html">My experiences one week in with the steam link, and why it's the ultimate console nobody has heard about.</summary></entry><entry><title type="html">Multiroom audio with the Raspberry PI</title><link href="http://voltaicforge.com/electronics/raspi-muiltiroom-audio/" rel="alternate" type="text/html" title="Multiroom audio with the Raspberry PI" /><published>2016-07-24T00:00:00+10:00</published><updated>2016-07-24T00:00:00+10:00</updated><id>http://voltaicforge.com/electronics/raspi-muiltiroom-audio</id><content type="html" xml:base="http://voltaicforge.com/electronics/raspi-muiltiroom-audio/">&lt;h2 id=&quot;multiroom-audio-with-the-raspi&quot;&gt;Multiroom Audio with the Raspi&lt;/h2&gt;
+
+&lt;p&gt;I’ve wanted some sort of audio system for years, a set of speakers in multiple rooms you could setup to be controlled via an app that would be able to play my music collection, and radio.  In the past I’ve experimented with just having iTunes on a laptop with speakers solely for it, putting speakers on my server and some other options.  None have ever hit the ‘neat and tidy’ aspect.&lt;/p&gt;
+
+&lt;p&gt;Recently I started playing around with the RasPI squeezebox solution &lt;a href=&quot;https://sites.google.com/site/picoreplayer/home&quot;&gt;piCorePlayer&lt;/a&gt; which was a big step in the right direction I was looking for.  Surely I could find a cheap set of speakers that would look neat, but have enough space to squeeze (pun intended) a RasPi inside of?&lt;/p&gt;
+
+&lt;p&gt;Off to AliExpress I went and found a cheap(ish) little Bluetooth speaker set.  It actually had a decent set of features, pity I would not be using most of them.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/raspi_squeezebox_player_and_app.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-1200by795-0962f4.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-900by596-0962f4.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-1200by795-0962f4.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-900by596-0962f4.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/raspi_squeezebox_player_and_app-600by397-0962f4.jpg&quot; alt=&quot;Raspi Squeesebox player&quot; title=&quot;Raspi Squeesebox player&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Above is the finished player (which looks the same as how it comes out of the box).  I managed to fit a RasPI 1 inside of it, wired up to the power and aux input jack.  The PI connects wirelessly to my wireless network by a Wifi dongle and runs off the Logitec Media Server software.  So via an app or internal website I can play music or radio and media server will kick off the RasPI to play, pause, volume, etc.&lt;/p&gt;
+
+&lt;p&gt;It’s truly a poor man’s &lt;a href=&quot;http://www.sonos.com&quot;&gt;Sonos&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;hacking-the-speaker&quot;&gt;Hacking the speaker&lt;/h2&gt;
+
+&lt;p&gt;The speaker is a cheap Bluetooth-capable speaker off AliExpress.  It’s got more functionality than I wanted but was the only one I liked the look of that could potentially fit a RasPI.  I got it Friday night and quickly tore it down.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/cheap_speaker_teardown.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-1200by795-12ed53.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-900by596-12ed53.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-1200by795-12ed53.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-900by596-12ed53.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/cheap_speaker_teardown-600by397-12ed53.jpg&quot; alt=&quot;Teardown of a cheap chinese bluetooth speaker&quot; title=&quot;Teardown of a cheap chinese bluetooth speaker&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I found that it indeed did have enough room to hide a RasPI.  But only just, and only after the RasPI has undergone some radical weight reduction.  I setup a wifi dongle I had lying around to run on the RasPi and verified it worked before proceeding - I already had Logitec Media Player on a virtual machine running on my server.&lt;/p&gt;
+
+&lt;p&gt;I then played around and inspected the circuitry to find where I could hijack power from the speaker power.  It had a power input which was just a standard micro USB-B connector, so it would be running +5V which I could just tap the RasPI into.  I cut one end of the USB to Micro USB-B connector that came with it and soldered it to GND and the closest point I could tap +5V.  I suspect it was a regulator to drop to +3V or so - the lithium battery included only had 3.7V in it so one would suspect the logic to be +3V.  I tried pulling direct from the battery charge points but it only gave out 4.7V, which the RasPI flat out refused to boot on.&lt;/p&gt;
+
+&lt;p&gt;I did accidently blow a resistor to GND during probing for voltage (which a bodge wire quickly fixed, shorting the plugs housing to another GND point on the board).&lt;/p&gt;
+
+&lt;p&gt;Then it was on to the drastic reduction - the RasPi would have to havethe RCA plug, line-out, Ethernet and the USB plugs stripped.  I either cut or desoldered these as what was easiest (cut off all but the Ethernet and USB, which required adding fresh solder and then sucking it out).  The solder on the RasPI melts a LOT hotter than usual, so adding fresh solder was the trick.&lt;/p&gt;
+
+&lt;p&gt;After the rapid weight loss, I had to find a way to get the USB wifi adaptor back on it.  I threw any concept of the USB spec out the window and directly connected the USB pins to the WIFI dongle with a ribbon cable.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modifying_wifi_dongle_direct_wire.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-1200by795-7821d3.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-900by596-7821d3.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-1200by795-7821d3.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-900by596-7821d3.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/modifying_wifi_dongle_direct_wire-600by397-7821d3.jpg&quot; alt=&quot;Hacking Usb Wifi direct to RasPI with ribbon cable&quot; title=&quot;Hacking Usb Wifi direct to RasPI with ribbon cable&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After everything, it looked a little worse for wear but it worked fine.  Then I started probing around to figure out how to connect the Pi’s line out direct to the speaker system.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_raspi_with_wifi_dongle.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-1200by795-f98645.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-900by596-f98645.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-1200by795-f98645.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-900by596-f98645.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/modified_raspi_with_wifi_dongle-600by397-f98645.jpg&quot; alt=&quot;Wifi Dongle hacked onto RasPi&quot; title=&quot;Wifi Dongle hacked onto RasPi&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I bodged wires from the aux input jack of the speaker system to the pi - guessing the left and right channel would be the pins connected to the capacitors I could see on the board.  The centre pin turned out, as I suspected, to be ground.&lt;/p&gt;
+
+&lt;p&gt;I tested it as it was and it worked.  The speakers had some bad line noise (as you’d expect from a cheap set) so I turned them right down and the Pi right up.  Once I had done that, it was great!&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_speakers_with_raspi.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-1200by795-58d700.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-900by596-58d700.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-1200by795-58d700.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-900by596-58d700.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi-600by397-58d700.jpg&quot; alt=&quot;Modified bluetooth speaker to raspi running picoreplayer (squeezebox player)&quot; title=&quot;Modified bluetooth speaker to raspi running picoreplayer (squeezebox player)&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Afterwards, it was merely a case of fitting the PI into the housing and it fit like it was designed to be there.  Some hot glue and a zip tie, and it was time for reassembly.&lt;/p&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;/assets/images/modified_speakers_with_raspi_installed.jpg&quot;&gt;&lt;picture&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-1200by795-6887aa.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-900by596-6887aa.jpg&quot; media=&quot;(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; media=&quot;(min-width: 40em)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-1200by795-6887aa.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-900by596-6887aa.jpg&quot; media=&quot;(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)&quot; /&gt;
+    &lt;source srcset=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; /&gt;
+    &lt;img src=&quot;http://voltaicforge.com/assets/images/resize/modified_speakers_with_raspi_installed-600by397-6887aa.jpg&quot; alt=&quot;Fitting a RasPi into a cheap set of bluetooth speakers&quot; title=&quot;Fitting a RasPi into a cheap set of bluetooth speakers&quot; /&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once reassembled, it looked like it was new out of the box.  All it required was a home to be found for it and for it to be plugged in with any old wall plug &amp;amp; USB Micro B cable.  Once it’s powered up, the PI boots up into piCorePlayer, connects to the Wifi, and is ready to receive music or radio streams!  Just running the Andriod app &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.angrygoat.android.squeezectrl&amp;amp;hl=en&quot;&gt;Squeeze Ctrl&lt;/a&gt; allows me to control the Logitec Medis Server, which finds the RasPi and considered it an output device.  A tap of the app and we have music control.&lt;/p&gt;
+
+&lt;p&gt;All I need to do is order a few more and I have a Sonos-like experience, for a fraction of the price.&lt;/p&gt;</content><author><name>Nat Allan</name><uri>http://voltaicforge.com</uri></author><category term="Audio" /><summary type="html">Hacking together a multiroom audio solution with a Raspberry PI, Logitec Media Server and a cheap speaker set</summary></entry></feed>

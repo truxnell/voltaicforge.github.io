@@ -1,0 +1,456 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Setting up emulators in Steam - VoltaicForge</title>
+
+
+
+
+<meta name="description" content="Installing Emulators">
+
+
+
+
+<meta name="author" content="Nat Allan">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="VoltaicForge">
+<meta property="og:title" content="Setting up emulators in Steam">
+
+
+  <link rel="canonical" href="http://voltaicforge.com/guides/steam_emulators/install_emulators/">
+  <meta property="og:url" content="http://voltaicforge.com/guides/steam_emulators/install_emulators/">
+
+
+
+  <meta property="og:description" content="Installing Emulators">
+
+
+
+  <meta name="twitter:site" content="@voltaicforge">
+  <meta name="twitter:title" content="Setting up emulators in Steam">
+  <meta name="twitter:description" content="Installing Emulators">
+  <meta name="twitter:url" content="http://voltaicforge.com/guides/steam_emulators/install_emulators/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@Nat Allan">
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://voltaicforge.com/assets/images/steam_bigpicutre_retrogaming.png">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-02-25T22:03:25+11:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Nat Allan",
+      "url" : "http://voltaicforge.com",
+      "sameAs" : ["https://twitter.com/voltaicforge"]
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="iK_FoY5mh80PyafnPtAX6YOOtXL8eQ3Z8MqGBnTqK60" />
+
+
+  <meta name="msvalidate.01" content="81692DABF6D3A748A99701D5182C57AB">
+
+
+  <meta name="alexaVerifyID" content="mQysQJJ0XzBFJy5Y0GfkGmRIc_8">
+
+
+  <meta name="yandex-verification" content="41039ce397f24d4e">
+
+<!-- end SEO -->
+
+
+<link href="http://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://voltaicforge.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://voltaicforge.com/">VoltaicForge</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/guides/">Guides</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/about/">About</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://voltaicforge.com/assets/images/steam_bigpicutre_retrogaming.png');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Setting up emulators in Steam
+
+        
+      </h1>
+      
+        <p class="page__lead"><h3 id="installing-emulators">Installing Emulators</h3>
+
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Steam Emulation Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/premise/" class="">Premise</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/install_emulators/" class="active">Install emulators</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/emulator_list/" class="">Emulator list</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/install_ice/" class="">Install Ice</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/finished/" class="">Finished</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/reference/" class="">Reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Setting up emulators in Steam">
+    <meta itemprop="description" content="Installing Emulators">
+    <meta itemprop="datePublished" content="February 25, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <h3 id="installing-emulators">Installing Emulators</h3>
+
+<p>Installing Emulators is the fun part, and beyond the scope of this guide to explain how to setup every single emulator.  I will need to preface here by saying that you will need to read the emulator’s documentation/guides/forum posts if you need further assistance per emulator.</p>
+
+<p>You will often have one emulator per system as the author will focus on one system.  However, some emulators work for two or more systems.</p>
+
+<p>The backbone of many emulator setups will start with MAME, RetroArch to cover Arcade and many popular consoles.  Then a number of specific emulators to fill the gaps not covered by the MAME/RetroArch combination.</p>
+
+<p class="notice--info">There may be many choices for an emulator for any given system.  There are different emulator projects by different groups, and they often each have strengths and weaknesses to each other.  You may find your favourite game works better in a certain emulator, so you may need to try out emulators yourself.</p>
+
+<p class="notice--warning">Note that some Emulators require a BIOS file dumped from the console in question.  This will often mean putting the BIOS files after being dumped from the console into a <code class="highlighter-rouge">BIOS</code> folder or the like.</p>
+
+<p>There is a table of emulators on the next page to assist you in choosing emulators.  To demonstrate an example of installing an Emulator, let’s use <a href="https://www.libretro.com/">RetroArch</a> as an example, as it is good for running a huge amount of different emulator ‘cores’ in one programming, making it a bit of a go-to for lots of emulation setups.</p>
+
+<p>Let’s start by downloading RetroArch (libRetro) from its website, <a href="https://www.libretro.com/">https://www.libretro.com/</a>.  There are links to the download site, where you can select platform, architecture, etc.  Go ahead and download ‘RetroArch.7z’,</p>
+
+<p>Then, unzip to <code class="highlighter-rouge">Emulation/RetroArch</code>.</p>
+
+<p>That’s the install done, and many emulators will be this simple to ‘install’.</p>
+
+<p>From here, you will need to sort out the emulator setup.  This will be where you need to turn to documentation per emulator, tutorials, forum posts, etc.</p>
+
+<p>Many you can just run the program and load up a ROM/ISO to ensure it works.  Some will require a BIOS or ‘core’ to be downloaded first.  Some will be even more complicated to setup.</p>
+
+<p>For RetroArch, it almost works immediately out of the box.  However, as RetroArch is a program that is a framework for multiple emulators (cores), it will not be downloaded with any cores currently.  Run RetroArch, and select ‘Online Updater’ and then ‘Core Updater’</p>
+
+<p class="text-center"><a href="/assets/images/retroarch_online_updated.png"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-1200by694-84f9a7.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-900by520-84f9a7.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-600by347-84f9a7.png" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-1200by694-84f9a7.png" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-900by520-84f9a7.png" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-600by347-84f9a7.png" />
+    <img src="http://voltaicforge.com/assets/images/resize/retroarch_online_updated-600by347-84f9a7.png" alt="RetroArch at the core updated screen" title="RetroArch at the core updated screen" />
+  </picture>
+</a></p>
+
+<p>You will get a big list of cores (emulators) to download. Each will emulate a console system and needs to be installed before it will run any games.</p>
+
+<p>Select a core for the console you are looking to emulate.  For this example, lets chose a core to emulate the Super Nintendo console.  I’ve chosen ‘bsnes_balanced_libretro’ as the emulator, which is the bSNES emulator with settings balanced for a tradeoff between perfect emulation and performance</p>
+
+<p class="notice--warning">Note that emulators aren’t perfect, and there will inevitably be the occasional glitch, missing texture, etc.  It’s difficult to perfectly emulate some system even on modern CPU’s, so often taking a balanced emulator is a good tradeoff between performance and accuracy.</p>
+
+<p class="text-center"><a href="/assets/images/retroarch_core_updater.png"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-1200by694-b6f649.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-900by520-b6f649.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-600by347-b6f649.png" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-1200by694-b6f649.png" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-900by520-b6f649.png" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-600by347-b6f649.png" />
+    <img src="http://voltaicforge.com/assets/images/resize/retroarch_core_updater-600by347-b6f649.png" alt="RetroArch at the core updater list" title="RetroArch at the core updater list" />
+  </picture>
+</a></p>
+
+<p>We are now ready to emulate some Super Nintendo games (or another system if you choose another core).  RetroArch is able to emulate many systems, so feel free to choose a multitude of systems, google some results if you want help choosing (or using the table below as starting point).</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-02-25T22:03:25+11:00">February 25, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="http://voltaicforge.com/guides/steam_emulators/premise/" class="pagination--pager" title="Setting up emulators in Steam
+">Previous</a>
+    
+    
+      <a href="http://voltaicforge.com/guides/steam_emulators/emulator_list/" class="pagination--pager" title="Setting up emulators in Steam
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://voltaicforge.com/assets/js/main.min.js"></script>
+
+
+
+
+  
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(101008004);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+
+
+
+
+
+
+  </body>
+</html>

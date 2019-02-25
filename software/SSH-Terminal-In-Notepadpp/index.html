@@ -1,0 +1,747 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Docking a PuTTY window into Notepad++ - VoltaicForge</title>
+
+
+
+
+<meta name="description" content="Docking a PuTTY window into Notepad++ is a big help when developing a Jekyll blog in a Windows environment - when you have outsourced the Jekyll build to a local Linux server">
+
+
+
+
+<meta name="author" content="Nat Allan">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="VoltaicForge">
+<meta property="og:title" content="Docking a PuTTY window into Notepad++">
+
+
+  <link rel="canonical" href="http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/">
+  <meta property="og:url" content="http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/">
+
+
+
+  <meta property="og:description" content="Docking a PuTTY window into Notepad++ is a big help when developing a Jekyll blog in a Windows environment - when you have outsourced the Jekyll build to a local Linux server">
+
+
+
+  <meta name="twitter:site" content="@voltaicforge">
+  <meta name="twitter:title" content="Docking a PuTTY window into Notepad++">
+  <meta name="twitter:description" content="Docking a PuTTY window into Notepad++ is a big help when developing a Jekyll blog in a Windows environment - when you have outsourced the Jekyll build to a local Linux server">
+  <meta name="twitter:url" content="http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://voltaicforge.com/assets/images/putty_teaser.png">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@Nat Allan">
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://voltaicforge.com/assets/images/putty_teaser.png">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-05-01T00:00:00+10:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Nat Allan",
+      "url" : "http://voltaicforge.com",
+      "sameAs" : ["https://twitter.com/voltaicforge"]
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="iK_FoY5mh80PyafnPtAX6YOOtXL8eQ3Z8MqGBnTqK60" />
+
+
+  <meta name="msvalidate.01" content="81692DABF6D3A748A99701D5182C57AB">
+
+
+  <meta name="alexaVerifyID" content="mQysQJJ0XzBFJy5Y0GfkGmRIc_8">
+
+
+  <meta name="yandex-verification" content="41039ce397f24d4e">
+
+<!-- end SEO -->
+
+
+<link href="http://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://voltaicforge.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://voltaicforge.com/">VoltaicForge</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/guides/">Guides</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/about/">About</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://voltaicforge.com/assets/images/putty_teaser.png');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Docking a PuTTY window into Notepad++
+
+        
+      </h1>
+      
+        <p class="page__lead">Docking a PuTTY window into Notepad++ is a big help when developing a Jekyll blog in a Windows environment - when you have outsourced the Jekyll build to a local Linux server
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://voltaicforge.com/assets/images/profile.jpg" class="author__avatar" alt="Nat Allan" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
+      <p class="author__bio" itemprop="description">
+        Analogue at birth, digital by design
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="http://voltaicforge.com" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Docking a PuTTY window into Notepad++">
+    <meta itemprop="description" content="Docking a PuTTY window into Notepad++ is a big help when developing a Jekyll blog in a Windows environment - when you have outsourced the Jekyll build to a local Linux server">
+    <meta itemprop="datePublished" content="May 01, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="challenge-of-developing-in-jekyll-via-remote-linux-server">Challenge of developing in Jekyll via remote Linux server</h2>
+
+<p>During development of this site, I came across too many limitations with using Jekyll on windows. You can use Jekyll in windows with <a href="https://github.com/madhur/PortableJekyll">PortableJekyll</a>, but I found the Windows environment still limited Jekyll. Mainly in regard to ImageMagick for using responsive images, which isn’t worth the hassle of setting up on windows. I decided it was easier to spool up a Debian VM on my virtual server to install Gem/Ruby/Jekyll on. This lets me keep the website code on my NAS (allowing for easy cloud backup), code on Windows, and run Jekyll on Linux.</p>
+
+<p>However, swapping back and forward between a terminal and the website code to keep an eye on the site build was annoying, so I decided to see if I could ‘dock’ a PuTTY terminal into Notepad++</p>
+
+<h2 id="adding-a-putty-terminal-into-notepad">Adding a Putty Terminal into Notepad++</h2>
+
+<p>I’ve been using <a href="https://notepad-plus-plus.org/">Notepad++</a> to develop in Windows for quite some time now. It’s a fantastic little program for us Windows people. A docked PuTTY window would greatly improve my workflow.</p>
+
+<p class="text-center"><a href="/assets/images/putty_terminal_in_npp2.png"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-1179by941-1fbfc8.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-900by718-1fbfc8.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-600by479-1fbfc8.png" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-1179by941-1fbfc8.png" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-900by718-1fbfc8.png" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-600by479-1fbfc8.png" />
+    <img src="http://voltaicforge.com/assets/images/resize/putty_terminal_in_npp2-600by479-1fbfc8.png" alt="Picture of Notepad++ with attached PuTTY terminal" title="Picture of Notepad++ with attached PuTTY terminal" />
+  </picture>
+</a></p>
+
+<p>To do the same as I have above, it’s actually pretty simple.</p>
+
+<p>Download:</p>
+
+<ul>
+  <li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Plink</a> - PuTTY command line</li>
+  <li><a href="https://github.com/adoxa/ansicon/downloads">Ansicon</a> - Ansi escape sequence converter (to convert Linux CLI escape codes to windows CLI, else the terminal doesnt work very well)</li>
+  <li><a href="https://sourceforge.net/projects/nppconsole/">nppconsole</a> - Notepad++ console plugin.</li>
+</ul>
+
+<p class="notice--info"><strong>Note:</strong> I had to use the older <code class="highlighter-rouge">11.53</code> ansicon version under Windows 10 x64, the later versions crashed frequently.</p>
+
+<p>The do the following</p>
+
+<ol>
+  <li>Extract <em>NPPConsole</em> to your Notepad++ plugins directory (Program Files x86/Notepad++/Plugins)</li>
+  <li>Restart Notepad++ if you had it running</li>
+  <li>Unzip and copy <em>plink</em> and <em>ansicon</em> to a folder of your choosing (I put them both in the Notepad++ folder as its where the CLI defaults to and I’m lazy)</li>
+  <li>Open a CLI at the Notepad++ folder and run <code class="highlighter-rouge">ansicon.exe plink.exe -ssh user@location -pw yourpasword</code>, replacing the relevant parts with your user/server IP/password.</li>
+  <li>All going well, you can now replicate that command in Notepad++. Open Notepad++, select <em>Plugins -&gt; NppConsole</em> (should be there if you restarted and copied the dll correctly). Run the command and you are set!</li>
+</ol>
+
+<p>If you have a saved profile in PuTTy you can replace the command with  <code class="highlighter-rouge">ansicon plink -ssh SESSION_NAME</code> , replacing <code class="highlighter-rouge">SESSION_NAME</code> with your sessions name from the PuTTY dialogue. This works with key authentication as well, which I much prefer to use. This also saves you the risk of keeping a plaintext password in a potentially insecure location.</p>
+
+<p class="notice--info"><strong>Note:</strong> You can use the plugin Nppexec as well instead of NppConsole - but i prefer Nppconsole for this.</p>
+
+<p>You now have a working CLI in Notepad++ that can call an SSH session. I wrote a few batch scripts, so I just have to run <code class="highlighter-rouge">site-dev</code> in Windows to jump to my Linux VM that contains Jekyll, then  <code class="highlighter-rouge">./site-dev</code> to run a bash script to call up Jekyll in dev mode. I already have a <code class="highlighter-rouge">site-push</code>  bash to push the site to Amazon AWS, so I don’t need to leave Notepad++ to do any development work.</p>
+
+<p class="notice--warning"><strong>Warning:</strong> I couldn’t get Ctrl-C to work with either NppConsole or NppExec, both terminate the command without sending SIGTERM or similar to the PuTTY. Let me know if you figure out a way around this, as it means it’s difficult to gracefully terminate Jekyll. Workaround below.</p>
+
+<h2 id="workaround-for-no-ctrl-c-to-exit-jekyll">Workaround for no Ctrl-C to exit Jekyll</h2>
+
+<p>My workaround for this has become to have a PuTTY terminal open just for stopping Jekyll. This isn’t as bad as it sounds. Just write a bash script to kill ruby as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pgrep ruby | xargs kill
+</code></pre>
+</div>
+
+<p class="note--warning"><strong>Warning:</strong> This will kill all ruby threads! Note this if you often have other ruby threads often running</p>
+
+<p>I saved it as <code class="highlighter-rouge">site-kill</code>. My workflow is <code class="highlighter-rouge">site-dev</code> for the development of this site (with dev flags for config, etc), <code class="highlighter-rouge">site-push</code> to rebuild the site from scratch and push to AWS. The new  <code class="highlighter-rouge">site-kill</code> kills off any ruby threads.</p>
+
+<p class="text-center"><a href="/assets/images/ctrl_c_workaround.png"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-932by458-cf4a53.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-900by442-cf4a53.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-600by295-cf4a53.png" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-932by458-cf4a53.png" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-900by442-cf4a53.png" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-600by295-cf4a53.png" />
+    <img src="http://voltaicforge.com/assets/images/resize/ctrl_c_workaround-600by295-cf4a53.png" alt="Picture of using external ssh script to kill jekyll window instead of killing notepad++ CLI" title="Picture of using external ssh script to kill jekyll window instead of killing notepad++ CLI" />
+  </picture>
+</a></p>
+
+<h2 id="bonus---markdown-highlighting-in-notepad">Bonus - Markdown highlighting in Notepad++</h2>
+
+<p>The default colours finally made me crack during writing this post. Too much white! The language highlighting file I had for markdown didn’t play ball with custom styles.</p>
+
+<p>I found a language highlighting file for Markdown on <a href="https://github.com/Edditoria/markdown_npp_zenburn">GitHub</a> that had a file for the Zenburn colour scheme. This is what you can see in the screenshots above. So much better!</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/tags/#jekyll" class="page__taxonomy-item" rel="tag">Jekyll</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://voltaicforge.com/tags/#notepad" class="page__taxonomy-item" rel="tag">Notepad++</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/categories/#software" class="page__taxonomy-item" rel="tag">Software</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-05-01T00:00:00+10:00">May 01, 2016</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=voltaicforge&text=Docking a PuTTY window into Notepad++ http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/" class="pagination--pager" title="W.E.P 853d clone soldering station
+">Previous</a>
+    
+    
+      <a href="http://voltaicforge.com/consumer-electronics/6P-pocketdial-woes/" class="pagination--pager" title="Nexus 6P Pocket Dial woes
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/Code.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="permalink">Setup pfSense for TPG NBN
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">An adventure of frustration with TPG NBN and the missing VLAN setting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/homebrew_fermenter.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homebrew/homebrewing-again/" rel="permalink">Homebrewing Again
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Beginning a homebrewing journey
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/encrypted_encfs_dropbox.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/dropbox-encfs/" rel="permalink">Setting up Dropbox and encryption in Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">My approach to setting up Dropbox and Encfs in Linux
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/chromium-gnome-banner.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/chromium-gnome-keyring/" rel="permalink">Stop Chromium asking for keyring unlock
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Stopping Chromium asking for gnome-keyring login on launch
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://voltaicforge.com/assets/js/main.min.js"></script>
+
+
+
+
+  
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(101008004);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'voltaicforge';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  </body>
+</html>

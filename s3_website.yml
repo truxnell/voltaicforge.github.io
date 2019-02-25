@@ -1,0 +1,84 @@
+s3_id: <%= ENV['S3_ID'] %>
+s3_secret: <%= ENV['S3_SECRET'] %>
+
+s3_bucket: voltaicforge.com
+site: /home/nat/.website/site_html/
+
+# Below are examples of all the available configurations.
+# See README for more detailed info on each of them.
+
+# site: path-to-your-website
+
+# index_document: index.html
+# error_document: error.html
+
+max_age:
+   "assets/*": <%= 60 * 60 * 24 %>
+   "*": <%= 60 * 60 * 24 %>
+
+gzip: true
+#   - .html
+#   - .css
+#   - .md
+# gzip_zopfli: true
+
+# See http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region for valid endpoints
+# s3_endpoint: ap-northeast-1
+
+# ignore_on_server: that_folder_of_stuff_i_dont_keep_locally
+
+# exclude_from_upload:
+#   - those_folders_of_stuff
+#   - i_wouldnt_want_to_upload
+
+s3_reduced_redundancy: true
+
+exclude:
+    - s3_website.yml
+
+cloudfront_distribution_id: <%= ENV['CF_DIST'] %>
+cloudfront_invalidate_root: true
+cloudfront_distribution_config:
+  default_cache_behavior:
+    min_TTL: <%= 60 * 60 * 24 %>
+#  aliases:
+#    quantity: 2
+#    items:
+#      CNAME: 
+#        - voltaicforge.com
+#        - www.voltaicforge.com
+    
+  price_class: PriceClass_100
+
+
+
+concurrency_level: 5
+
+redirects:
+    software/SSH_terminal_in_Notepadpp/index.html: software/SSH-terminal-in-Notepadpp/
+    consumer electronics/6P-pocketdial-woes/index.html: consumer-electronics/6P-pocketdial-woes/
+    dnd/index.html: dnd/1-The_Empty_Village/
+    tutorials/steam_emulators/premise/: guides/steam_emulators/premise/
+    tutorials/steam_emulators/install_emulators/: guides/steam_emulators/install_emulators/
+    tutorials/steam_emulators/emulator_list/: guides/steam_emulators/emulator_list/
+    tutorials/steam_emulators/install_ice/: guides/steam_emulators/install_ice/
+    tutorials/steam_emulators/finished/: guides/steam_emulators/finished/
+    tutorials/steam_emulators/reference/: guides/steam_emulators/reference/
+    dnd/1-The_Empty_Village/: /projects/dnd/The_Empty_Village/
+    dnd/2-The_Defence_of_Goldenfields/: /projects/dnd/The Defense of Goldenfields
+    dnd/3-The_Friendly_Dragon/: /projects/dnd/The Friendly Dragon
+header:
+    dnd/4-Current/: /projects/dnd/Current
+
+
+#   index.php: /
+#   about.php: about.html
+#   music-files/promo.mp4: http://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+# routing_rules:
+#   - condition:
+#       key_prefix_equals: blog/some_path
+#     redirect:
+#       host_name: blog.example.com
+#       replace_key_prefix_with: some_new_path/
+#       http_redirect_code: 301

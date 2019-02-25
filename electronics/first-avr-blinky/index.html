@@ -1,0 +1,729 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>First AVR LED blinky - VoltaicForge</title>
+
+
+
+
+<meta name="description" content="First MCU LED blinky upload to test my new programming gear">
+
+
+
+
+<meta name="author" content="Nat Allan">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="VoltaicForge">
+<meta property="og:title" content="First AVR LED blinky">
+
+
+  <link rel="canonical" href="http://voltaicforge.com/electronics/first-avr-blinky/">
+  <meta property="og:url" content="http://voltaicforge.com/electronics/first-avr-blinky/">
+
+
+
+  <meta property="og:description" content="First MCU LED blinky upload to test my new programming gear">
+
+
+
+  <meta name="twitter:site" content="@voltaicforge">
+  <meta name="twitter:title" content="First AVR LED blinky">
+  <meta name="twitter:description" content="First MCU LED blinky upload to test my new programming gear">
+  <meta name="twitter:url" content="http://voltaicforge.com/electronics/first-avr-blinky/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://voltaicforge.com/assets/images/avr_attiny_2313a_first_blinky.jpg">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@Nat Allan">
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://voltaicforge.com/assets/images/avr_attiny_2313a_first_blinky.jpg">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-05-05T00:00:00+10:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Nat Allan",
+      "url" : "http://voltaicforge.com",
+      "sameAs" : ["https://twitter.com/voltaicforge"]
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="iK_FoY5mh80PyafnPtAX6YOOtXL8eQ3Z8MqGBnTqK60" />
+
+
+  <meta name="msvalidate.01" content="81692DABF6D3A748A99701D5182C57AB">
+
+
+  <meta name="alexaVerifyID" content="mQysQJJ0XzBFJy5Y0GfkGmRIc_8">
+
+
+  <meta name="yandex-verification" content="41039ce397f24d4e">
+
+<!-- end SEO -->
+
+
+<link href="http://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://voltaicforge.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://voltaicforge.com/">VoltaicForge</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/guides/">Guides</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/about/">About</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://voltaicforge.com/assets/images/avr_attiny_2313a_first_blinky.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          First AVR LED blinky
+
+        
+      </h1>
+      
+        <p class="page__lead">First MCU LED blinky upload to test my new programming gear
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://voltaicforge.com/assets/images/profile.jpg" class="author__avatar" alt="Nat Allan" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
+      <p class="author__bio" itemprop="description">
+        Analogue at birth, digital by design
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="http://voltaicforge.com" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="First AVR LED blinky">
+    <meta itemprop="description" content="First MCU LED blinky upload to test my new programming gear">
+    <meta itemprop="datePublished" content="May 05, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="testing-out-new-avr-gear">Testing out new AVR Gear</h2>
+
+<p>Well, I’ve received the new programmers I ordered. Amongst them was the <a href="http://www.atmel.com/tools/atatmel-ice.aspx">Atmel ICE</a>, which I have chosen to be the first thing I would test.</p>
+
+<p>I’ve been meaning to get fully into MCU development, but I have to say that the Arduino craze didn’t really grab me. A sketch? Shield? Buy pre-assembled gear and push it together, and copy paste code?</p>
+
+<p>I’ll pass. I prefer to code, learning and assembling circuitry myself and learning code from examples.</p>
+
+<p>I’m actually struggling a bit to find decent tutorials for MCU programming (I can’t be looking in the right places!). However, it wasn’t too hard to figure out the pinout of the Atmel-ICE and compare to the pinout of the ATtiny 2313A using the datasheets. I build a miniature shield that plugged in over the top of the MCU and had a neat little 6-pin plugin header (I may cover it in another post).</p>
+
+<p class="notice--info"><strong>Note:</strong> The Atmel-ICE datasheet nicely doesn’t include the direction of the tab in the user guide. The pinout on the user guide doesn’t include the tab on the 6-pin connector. I have added it to the datasheet image below - the tabbed connector is on the side of MISO, SCK and RESET (for SPI programming)</p>
+
+<p class="text-center"><a href="/assets/images/ateml_ice_SPI_pinout_clarified.png"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" />
+    <img src="http://voltaicforge.com/assets/images/resize/ateml_ice_SPI_pinout_clarified-206by100-db0381.png" alt="Pinout of Ateml-ICE SPI 6 pin wire clarified with tab connector" title="Pinout of Ateml-ICE SPI 6 pin wire clarified with tab connector" />
+  </picture>
+</a></p>
+
+<p>So after plugging in the programmer I confirmed all was well in Atmel Studio 7. <code class="highlighter-rouge">Tools -&gt; Device programming</code> gets you to the device programming screen, and selecting <code class="highlighter-rouge">Atmel-ICE</code> tool and your chosen device (in my case I had the ATTiny 2313A so I selected <code class="highlighter-rouge">ATtiny2313a</code> from the device selection. The interface is <code class="highlighter-rouge">ISP</code> and you can click Apply.</p>
+
+<p>Once this has been selected, you should be able to click on Read for the device signature. If it reads an address and target voltage, you have succeded!</p>
+
+<p class="text-center"><a href="/assets/images/atmel_studio_check_device_id.png"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-763by231-41114b.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-763by231-41114b.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-600by182-41114b.png" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-763by231-41114b.png" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-763by231-41114b.png" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-600by182-41114b.png" />
+    <img src="http://voltaicforge.com/assets/images/resize/atmel_studio_check_device_id-600by182-41114b.png" alt="Atmel Studio 7 Device programming screen confirming Device signature for ATtiny2313a" title="Atmel Studio 7 Device programming screen confirming Device signature for ATtiny2313a" />
+  </picture>
+</a></p>
+
+<p>I proceeded to load up a binky led program to confirm all was well, and well, all was well.</p>
+
+<p class="text-center"><a href="/assets/images/avr_attiny_2313a_first_blinky.jpg"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-1200by795-fccba6.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-900by596-fccba6.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-600by397-fccba6.jpg" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-1200by795-fccba6.jpg" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-900by596-fccba6.jpg" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-600by397-fccba6.jpg" />
+    <img src="http://voltaicforge.com/assets/images/resize/avr_attiny_2313a_first_blinky-600by397-fccba6.jpg" alt="ATtiny 2313A dual-led blinking circuit" title="ATtiny 2313A dual-led blinking circuit" />
+  </picture>
+</a></p>
+
+<p>Out of curiosity, I was interested to know the maximum frequency this would have out of the box on the output pins with no <code class="highlighter-rouge">_delay_ms()</code>, with its default 1Mhz clock cycle (8Mhz internal oscillator with the CKDIV8 fuse clocking it down to 1MHz)</p>
+
+<p>Whilst I did leave it with two I/O operations per cycle, I did come up with a frequency of 103khz.</p>
+
+<p class="text-center"><a href="/assets/images/avr_stock_max_freq_103khz.jpg"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-1200by795-af6e7e.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-900by596-af6e7e.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-600by397-af6e7e.jpg" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-1200by795-af6e7e.jpg" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-900by596-af6e7e.jpg" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-600by397-af6e7e.jpg" />
+    <img src="http://voltaicforge.com/assets/images/resize/avr_stock_max_freq_103khz-600by397-af6e7e.jpg" alt="DS1054z shoinwg 103khz for AVR blinking circuit" title="DS1054z shoinwg 103khz for AVR blinking circuit" />
+  </picture>
+</a></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/tags/#avr" class="page__taxonomy-item" rel="tag">AVR</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/categories/#electronics" class="page__taxonomy-item" rel="tag">Electronics</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-05-05T00:00:00+10:00">May 05, 2016</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=voltaicforge&text=First AVR LED blinky http://voltaicforge.com/electronics/first-avr-blinky/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://voltaicforge.com/electronics/first-avr-blinky/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://voltaicforge.com/electronics/first-avr-blinky/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://voltaicforge.com/electronics/first-avr-blinky/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://voltaicforge.com/consumer-electronics/6P-pocketdial-woes/" class="pagination--pager" title="Nexus 6P Pocket Dial woes
+">Previous</a>
+    
+    
+      <a href="http://voltaicforge.com/website/jekyll-responsive-images/" class="pagination--pager" title="Responsive Images in Jekyll
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/Code.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="permalink">Setup pfSense for TPG NBN
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">An adventure of frustration with TPG NBN and the missing VLAN setting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/homebrew_fermenter.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homebrew/homebrewing-again/" rel="permalink">Homebrewing Again
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Beginning a homebrewing journey
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/encrypted_encfs_dropbox.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/dropbox-encfs/" rel="permalink">Setting up Dropbox and encryption in Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">My approach to setting up Dropbox and Encfs in Linux
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/chromium-gnome-banner.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/chromium-gnome-keyring/" rel="permalink">Stop Chromium asking for keyring unlock
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Stopping Chromium asking for gnome-keyring login on launch
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://voltaicforge.com/assets/js/main.min.js"></script>
+
+
+
+
+  
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(101008004);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'voltaicforge';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  </body>
+</html>

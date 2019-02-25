@@ -1,0 +1,522 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Setting up emulators in Steam - VoltaicForge</title>
+
+
+
+
+<meta name="description" content="Installing Ice">
+
+
+
+
+<meta name="author" content="Nat Allan">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="VoltaicForge">
+<meta property="og:title" content="Setting up emulators in Steam">
+
+
+  <link rel="canonical" href="http://voltaicforge.com/guides/steam_emulators/install_ice/">
+  <meta property="og:url" content="http://voltaicforge.com/guides/steam_emulators/install_ice/">
+
+
+
+  <meta property="og:description" content="Installing Ice">
+
+
+
+  <meta name="twitter:site" content="@voltaicforge">
+  <meta name="twitter:title" content="Setting up emulators in Steam">
+  <meta name="twitter:description" content="Installing Ice">
+  <meta name="twitter:url" content="http://voltaicforge.com/guides/steam_emulators/install_ice/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@Nat Allan">
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://voltaicforge.com/assets/images/steam_bigpicutre_retrogaming.png">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-02-25T22:03:25+11:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Nat Allan",
+      "url" : "http://voltaicforge.com",
+      "sameAs" : ["https://twitter.com/voltaicforge"]
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="iK_FoY5mh80PyafnPtAX6YOOtXL8eQ3Z8MqGBnTqK60" />
+
+
+  <meta name="msvalidate.01" content="81692DABF6D3A748A99701D5182C57AB">
+
+
+  <meta name="alexaVerifyID" content="mQysQJJ0XzBFJy5Y0GfkGmRIc_8">
+
+
+  <meta name="yandex-verification" content="41039ce397f24d4e">
+
+<!-- end SEO -->
+
+
+<link href="http://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://voltaicforge.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://voltaicforge.com/">VoltaicForge</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/guides/">Guides</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/about/">About</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://voltaicforge.com/assets/images/steam_bigpicutre_retrogaming.png');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Setting up emulators in Steam
+
+        
+      </h1>
+      
+        <p class="page__lead"><h3 id="installing-ice">Installing Ice</h3>
+
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Steam Emulation Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/premise/" class="">Premise</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/install_emulators/" class="">Install emulators</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/emulator_list/" class="">Emulator list</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/install_ice/" class="active">Install Ice</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/finished/" class="">Finished</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://voltaicforge.com/guides/steam_emulators/reference/" class="">Reference</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Setting up emulators in Steam">
+    <meta itemprop="description" content="Installing Ice">
+    <meta itemprop="datePublished" content="February 25, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <h3 id="installing-ice">Installing Ice</h3>
+
+<aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#installing-ice" id="markdown-toc-installing-ice">Installing Ice</a></li>
+  <li><a href="#customise-ice-config" id="markdown-toc-customise-ice-config">Customise Ice Config</a></li>
+  <li><a href="#copy-roms" id="markdown-toc-copy-roms">Copy ROM’s</a></li>
+  <li><a href="#run-ice" id="markdown-toc-run-ice">Run Ice</a></li>
+  <li><a href="#browse-for-missing-cover-art" id="markdown-toc-browse-for-missing-cover-art">Browse for missing cover art</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>To install <a href="http://scottrice.github.io/Ice/">Ice</a>, we need to download it and extract it into a folder.  I started an ‘Emulation’ folder to store this set up neatly.</p>
+
+<p>Download the zip from the <a href="http://scottrice.github.io/Ice/">Ice</a> Site, or perhaps check out the <a href="https://github.com/scottrice/Ice">Ice Github</a> site for an update.  As of writing the app hadn’t been updated in a number of years, unfortunately, however the old app did fine for the below job.</p>
+
+<p>Extract the zip into <code class="highlighter-rouge">Emulators/Ice</code></p>
+
+<p>We will come back shortly to configure Ice, it will not do anything yet.</p>
+
+<h3 id="customise-ice-config">Customise Ice Config</h3>
+
+<p>There are 3 files to modify in RetroArch.  Note the general way Ice works is to browse your ROM directory, match each game to a console entry, link the required emulator for the console, and build a shortcut into steam based on the parameters for the emulator selected.  It will then create, edit or delete ‘Non-steam shortcuts’ in steam for each game, and also attempt to download cover art.</p>
+
+<p><strong>config.txt</strong></p>
+
+<p>The only thing that really requires editing here is the <code class="highlighter-rouge">ROMs Directory</code> to match the location of your ROM folder.</p>
+
+<p><img src="http://voltaicforge.com/assets/images/Ice_config_txt.gif" alt="Editing the Ice Config" /></p>
+
+<p><strong>emulators.txt</strong></p>
+
+<p>The best way to start a game neatly is by command line, most emulators will take command line arguments to pick the core, ROM, set fullscreen, etc.</p>
+
+<p>For example, to run a RetroArch game now we could use the command line (Win+R, enter ‘cmd’) to run a snes rom by entering:</p>
+
+<p><code class="highlighter-rouge">RetroArch.exe -f -L .\cores\bsnes_balanced_libretro.dll c:\roms\SNES\rom.zip</code></p>
+
+<p>Which would load RetroArch instantly in full screen, load the bsnes emulator for Super Nintendo, and then load the ROM ‘rom.zip’.  RetroArch is happy to run with ROM’s that are in zip files.</p>
+
+<p>Enter a list of your emulators as you set them up.  For this example, let’s add in the bsnes emulator.
+Ensure you change the folder paths to match your Retroarch location.</p>
+
+<p>The command will take the following variables:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>%l = The path of the emulator, given in the location config line.
+%r = The path to the ROM
+</code></pre>
+</div>
+
+<p>Looking the RetroArch documents, we want to pass the <code class="highlighter-rouge">-f</code> argument to launch into fullscreen, the <code class="highlighter-rouge">-L</code> argument with a core path to tell RetroArch which core to emulate the ROM with, and then the ROM itself.  The below will be the entry for this Super Nintendo emulator.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[retroarch_snes]                                                                # name of this emulator setup
+location=D:\Emulation\RetroArch\retroarch.exe                                    # Emulator executable location
+command=%l -f -L d:\Emulation\RetroArch\cores\bsnes_balanced_libretro.dll %r    # Command line to build for steam shortcut
+</code></pre>
+</div>
+
+<p><img src="http://voltaicforge.com/assets/images/Ice_Emulator_config.gif" alt="Editing the Ice emulator config" /></p>
+
+<p>For example, the above setup would instruct Ice to build the following command if it was parsing for a game ROM located in <code class="highlighter-rouge">D:\Emulation\Roms\SNES\SNES_game.zip</code></p>
+
+<p><code class="highlighter-rouge">D:\Emulation\RetroArch\retroarch.exe -f -L d:\Emulation\RetroArch\cores\bsnes_balanced_libretro.dll D:\Emulation\Roms\SNES\SNES_game.zip</code></p>
+
+<p>Repeat the process for all the emulators you’ve installed.  Note the <a href="http://scottrice.github.io/Ice/">Ice</a> site does have some command lines listed for some emulators to help get started.  Each emulator will have a different command line set.</p>
+
+<p><strong>consoles.txt</strong></p>
+
+<p>In this file, we need to list the consoles we want to setup.  Ice will use the details here to create folders within the ROM folder setup in config.txt.  It will also use the names here to link each game to a category in Steam to allow for easy sorting by the console of the game.</p>
+
+<p>This might feel like doubling up as you might think that we could just do it all in one file, but separating the consoles and emulators allows you to link one emulator setup to multiple consoles if the emulator supported it.</p>
+
+<p>Add a block as below for each console you want to setup.  Ensure you get the spelling right and ensure the entry for the emulator is a match for the heading for the emulator you setup in <code class="highlighter-rouge">emulators.txt</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Super Nintendo]            # Title of emulator in Steam
+nickname=SNES                 # Folder name in ROM's folder to scan for this consoles ROM's
+emulator=retroarch_snes        # emulator to link to in emulators.txt that
+extensions=zip                # file extensions to consider a game, separated by a comma 'i.e. zip, sfc'
+</code></pre>
+</div>
+
+<p><img src="http://voltaicforge.com/assets/images/Ice_Console_config.gif" alt="Editing the Ice console config" /></p>
+
+<p class="notice--info">Ensure you have the correct extension listed here, as it is easy to forget to change it.  If you have a .iso game file and you have forgotten to change it from .zip for example, Ice won’t find the game.</p>
+
+<p>We should now have a working Ice setup.</p>
+
+<h3 id="copy-roms">Copy ROM’s</h3>
+
+<p>Now just to select some ROMS and copy them into the correct folders.  I would suggest letting Ice run once as it will create folders in the <code class="highlighter-rouge">Emulation/ROMS/</code> folder for each console you have listed, using the nickname listed for the folder name.</p>
+
+<p>Then copy ROM’s or whichever file type the game dump comes into the correct folder.</p>
+
+<h3 id="run-ice">Run Ice</h3>
+
+<p>Ensure Steam is closed and run Ice and check the text that comes up at the command line for errors.  You should receive a listing that it has detected all the consoles and emulators listed.  It will then comment on linking each individual game that has been found, finally finishing up by downloading cover art.</p>
+
+<p>If anything is missing from the output check the relevant config file.</p>
+
+<p><img src="http://voltaicforge.com/assets/images/Ice_running.gif" alt="Running Ice" /></p>
+
+<p>If it was successful when you open steam you will be greeted with a list of games.</p>
+
+<h3 id="browse-for-missing-cover-art">Browse for missing cover art</h3>
+
+<p>If Ice couldn’t find cover art for your game, you may need to grab some manually.  Find and download a custom one (or even make some and share them back to the community?) at the below links:</p>
+
+<ul>
+  <li>[r/steamgrid][reddit.com/r/SteamGrid]</li>
+  <li>[http://steambanners.booru.org][http://steambanners.booru.org]</li>
+</ul>
+
+<p>The image should be 460x215.  Once downloaded, switch to grid view in Steam, Right click and select <code class="highlighter-rouge">Set custom image</code>.  Browse to the location of the custom image and select it.</p>
+
+<p class="notice--info">You may need to change from <code class="highlighter-rouge">.jpeg</code> to <code class="highlighter-rouge">.png</code> depending on your file type in the file selection dialogue.</p>
+
+<p><img src="http://voltaicforge.com/assets/images/Setting_custom_image_steam.gif" alt="Setting custom image art steam" /></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-02-25T22:03:25+11:00">February 25, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="http://voltaicforge.com/guides/steam_emulators/emulator_list/" class="pagination--pager" title="Setting up emulators in Steam
+">Previous</a>
+    
+    
+      <a href="http://voltaicforge.com/guides/steam_emulators/finished/" class="pagination--pager" title="Finishing up the install
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://voltaicforge.com/assets/js/main.min.js"></script>
+
+
+
+
+  
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(101008004);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+
+
+
+
+
+
+  </body>
+</html>

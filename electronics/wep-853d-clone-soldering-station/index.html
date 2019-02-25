@@ -1,0 +1,745 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>W.E.P 853d clone soldering station - VoltaicForge</title>
+
+
+
+
+<meta name="description" content="A review and teardown of a temperature controlled, cheap chineese clone soldering/hot air rework station">
+
+
+
+
+<meta name="author" content="Nat Allan">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="VoltaicForge">
+<meta property="og:title" content="W.E.P 853d clone soldering station">
+
+
+  <link rel="canonical" href="http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/">
+  <meta property="og:url" content="http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/">
+
+
+
+  <meta property="og:description" content="A review and teardown of a temperature controlled, cheap chineese clone soldering/hot air rework station">
+
+
+
+  <meta name="twitter:site" content="@voltaicforge">
+  <meta name="twitter:title" content="W.E.P 853d clone soldering station">
+  <meta name="twitter:description" content="A review and teardown of a temperature controlled, cheap chineese clone soldering/hot air rework station">
+  <meta name="twitter:url" content="http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://voltaicforge.com/assets/images/wep_853d_overview.jpg">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@Nat Allan">
+  
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="http://voltaicforge.com/assets/images/wep_853d_overview.jpg">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-04-25T00:00:00+10:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Nat Allan",
+      "url" : "http://voltaicforge.com",
+      "sameAs" : ["https://twitter.com/voltaicforge"]
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="iK_FoY5mh80PyafnPtAX6YOOtXL8eQ3Z8MqGBnTqK60" />
+
+
+  <meta name="msvalidate.01" content="81692DABF6D3A748A99701D5182C57AB">
+
+
+  <meta name="alexaVerifyID" content="mQysQJJ0XzBFJy5Y0GfkGmRIc_8">
+
+
+  <meta name="yandex-verification" content="41039ce397f24d4e">
+
+<!-- end SEO -->
+
+
+<link href="http://voltaicforge.com/feed.xml" type="application/atom+xml" rel="alternate" title="VoltaicForge Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://voltaicforge.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://voltaicforge.com/">VoltaicForge</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/guides/">Guides</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://voltaicforge.com/about/">About</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://voltaicforge.com/assets/images/wep_853d_overview.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          W.E.P 853d clone soldering station
+
+        
+      </h1>
+      
+        <p class="page__lead">A review and teardown of a temperature controlled, cheap chineese clone soldering/hot air rework station
+</p>
+      
+      
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://voltaicforge.com/assets/images/profile.jpg" class="author__avatar" alt="Nat Allan" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Nat Allan</h3>
+    
+      <p class="author__bio" itemprop="description">
+        Analogue at birth, digital by design
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Victoria, Melbourne</span>
+        </li>
+      
+
+      
+        <li>
+          <a href="http://voltaicforge.com" itemprop="url">
+            <i class="fa fa-fw fa-chain" aria-hidden="true"></i> Website
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/voltaicforge" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="W.E.P 853d clone soldering station">
+    <meta itemprop="description" content="A review and teardown of a temperature controlled, cheap chineese clone soldering/hot air rework station">
+    <meta itemprop="datePublished" content="April 25, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+<h2 id="time-for-a-upgrade-from-cheap-solder-pen-to-cheap-solder-station">Time for a upgrade, from cheap solder pen to.. cheap solder station.</h2>
+
+<p>After living with a old non-temperature controlled soldering iron for years I decided it was time to upgrade.  I had been using a Goot PX232 for a long time, and before that some Jaycar $15 iron that was only just passable as a soldering iron.</p>
+
+<p>Now, despite the fact I <em>should</em> be getting a decent brand, I decided to try a cheap eBay clone.  I found a &#8216;W.E.P 853D Soldering Station/Hot Air Gun/DC Power supply&#8217; on eBay, within Australia.  Few days later I have it in my grubby hands.</p>
+
+<p>Ive been perfectly happy with the operation.  Ive had it now for a few months with no issues.</p>
+
+<p>The soldering iron has tips that fit over the cartridge so it heats up quite nicely.  It comes with a large variety of tips (conical, chisel, wedge) and sizes.  The iron holder is pretty lousy and the tip will hit the rear of the case and lean against it.  I&#8217;ve continued to use my old iron holder due to this.   Its such a relief to be using decent bits now after struggling along with conical for so long.</p>
+
+<p>The iron heats up to 300&deg; C within 47 seconds, so on that side its not so great unfortunatly.</p>
+
+<p>The hot air gun performs well and heats up in seconds.  It only operates when removed from its cradle (suspecting reed switch or similar) and heats up in about 4-5 seconds to 250&deg;C.  I used it to repair my <a href="http://127.0.0.1:4000/electronics/s4-soft-button-repair/">Samsung Galaxy S4 Repair</a> that had broken soft keys in a recent firmware update and it worked well.  It was so much better than my old method of using a paint stripper as a reflow tool.
+The hotair gun comes with a few tips to have wider/smaller airflow.</p>
+
+<p>The power supply I only used a little bit but it was accurate to its displayed measurements.  I havent had much experience at measuring power supply ripple so will skip that for now, but I cant say ive noticed or seen much ripple on my oscilloscope.</p>
+
+<h2 id="teardown">Teardown</h2>
+
+<p>Finially, thats out of the way!  I had to have a look see inside - would it be complete cheap Shenzhen market garbage?  Or would it be somewhat passable?  More importantly, was it a Yihua station with a different name like I suspected?</p>
+
+<p class="text-center"><a href="/assets/images/wep_853d_overview.jpg"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_overview-1200by795-4caa03.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_overview-900by596-4caa03.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_overview-600by397-4caa03.jpg" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_overview-1200by795-4caa03.jpg" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_overview-900by596-4caa03.jpg" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_overview-600by397-4caa03.jpg" />
+    <img src="http://voltaicforge.com/assets/images/resize/wep_853d_overview-600by397-4caa03.jpg" alt="WEP 853D soldering station view from front" title="WEP 853D soldering station view from front" />
+  </picture>
+</a></p>
+
+<p>Presentation was quite nice.  I much prefer the black and gold to the gawdy blue and yellow others have.  Buttons have a nice tactile feel to them and knobs are firmly stuck on and feel OK considering.  LCD is clear and bright.</p>
+
+<p class="text-center"><a href="/assets/images/wep_853d_power.jpg"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_power-1200by795-cf642d.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_power-900by596-cf642d.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_power-600by397-cf642d.jpg" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_power-1200by795-cf642d.jpg" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_power-900by596-cf642d.jpg" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_power-600by397-cf642d.jpg" />
+    <img src="http://voltaicforge.com/assets/images/resize/wep_853d_power-600by397-cf642d.jpg" alt="WEP 853D soldering station transformer internal section" title="WEP 853D soldering station transformer internal section" />
+  </picture>
+</a></p>
+
+<p>I wont profress to be any good at a teardown, but the transformer seemed OK, earthed down to chassis with decent connectors.  Power transistor is well secured (housed on the rear of the chassis).  I know people have concerns about cheap chineese equipment such as this being a fire hazard - but I didnt see anything that concerned me.  Ive seen worse build quality from gear built in better countries and companies that was worse.</p>
+
+<p class="text-center"><a href="/assets/images/wep_853d_mid.jpg"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_mid-795by1200-fa9a89.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_mid-795by1200-fa9a89.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_mid-600by906-fa9a89.jpg" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_mid-795by1200-fa9a89.jpg" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_mid-795by1200-fa9a89.jpg" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_mid-600by906-fa9a89.jpg" />
+    <img src="http://voltaicforge.com/assets/images/resize/wep_853d_mid-600by906-fa9a89.jpg" alt="WEP 853D soldering station mid section PC" title="WEP 853D soldering station mid section PC" />
+  </picture>
+</a></p>
+
+<p>PCB in the middle of the boad hosts some triacs, bridge rectifier, MMOC3041 optocouplers, and various passives.  Caps are noname (<a href="http://www.jiaweicheng.com/EN">Jwco</a>) garbage, but at least the triacs have heat sinks.  A single LM723 voltage regular sits on the board.  Soldering seemed perfecly fine, looks wave soldered (or at least reflowed)</p>
+
+<p class="text-center"><a href="/assets/images/wep_853d_frontpanel.jpg"><picture>
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-1200by795-21eed8.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-900by596-21eed8.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 40em) and (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-600by397-21eed8.jpg" media="(min-width: 40em)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-1200by795-21eed8.jpg" media="(-webkit-min-device-pixel-ratio: 2.0), (min-resolution: 192dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-900by596-21eed8.jpg" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)" />
+    <source srcset="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-600by397-21eed8.jpg" />
+    <img src="http://voltaicforge.com/assets/images/resize/wep_853d_frontpanel-600by397-21eed8.jpg" alt="WEP 853D soldering station mid section PCB" title="WEP 853D soldering station mid section PCB" />
+  </picture>
+</a></p>
+
+<p>The control panel has two S3F94C4EZZ MCU&#8217;s and two LED display drivers (TM1620 &amp; TM1628).  Cant determine the manufacture for the MCU&#8217;s, I get either a Samsung or Zilog part - I&#8217;ll leave you to guess which I think is the more likely manufacturer.  Not much else happening there, soldering continues to look fine.  I cant see any post-production fixes or anything untoward dodgy - if I had been given the photos to look at without knowing where it came from it would look visually OK to me.</p>
+
+<p>But wait a minute here - the control PCB has a silk-screen designator of &#8216;YH852DV5A&#8217;.  Clearly the same control board as the Yihua model.  After some googling I found an <a href="eevblogpost">EEVBlog post</a> regarding the Yihua which showed a photo with a identical control board, but what to me looked like a significantly worse power board.</p>
+
+<p>In the meantime, whilst I wait to see if Shenzhen lets me down again I will continue to enjoy my nifty little soldering station.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/tags/#review" class="page__taxonomy-item" rel="tag">review</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://voltaicforge.com/tags/#teardown" class="page__taxonomy-item" rel="tag">teardown</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://voltaicforge.com/categories/#electronics" class="page__taxonomy-item" rel="tag">Electronics</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-04-25T00:00:00+10:00">April 25, 2016</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=voltaicforge&text=W.E.P 853d clone soldering station http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://voltaicforge.com/electronics/wep-853d-clone-soldering-station/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://voltaicforge.com/electronics/lcd-haul/" class="pagination--pager" title="LCD Haul
+">Previous</a>
+    
+    
+      <a href="http://voltaicforge.com/software/SSH-Terminal-In-Notepadpp/" class="pagination--pager" title="Docking a PuTTY window into Notepad++
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/Code.jpg"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/" rel="permalink">Setup pfSense for TPG NBN
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">An adventure of frustration with TPG NBN and the missing VLAN setting
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/homebrew_fermenter.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/homebrew/homebrewing-again/" rel="permalink">Homebrewing Again
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Beginning a homebrewing journey
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/encrypted_encfs_dropbox.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/dropbox-encfs/" rel="permalink">Setting up Dropbox and encryption in Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">My approach to setting up Dropbox and Encfs in Linux
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "http://voltaicforge.com/assets/images/chromium-gnome-banner.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://voltaicforge.com/games/chromium-gnome-keyring/" rel="permalink">Stop Chromium asking for keyring unlock
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Stopping Chromium asking for gnome-keyring login on launch
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/voltaicforge"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/voltaicforge"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://voltaicforge.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Nat Allan. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://voltaicforge.com/assets/js/main.min.js"></script>
+
+
+
+
+  
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(101008004);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101008004ns.gif" /></p></noscript>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'voltaicforge';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  </body>
+</html>

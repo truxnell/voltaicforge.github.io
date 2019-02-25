@@ -6,7 +6,6 @@ header:
     overlay_filter: 0.5
     overlay_image: /assets/images/profile.jpg
 ---
-{% include base_path %}
 ## .. the site
 
 A website for me to post progress on my projects, reviews, teardowns and whatever else takes my fancy in the realm of computers and electronics.  I've wanted to get a website up for my hobby projects for a while, and having found the ideal platform to write its time to do it!

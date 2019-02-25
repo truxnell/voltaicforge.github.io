@@ -25,7 +25,7 @@ I’m actually struggling a bit to find decent tutorials for MCU programming (I 
 **Note:** The Atmel-ICE datasheet nicely doesn’t include the direction of the tab in the user guide. The pinout on the user guide doesn’t include the tab on the 6-pin connector. I have added it to the datasheet image below - the tabbed connector is on the side of MISO, SCK and RESET (for SPI programming)
 {: .notice--info}
 
-   
+
 {% capture imagesrc %}ateml_ice_SPI_pinout_clarified.png{% endcapture %}
 {% capture imagetitle %}Pinout of Ateml-ICE SPI 6 pin wire clarified with tab connector{% endcapture %}
 <a href="/assets/images/{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>

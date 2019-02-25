@@ -12,12 +12,10 @@ tags:
    - teardown
    - review
 ---
-{% include base_path %}
-
 ## Time for a upgrade, from cheap solder pen to.. cheap solder station. 
 
 After living with a old non-temperature controlled soldering iron for years I decided it was time to upgrade.  I had been using a Goot PX232 for a long time, and before that some Jaycar $15 iron that was only just passable as a soldering iron.
- 
+
 Now, despite the fact I _should_ be getting a decent brand, I decided to try a cheap eBay clone.  I found a 'W.E.P 853D Soldering Station/Hot Air Gun/DC Power supply' on eBay, within Australia.  Few days later I have it in my grubby hands.
 
 Ive been perfectly happy with the operation.  Ive had it now for a few months with no issues.  
@@ -34,7 +32,7 @@ The power supply I only used a little bit but it was accurate to its displayed m
 ## Teardown
 
 Finially, thats out of the way!  I had to have a look see inside - would it be complete cheap Shenzhen market garbage?  Or would it be somewhat passable?  More importantly, was it a Yihua station with a different name like I suspected?
- 
+
 {% capture imagesrc %}wep_853d_overview.jpg{% endcapture %}
 {% capture imagetitle %}WEP 853D soldering station view from front{% endcapture %}
 <a href="/assets/images/{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>

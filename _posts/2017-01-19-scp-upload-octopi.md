@@ -11,7 +11,7 @@ tags:
    - octoprint
 
 ---
-{% include base_path %}
+
 
 ## Uploading automatically to Octoprint via bash & scp
 

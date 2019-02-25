@@ -1,0 +1,68 @@
+# main links
+main:
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+  - title: "Posts"
+    url: /year-archive/
+  - title: "Projects"
+    url: /projects/
+  - title: "Guides"
+    url: /guides/
+  - title: "About"
+    url: /about/
+  
+dnd:
+  - title: "Morath's Journal"
+    children:
+      - title: "The Empty Village"
+        url: /projects/dnd/The_Empty_Village/
+      - title: "The Defence of Goldenfields"
+        url: /projects/dnd/The_Defence_of_Goldenfields/
+      - title: "The Friendly Dragon"
+        url: /projects/dnd/The_Friendly_Dragon/
+      - title: "The Construct Piece"
+        url: /projects/dnd/The_Construct_Piece/      
+      - title: "The Undead Among You"
+        url: /projects/dnd/The_Undead_Among_You/
+      - title: "The Grandfather Tree"
+        url: /projects/dnd/The_Grandfather_Tree
+      - title: "Wizards and Teleporters"
+        url: /projects/dnd/Wizards_and_Teleporters/
+      - title: "The Oracle"
+        url: /projects/dnd/The_Oracle/
+      - title: "The Twin Dragons"
+        url: /projects/dnd/The_Twin_Dragons/
+      - title: "Gluttony"
+        url: /projects/dnd/Gluttony/
+      - title: "Betrayal At Deadstone"
+        url: /projects/dnd/Betrayal_at_Deadstone/
+      - title: "Frosty Welcome"
+        url: /projects/dnd/Frosty_Welcome/
+      - title: "Home"
+        url: /projects/dnd/Home/
+      - title: "Hislen"
+        url: /projects/dnd/Hislen/
+      - title: "Duke and Countess"
+        url: /projects/dnd/Duke_and_Countess/
+      - title: "Processus"
+        url: /projects/dnd/Current/
+
+steam_emulators:
+    - title: "Steam Emulation Guide"
+      children:
+        - title: "Premise"
+          url: /guides/steam_emulators/premise/
+        - title: "Install emulators"
+          url: /guides/steam_emulators/install_emulators/
+        - title: "Emulator list"
+          url: /guides/steam_emulators/emulator_list/
+        - title: "Install Ice"
+          url: /guides/steam_emulators/install_ice/
+        - title: "Finished"
+          url: /guides/steam_emulators/finished/
+        - title: "Reference"
+          url: /guides/steam_emulators/reference/

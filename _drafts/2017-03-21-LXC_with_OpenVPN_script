@@ -1,0 +1,18 @@
+
+https://github.com/qbwaggle/vpnkillswitch/wiki/OpenVPN-with-PIA-VPN
+
+### Apt-cacher-ng
+
+http://xmodulo.com/apt-caching-server-ubuntu-debian.html
+
+apt-get install apt-cacher-ng
+
+edit config!
+
+bind address + port 
+
+
+openvpn
+
+https://helpdesk.privateinternetaccess.com/hc/en-us/articles/219438247-Installing-OpenVPN-PIA-on-Linux
+

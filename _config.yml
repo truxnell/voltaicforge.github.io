@@ -6,14 +6,14 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "en"
+locale                   : "en-GB"
 title                    : "VoltaicForge"
-title_separator          : "-"
+title_separator          : "|"
 name                     : "Nat Allan"
 description              : "A personal website for my hobby projects"
 url                      : https://voltaicforge.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : voltaicforge/voltaicforge.github.io# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 #breadcrumbs            : true  # true, false (default)
 words_per_minute         : 200
@@ -71,9 +71,10 @@ social:
     - "https://twitter.com/voltaicforge"
 # Analytics
 analytics:
-  provider               : "custom" # false (default), "google", "google-universal", "custom"
-# google:
-# tracking_id          :
+  provider             : "google" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id: "UA-77173080-1"
+    anonymize_ip: false #default
 
 
 # Site Author
@@ -185,15 +186,6 @@ gems:
   - jekyll-feed
   - jemoji
   - jekyll-picture-tag
-
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-
 
 # Archives
 #  Type
@@ -315,7 +307,7 @@ defaults:
       read_time: false
       author_profile: false
       share: false
-      comments: false
+      comments: true
       sidebar:
         nav: "steam_emulators"
 

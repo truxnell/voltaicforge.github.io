@@ -4,6 +4,7 @@ permalink: /guides/steam_emulators/install_ice/
 header:
     overlay_filter: 0.5
     overlay_image: /assets/images/steam_bigpicutre_retrogaming.png
+comments:true
 ---
 
 ### Installing Ice
@@ -19,7 +20,7 @@ Extract the zip into `Emulators/Ice`
 We will come back shortly to configure Ice, it will not do anything yet.
 
 
- 
+
 ### Customise Ice Config
 
 There are 3 files to modify in RetroArch.  Note the general way Ice works is to browse your ROM directory, match each game to a console entry, link the required emulator for the console, and build a shortcut into steam based on the parameters for the emulator selected.  It will then create, edit or delete 'Non-steam shortcuts' in steam for each game, and also attempt to download cover art.

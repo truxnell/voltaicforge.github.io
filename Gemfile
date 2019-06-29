@@ -17,10 +17,10 @@ gem "minimal-mistakes-jekyll"
 gem "jekyll-picture-tag"
 
 #added these because of a html-pipeline message
-gem "github-linguist"
-gem "rinku"
-gem "RedCloth"
-gem "sanitize"
+#gem "github-linguist"
+#gem "rinku"
+#gem "RedCloth"
+#gem "sanitize"
 gem "jekyll-sitemap"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and

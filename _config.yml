@@ -14,9 +14,11 @@ description: "A personal website for my hobby projects"
 url: https://voltaicforge.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: "" # the subpath of your site, e.g. "/blog"
 repository: voltaicforge/voltaicforge.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser: /assets/images/screeps_code.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 #breadcrumbs            : true  # true, false (default)
 words_per_minute: 200
+logo: mstile-70x70.png
+search: true
 
 comments:
   provider: disqus # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"

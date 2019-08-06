@@ -21,5 +21,5 @@ Check it out [here]({% link _ordbot/ordbot.md %})
 
 {% capture imagesrc %}ordbot_r2.jpg{% endcapture %}
 {% capture imagetitle %}Ordbot Rev 2{% endcapture %}
-<a href="{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>
+<a href="/assets/images/{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>
 {: .text-center}

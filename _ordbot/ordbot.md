@@ -60,14 +60,14 @@ That said, after plenty of tuning, fiddling with the Marlin firmware, etc... I w
 
 {% capture imagesrc %}ordbot_benchy.jpg{% endcapture %}
 {% capture imagetitle %}Ordbot 3d print{% endcapture %}
-<a href="{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>
+<a href="/assets/images/{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>
 {: .text-center}
 
 It got some decent use - such as the 80 sculpture peices I did for a friend's wedding, as well as the love heart train carts I did for my step-daughters birthday, so during the arts and crafts activities we could have a moving train delivering the glitter and pens to everyone.
 
 {% capture imagesrc %}ordbot_love_carriages.jpg{% endcapture %}
 {% capture imagetitle %}Ordbot 3d print{% endcapture %}
-<a href="{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>
+<a href="/assets/images/{{ imagesrc }}">{% picture post_landscape {{ imagesrc }} alt="{{ imagetitle }}" title="{{ imagetitle }}" %}</a>
 {: .text-center}
 
 However, with the arrival of the Prusa MK3s in the household, it is now fully dismantled, awaiting its upgrade to Rev3.

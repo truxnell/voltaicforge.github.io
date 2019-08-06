@@ -253,7 +253,7 @@ collections:
     layout:
   ordbot:
     title: "Ordbot Hadron build"
-    excerpt: "Some pictures and commantary on the lsat 6 years of the ordbot"
+    excerpt: "Some pictures and commantary on the last 6 years of the ordbot"
     url: "/projects/ordbot/"
     type: project
     header:

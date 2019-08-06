@@ -3,7 +3,7 @@ title: "Ordbot"
 permalink: /projects/ordbot/
 header:
   overlay_filter: 0.5
-  overlay_image: /assets/images/ordbot.jpg
+  overlay_image: /assets/images/ordbot_r2.jpg
 ---
 
 # Ordbod Hardon build

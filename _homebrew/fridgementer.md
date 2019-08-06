@@ -60,6 +60,7 @@ To do this, ensure the SD card with your fresh copy of Raspbian is plugged in an
 In this file, enter the following lines, ensuring to replace the `ssid` and `psk` variables with your own Wifi's SSID and WPA password.
 
 *wpa_supplicant.conf*
+
 ```
 network={
     ssid="SSID"
@@ -67,6 +68,7 @@ network={
     key_mgmt=WPA-PSK
 }
 ```
+
 ## Enable SSH
 
 Currently, SSH is disabled by default on a fresh Raspbian install, which is a good security measure.  However, we will want this enabled to connect to our headless device.

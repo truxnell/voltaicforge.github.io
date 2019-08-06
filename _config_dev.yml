@@ -1,0 +1,10 @@
+# _config_dev.yml - Dev environment configs and overrides
+
+show_drafts: true
+
+# Accepts connections on port 4000 from any source
+host: 0.0.0.0
+port: 4000
+
+# Change URL
+url: http://192.168.2.200:4000

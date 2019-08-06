@@ -3,92 +3,92 @@ var store = [{
         "excerpt":"Tirdas, 14th Second Seed Just arrived at Nightstone. Been 3 days since I left Waterdeep with a bunch of ragtag ‘adventures’ that had been milling around Waterdeep that seem to be heading the same way. Joined a caravan as protection heading that way, some extra swords on the trip doesn’t...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Empty_Village/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Defence of Goldenfields",
         "excerpt":"Fredas, 17th Second Seed Writing this before setting off again immediately for Goldenfields. We’ve ridden our mounts hard through the night to Waterdeep with no interruptions. Headed straight to the spires of the morning to try and get a message sent to the town in advance. Renald was tremendous assistance...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Defence_of_Goldenfields/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Friendly Dragon",
         "excerpt":"21st Elint, the Star Walker’s Return We all rested up at the Inn shortly after the fight. We had a quick, light meal upon waking to not spoil ourselves for the feast. Once we left, John went to talk to Lifferlas, who had indicated he wished to talk to the...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Friendly_Dragon/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Construct Piece",
         "excerpt":"30th Elint, the Star Walkers Return This evening we’ve arrived in Triboar, after leaving Westbridge in the morning. Its a larger town than the last few we’ve been through of late, around two thousand or so people here I think. We have gotten rooms in one of the inns in...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Construct_Piece/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Undead Among You",
         "excerpt":"3rd Marpenoth, the Star Walkers Return (continued) Its been an uneventful day of sailing so far. We saw some fishermen getting catfish and crabs but that’s about all that can be told today. We expect to reach Yatar tomorrow sometime. Lilli’s decided to claim the only cabin on the boat,...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Undead_Among_You/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Grandfather Tree",
         "excerpt":"9th Marpenoth, the Star Walkers Return (Continued) We left the next morning by boat again, leaving behind the acursed town of Nonar’s Hold behind us in our wake, continuing down the Dessarin River due East. It was a quiet day of sailing until late in the day, where we found...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Grandfather_Tree/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Wizards and Teleporters",
         "excerpt":"13th Marpenoth, the Star Walkers Return We’ve struck out today for the edge of the forest closest to Everlund. Tharra tells us she has a plan to get us there quicker than we would expect but plays coy on how she plans to do so. It just requires us to...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Wizards_and_Teleporters/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Oracle",
         "excerpt":"22th Marpenoth, the Star Walkers Return We reached the pass we were aiming to take not an hour into the next morning. The pass led into the mountain’s terrain that was the spine of the world, becoming white as it leads up into the higher terrain. Anyone coming here without...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Oracle/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "The Twin Dragons",
         "excerpt":"25th Marpenoth, the Star Walkers Return After a rest before heading out, we exited the temple planning to head out looking for the Great Worm tribe. Instead, we were confronted with a weird floating ship in the sky. It was unlike anything I’d seen, it looked like a ship, complete...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/The_Twin_Dragons/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Gluttony",
         "excerpt":"2nd Uktar, the Star Walkers Return Lilli was up and over the edge of the ship and started running as fast as she could, running straight towards the ship we had just left. She must have been looking for cover from the skies. I started moving, encouraging the others to...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Gluttony/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Betrayal at Deadstone",
         "excerpt":"9th – 10th Uktar, the Star Walkers Return We returned to Goldenfields early the next morning having traveled through the night to reach our destination. Goldenfields was amenable to receiving the Grudd Haug refugees, which was a relief. Zi was most interest to find out about what had taken place...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Betrayal_at_Deadstone/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Frosty Welcome",
         "excerpt":"15th - 19th Uktar, the Star Walkers Return We arrived at Loudwater shortly before Lathanders holy hour of dawn and dropped off Alister at this clock shop. He had a shop with a huge selection of clocks, which instantly attracted the attention of the now healed Lilli, who excitedly bounced...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Frosty_Welcome/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Home",
         "excerpt":"23rd Uktar the Star Walkers Return I awoke to find myself standing at the bottom of a hillside. Looking up, I could see the form of Lathander at the summit of the hill, dressed in full battle armour, his cape billowing behind him. Light streamed down from behind him, and...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Home/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Hislen",
         "excerpt":"2nd Nightal, The Star Walkers Return (Continued) We headed to the village of Bleeding Vines, probably around ninety miles West of Nine Oaks. Meadow and Osrin had overheard our conversation about searching for Gauntlgrym, and had pointed us in this direction. We found our person, Ivan Bouldershoulder, at a winery...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Hislen/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Duke and Countess",
         "excerpt":"3rd Nightall - 5th Nightall, The Star Walkers Return We traveled uneventfully on our trip from Gayntlgrym to the lair of the Fire Giants, located near the Citadels to the North East. The days have not stemmed the range of emotion that I have felt since taking the life of...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Duke_and_Countess/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Processus",
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/dnd/Current/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Fridgementer",
         "excerpt":"Why a fermenter fridge? I always wanted to build a fermenter fridge for my homebrewing. I brewed for nearly 2 years, with a variety of methods for controlling the temperature of the fermenting wort that weren’t great. Beer fermenter are usually big plastic buckets which hold 10-23 liters of ready...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/homebrew/fridgementer/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Ordbot",
         "excerpt":"Ordbod Hardon build I build my Ordbot back in December 2012, having been inerested in 3D printing for a few years. I liked the concept of the original Reprap’s, but to be honest I was a little put of by how fragile they looked, and I had some concerns about...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/projects/ordbot/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "New Site",
         "excerpt":"New Site hits the Internet Finally found the inspiration to build a nice personal site. I’ve been toying with Wordpress for some time, but it’s quite bloated for a nice basic site. And then there’s the security hassles, addons, database setup, theme setup, etc, etc. It’s so far beyond what...","categories": ["Website"],
         "tags": ["website","Jekyll","Github_Pages","Projects"],
@@ -189,33 +189,38 @@ var store = [{
         "tags": ["homelab","TPG","NBN","VLAN"],
         "url": "https://voltaicforge.com/homelab/setup-pfsense-for-tpg-nbn/",
         "teaser":"https://voltaicforge.com/assets/images/Code.jpg"},{
+        "title": "Ordbot Project added",
+        "excerpt":"Ordbot project I have written a short post on the build and history of my Ordbot Hadrod 3d printer. It’s currently in pieces awaiting a complete overhaul after 6 years of service, which seemed like a good time to finially get around to putting up some posts on it. Check...","categories": ["3DPrinting"],
+        "tags": ["Ordbot"],
+        "url": "https://voltaicforge.com/3dprinting/ordbot-project/",
+        "teaser":"https://voltaicforge.com/assets/images/ordbot_r2.jpg"},{
         "title": "Setting up emulators in Steam",
         "excerpt":"Premise I have setup my main television at home to be an all-in-one entertainment solution. It has Youtube, Plex, and live TV, which covers 99% of my viewing needs. To round this out, I’ve set up a Steam Link to run my games from my gaming PC. This is an...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/premise/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Setting up emulators in Steam",
         "excerpt":"Installing Emulators Installing Emulators is the fun part, and beyond the scope of this guide to explain how to setup every single emulator. I will need to preface here by saying that you will need to read the emulator’s documentation/guides/forum posts if you need further assistance per emulator. You will...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/install_emulators/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Setting up emulators in Steam",
         "excerpt":"Emulator list Note, this is only a guide for some suggestions - there is a selection of emulators and your favourite game may work better in a less popular emulator. Don’t feel bound by this list. Console Emulator Command Arguments NES RetroArch (nestopia UE core) -f -L d:\\Emulation\\RetroArch\\cores\\nestopia_libretro.dll %r SNES...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/emulator_list/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Setting up emulators in Steam",
         "excerpt":"Installing Ice On This Page Installing Ice Customise Ice Config Copy ROM’s Run Ice Browse for missing cover art To install Ice, we need to download it and extract it into a folder. I started an ‘Emulation’ folder to store this set up neatly. Download the zip from the Ice...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/install_ice/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Finishing up the install",
         "excerpt":"Setup for steam controller. If you have a steam controller, you may need to setup a custom profile for the emulator. Then, when you enter each game for the first time you will need to set the profile, else steam will send the wrong button commands and you will get…...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/finished/",
-        "teaser":null},{
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Reference",
         "excerpt":"My config files   Below are gists of my config files for your reference.   config.txt  400: Invalid request    emulators.txt  400: Invalid request    consoles.txt  400: Invalid request    ","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/reference/",
-        "teaser":null}]
+        "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"}]

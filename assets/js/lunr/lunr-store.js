@@ -84,6 +84,11 @@ var store = [{
         "tags": [],
         "url": "https://voltaicforge.com/projects/homebrew/fridgementer/",
         "teaser":null},{
+        "title": "Ordbot",
+        "excerpt":"Ordbod Hardon build I build my Ordbot back in December 2012, having been inerested in 3D printing for a few years. I liked the concept of the original Reprap’s, but to be honest I was a little put of by how fragile they looked, and I had some concerns about...","categories": [],
+        "tags": [],
+        "url": "https://voltaicforge.com/projects/ordbot/",
+        "teaser":null},{
         "title": "New Site",
         "excerpt":"New Site hits the Internet Finally found the inspiration to build a nice personal site. I’ve been toying with Wordpress for some time, but it’s quite bloated for a nice basic site. And then there’s the security hassles, addons, database setup, theme setup, etc, etc. It’s so far beyond what...","categories": ["Website"],
         "tags": ["website","Jekyll","Github_Pages","Projects"],

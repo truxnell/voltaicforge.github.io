@@ -2,7 +2,7 @@ language: ruby
 cache: bundler
 branches:
   only:
-  - release
+    - release
 script:
   - JEKYLL_ENV=production bundle exec jekyll build --destination site
 deploy:
@@ -16,3 +16,11 @@ deploy:
   keep-history: true
   on:
     branch: release
+after_success:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL

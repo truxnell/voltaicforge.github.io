@@ -43,7 +43,7 @@
 
 
 
-  <meta property="article:published_time" content="2019-08-06T17:56:03+10:00">
+  <meta property="article:published_time" content="2019-08-08T11:39:38+10:00">
 
 
 
@@ -313,7 +313,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Setting up emulators in Steam">
     <meta itemprop="description" content="Installing Ice">
-    <meta itemprop="datePublished" content="August 06, 2019">
+    <meta itemprop="datePublished" content="August 08, 2019">
     
 
     <div class="page__inner-wrap">
@@ -321,25 +321,24 @@
 
       <section class="page__content" itemprop="text">
         
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-cog"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#installing-ice">Installing Ice</a></li>
+  <li><a href="#customise-ice-config">Customise Ice Config</a></li>
+  <li><a href="#copy-roms">Copy ROM’s</a></li>
+  <li><a href="#run-ice">Run Ice</a></li>
+  <li><a href="#browse-for-missing-cover-art">Browse for missing cover art</a></li>
+</ul>
+            </nav>
+          </aside>
+        
         <h3 id="installing-ice">Installing Ice</h3>
 
-<aside class="sidebar__right">
-<nav class="toc">
-    <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-<ul class="toc__menu" id="markdown-toc">
-  <li><a href="#installing-ice" id="markdown-toc-installing-ice">Installing Ice</a></li>
-  <li><a href="#customise-ice-config" id="markdown-toc-customise-ice-config">Customise Ice Config</a></li>
-  <li><a href="#copy-roms" id="markdown-toc-copy-roms">Copy ROM’s</a></li>
-  <li><a href="#run-ice" id="markdown-toc-run-ice">Run Ice</a></li>
-  <li><a href="#browse-for-missing-cover-art" id="markdown-toc-browse-for-missing-cover-art">Browse for missing cover art</a></li>
-</ul>
+<p>To install <a href="http://scottrice.github.io/Ice/">Ice</a>, we need to download it and extract it into a folder. I started an ‘Emulation’ folder to store this set up neatly.</p>
 
-  </nav>
-</aside>
-
-<p>To install <a href="http://scottrice.github.io/Ice/">Ice</a>, we need to download it and extract it into a folder.  I started an ‘Emulation’ folder to store this set up neatly.</p>
-
-<p>Download the zip from the <a href="http://scottrice.github.io/Ice/">Ice</a> Site, or perhaps check out the <a href="https://github.com/scottrice/Ice">Ice Github</a> site for an update.  As of writing the app hadn’t been updated in a number of years, unfortunately, however the old app did fine for the below job.</p>
+<p>Download the zip from the <a href="http://scottrice.github.io/Ice/">Ice</a> Site, or perhaps check out the <a href="https://github.com/scottrice/Ice">Ice Github</a> site for an update. As of writing the app hadn’t been updated in a number of years, unfortunately, however the old app did fine for the below job.</p>
 
 <p>Extract the zip into <code class="highlighter-rouge">Emulators/Ice</code></p>
 
@@ -347,7 +346,7 @@
 
 <h3 id="customise-ice-config">Customise Ice Config</h3>
 
-<p>There are 3 files to modify in RetroArch.  Note the general way Ice works is to browse your ROM directory, match each game to a console entry, link the required emulator for the console, and build a shortcut into steam based on the parameters for the emulator selected.  It will then create, edit or delete ‘Non-steam shortcuts’ in steam for each game, and also attempt to download cover art.</p>
+<p>There are 3 files to modify in RetroArch. Note the general way Ice works is to browse your ROM directory, match each game to a console entry, link the required emulator for the console, and build a shortcut into steam based on the parameters for the emulator selected. It will then create, edit or delete ‘Non-steam shortcuts’ in steam for each game, and also attempt to download cover art.</p>
 
 <p><strong>config.txt</strong></p>
 
@@ -363,9 +362,9 @@
 
 <p><code class="highlighter-rouge">RetroArch.exe -f -L .\cores\bsnes_balanced_libretro.dll c:\roms\SNES\rom.zip</code></p>
 
-<p>Which would load RetroArch instantly in full screen, load the bsnes emulator for Super Nintendo, and then load the ROM ‘rom.zip’.  RetroArch is happy to run with ROM’s that are in zip files.</p>
+<p>Which would load RetroArch instantly in full screen, load the bsnes emulator for Super Nintendo, and then load the ROM ‘rom.zip’. RetroArch is happy to run with ROM’s that are in zip files.</p>
 
-<p>Enter a list of your emulators as you set them up.  For this example, let’s add in the bsnes emulator.
+<p>Enter a list of your emulators as you set them up. For this example, let’s add in the bsnes emulator.
 Ensure you change the folder paths to match your Retroarch location.</p>
 
 <p>The command will take the following variables:</p>
@@ -374,7 +373,7 @@ Ensure you change the folder paths to match your Retroarch location.</p>
 %r = The path to the ROM
 </code></pre></div></div>
 
-<p>Looking the RetroArch documents, we want to pass the <code class="highlighter-rouge">-f</code> argument to launch into fullscreen, the <code class="highlighter-rouge">-L</code> argument with a core path to tell RetroArch which core to emulate the ROM with, and then the ROM itself.  The below will be the entry for this Super Nintendo emulator.</p>
+<p>Looking the RetroArch documents, we want to pass the <code class="highlighter-rouge">-f</code> argument to launch into fullscreen, the <code class="highlighter-rouge">-L</code> argument with a core path to tell RetroArch which core to emulate the ROM with, and then the ROM itself. The below will be the entry for this Super Nintendo emulator.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[retroarch_snes]                                                                # name of this emulator setup
 location=D:\Emulation\RetroArch\retroarch.exe                                    # Emulator executable location
@@ -387,15 +386,15 @@ command=%l -f -L d:\Emulation\RetroArch\cores\bsnes_balanced_libretro.dll %r    
 
 <p><code class="highlighter-rouge">D:\Emulation\RetroArch\retroarch.exe -f -L d:\Emulation\RetroArch\cores\bsnes_balanced_libretro.dll D:\Emulation\Roms\SNES\SNES_game.zip</code></p>
 
-<p>Repeat the process for all the emulators you’ve installed.  Note the <a href="http://scottrice.github.io/Ice/">Ice</a> site does have some command lines listed for some emulators to help get started.  Each emulator will have a different command line set.</p>
+<p>Repeat the process for all the emulators you’ve installed. Note the <a href="http://scottrice.github.io/Ice/">Ice</a> site does have some command lines listed for some emulators to help get started. Each emulator will have a different command line set.</p>
 
 <p><strong>consoles.txt</strong></p>
 
-<p>In this file, we need to list the consoles we want to setup.  Ice will use the details here to create folders within the ROM folder setup in config.txt.  It will also use the names here to link each game to a category in Steam to allow for easy sorting by the console of the game.</p>
+<p>In this file, we need to list the consoles we want to setup. Ice will use the details here to create folders within the ROM folder setup in config.txt. It will also use the names here to link each game to a category in Steam to allow for easy sorting by the console of the game.</p>
 
 <p>This might feel like doubling up as you might think that we could just do it all in one file, but separating the consoles and emulators allows you to link one emulator setup to multiple consoles if the emulator supported it.</p>
 
-<p>Add a block as below for each console you want to setup.  Ensure you get the spelling right and ensure the entry for the emulator is a match for the heading for the emulator you setup in <code class="highlighter-rouge">emulators.txt</code></p>
+<p>Add a block as below for each console you want to setup. Ensure you get the spelling right and ensure the entry for the emulator is a match for the heading for the emulator you setup in <code class="highlighter-rouge">emulators.txt</code></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Super Nintendo]            # Title of emulator in Steam
 nickname=SNES                 # Folder name in ROM's folder to scan for this consoles ROM's
@@ -405,19 +404,19 @@ extensions=zip                # file extensions to consider a game, separated by
 
 <p><img src="https://voltaicforge.com/assets/images/Ice_Console_config.gif" alt="Editing the Ice console config" /></p>
 
-<p class="notice--info">Ensure you have the correct extension listed here, as it is easy to forget to change it.  If you have a .iso game file and you have forgotten to change it from .zip for example, Ice won’t find the game.</p>
+<p class="notice--info">Ensure you have the correct extension listed here, as it is easy to forget to change it. If you have a .iso game file and you have forgotten to change it from .zip for example, Ice won’t find the game.</p>
 
 <p>We should now have a working Ice setup.</p>
 
 <h3 id="copy-roms">Copy ROM’s</h3>
 
-<p>Now just to select some ROMS and copy them into the correct folders.  I would suggest letting Ice run once as it will create folders in the <code class="highlighter-rouge">Emulation/ROMS/</code> folder for each console you have listed, using the nickname listed for the folder name.</p>
+<p>Now just to select some ROMS and copy them into the correct folders. I would suggest letting Ice run once as it will create folders in the <code class="highlighter-rouge">Emulation/ROMS/</code> folder for each console you have listed, using the nickname listed for the folder name.</p>
 
 <p>Then copy ROM’s or whichever file type the game dump comes into the correct folder.</p>
 
 <h3 id="run-ice">Run Ice</h3>
 
-<p>Ensure Steam is closed and run Ice and check the text that comes up at the command line for errors.  You should receive a listing that it has detected all the consoles and emulators listed.  It will then comment on linking each individual game that has been found, finally finishing up by downloading cover art.</p>
+<p>Ensure Steam is closed and run Ice and check the text that comes up at the command line for errors. You should receive a listing that it has detected all the consoles and emulators listed. It will then comment on linking each individual game that has been found, finally finishing up by downloading cover art.</p>
 
 <p>If anything is missing from the output check the relevant config file.</p>
 
@@ -427,14 +426,14 @@ extensions=zip                # file extensions to consider a game, separated by
 
 <h3 id="browse-for-missing-cover-art">Browse for missing cover art</h3>
 
-<p>If Ice couldn’t find cover art for your game, you may need to grab some manually.  Find and download a custom one (or even make some and share them back to the community?) at the below links:</p>
+<p>If Ice couldn’t find cover art for your game, you may need to grab some manually. Find and download a custom one (or even make some and share them back to the community?) at the below links:</p>
 
 <ul>
-  <li>[r/steamgrid][reddit.com/r/SteamGrid]</li>
+  <li>[r/steamgrid][reddit.com/r/steamgrid]</li>
   <li>[http://steambanners.booru.org][http://steambanners.booru.org]</li>
 </ul>
 
-<p>The image should be 460x215.  Once downloaded, switch to grid view in Steam, Right click and select <code class="highlighter-rouge">Set custom image</code>.  Browse to the location of the custom image and select it.</p>
+<p>The image should be 460x215. Once downloaded, switch to grid view in Steam, Right click and select <code class="highlighter-rouge">Set custom image</code>. Browse to the location of the custom image and select it.</p>
 
 <p class="notice--info">You may need to change from <code class="highlighter-rouge">.jpeg</code> to <code class="highlighter-rouge">.png</code> depending on your file type in the file selection dialogue.</p>
 
@@ -450,7 +449,7 @@ extensions=zip                # file extensions to consider a game, separated by
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-06T17:56:03+10:00">August 06, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-08T11:39:38+10:00">August 08, 2019</time></p>
         
       </footer>
 

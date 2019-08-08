@@ -43,7 +43,7 @@
 
 
 
-  <meta property="article:published_time" content="2019-08-06T17:56:03+10:00">
+  <meta property="article:published_time" content="2019-08-08T11:39:38+10:00">
 
 
 
@@ -253,7 +253,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Fridgementer">
     <meta itemprop="description" content="Why a fermenter fridge?">
-    <meta itemprop="datePublished" content="August 06, 2019">
+    <meta itemprop="datePublished" content="August 08, 2019">
     
 
     <div class="page__inner-wrap">
@@ -261,21 +261,57 @@
 
       <section class="page__content" itemprop="text">
         
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-cog"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#why-a-fermenter-fridge">Why a fermenter fridge?</a></li>
+  <li><a href="#parts">Parts</a></li>
+  <li><a href="#install-brewpi">Install BrewPi</a>
+    <ul>
+      <li><a href="#install-raspbain-to-pi">Install Raspbain to Pi</a></li>
+      <li><a href="#setup-wifi">Setup Wifi</a></li>
+      <li><a href="#enable-ssh">Enable SSH</a></li>
+      <li><a href="#log-into-the-pi">Log into the PI</a></li>
+      <li><a href="#update-system">Update system</a></li>
+      <li><a href="#set-static-wlan-ip-optional">Set static Wlan IP (Optional)</a></li>
+      <li><a href="#change-pi-password-optional-recommended">Change Pi password (Optional, Recommended)</a>
+        <ul>
+          <li><a href="#setup-ssh-passkey--disable-password-access-optional-recommended">Setup SSH passkey &amp; disable password access (Optional, Recommended)</a></li>
+          <li><a href="#setup-fail2ban-security">Setup fail2ban (security)</a></li>
+        </ul>
+      </li>
+      <li><a href="#unattended-upgrades-security">Unattended upgrades (security)</a></li>
+    </ul>
+  </li>
+  <li><a href="#installing-brewpi-onto-raspbian">Installing BrewPi onto Raspbian</a>
+    <ul>
+      <li><a href="#change-hostname">Change hostname</a></li>
+      <li><a href="#install-brewpi-1">Install brewpi</a></li>
+      <li><a href="#reboot">Reboot</a></li>
+      <li><a href="#linux-add-to-sshconfig-file">(Linux) Add to .ssh/config file</a></li>
+      <li><a href="#flash-hex">flash hex</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
         <h1 id="why-a-fermenter-fridge">Why a fermenter fridge?</h1>
 
-<p>I always wanted to build a fermenter fridge for my homebrewing.  I brewed for nearly 2 years, with a variety of methods for controlling the temperature of the fermenting wort that weren’t great.</p>
+<p>I always wanted to build a fermenter fridge for my homebrewing. I brewed for nearly 2 years, with a variety of methods for controlling the temperature of the fermenting wort that weren’t great.</p>
 
-<p>Beer fermenter are usually big plastic buckets which hold 10-23 liters of ready to be brewed beer (called wort).  Once the perpetration part of the beer making process is complete, the wort is poured into a fermenter, and yeast is added.</p>
+<p>Beer fermenter are usually big plastic buckets which hold 10-23 liters of ready to be brewed beer (called wort). Once the perpetration part of the beer making process is complete, the wort is poured into a fermenter, and yeast is added.</p>
 
-<p>However, yeast is a fickle organism and requires a consistent temperature it’s happy with to ferment properly (amongst other things).  Variations in temperature put the yeast under stress, and can make it produce ‘off flavours’.  As such, controlling the temperature of the fermenter is important, and is one of the easiest improvements that can be made to a beginners beer making process.</p>
+<p>However, yeast is a fickle organism and requires a consistent temperature it’s happy with to ferment properly (amongst other things). Variations in temperature put the yeast under stress, and can make it produce ‘off flavours’. As such, controlling the temperature of the fermenter is important, and is one of the easiest improvements that can be made to a beginners beer making process.</p>
 
-<p>Whilst in Hobart, I used a large bucket of water with an aquarium heater to control temperatures of the fermenter.  This worked OK as it was generally fairly cold down there, and I only required to keep it heated to around the right temperature.</p>
+<p>Whilst in Hobart, I used a large bucket of water with an aquarium heater to control temperatures of the fermenter. This worked OK as it was generally fairly cold down there, and I only required to keep it heated to around the right temperature.</p>
 
-<p>In Melbourne however, its harder to control fermentation temperature as the temperatures are warmer.  You need to start considering cooling it when it gets to warm, and then warming it when it gets too cold.</p>
+<p>In Melbourne however, its harder to control fermentation temperature as the temperatures are warmer. You need to start considering cooling it when it gets to warm, and then warming it when it gets too cold.</p>
 
-<p>The general gold standard for this process is converting a fridge or freezer into a temperature controlled chamber.  Using a temperature probe and a temperature controller like the STC-100, which can turn on the fridge when the beer is higher than a set temperature, or turn on a heating device inside the fridge when its too cold.</p>
+<p>The general gold standard for this process is converting a fridge or freezer into a temperature controlled chamber. Using a temperature probe and a temperature controller like the STC-100, which can turn on the fridge when the beer is higher than a set temperature, or turn on a heating device inside the fridge when its too cold.</p>
 
-<p>This is perfectly fine, but a solution is available that panders to the Linux-loving, electronics dork that I am - the <a href="https://www.brewpi.com/">BrewPi</a> project.  This provides the ability to hack a fridge to control heating/cooling as required, but also uses PID<sup id="fnref:PID"><a href="#fn:PID" class="footnote">1</a></sup> to keep the fermentation temperature extremely accurate, whilst providing the ability to have temperature profiles and a web interface.</p>
+<p>This is perfectly fine, but a solution is available that panders to the Linux-loving, electronics dork that I am - the <a href="https://www.brewpi.com/">BrewPi</a> project. This provides the ability to hack a fridge to control heating/cooling as required, but also uses PID<sup id="fnref:pid"><a href="#fn:pid" class="footnote">1</a></sup> to keep the fermentation temperature extremely accurate, whilst providing the ability to have temperature profiles and a web interface.</p>
 
 <h1 id="parts">Parts</h1>
 
@@ -342,9 +378,9 @@
 
 <h2 id="install-raspbain-to-pi">Install Raspbain to Pi</h2>
 
-<p>Download and install <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> to a SD card.  I won’t cover this as there is a million tutorials on the net for this.  Offical installation instructions <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">here</a></p>
+<p>Download and install <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> to a SD card. I won’t cover this as there is a million tutorials on the net for this. Offical installation instructions <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">here</a></p>
 
-<p>I use the Cinnamon Disk Image Writer under Linux, or <code class="highlighter-rouge">dd</code> under a terminal.  Under Windows <a href="https://sourceforge.net/projects/win32diskimager/">Win32DiskImager</a></p>
+<p>I use the Cinnamon Disk Image Writer under Linux, or <code class="highlighter-rouge">dd</code> under a terminal. Under Windows <a href="https://sourceforge.net/projects/win32diskimager/">Win32DiskImager</a></p>
 
 <p class="text-center"><a href="/assets/images/raspbian_install.png"><picture>
     <source srcset="https://voltaicforge.com/assets/images/resize/raspbian_install-801by745-038ad5.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
@@ -359,9 +395,9 @@
 
 <h2 id="setup-wifi">Setup Wifi</h2>
 
-<p>As I am using a Raspberry Pi W which has built in WiFi, I want to setup Wifi out of the box.  Thankfully, you can setup Wifi directly into the SD card before you even fire it up, meaning you can skip the tedium of having to plug it into Ethernet, SSH into it, setup Wifi, then move it to it’s headless loaction.</p>
+<p>As I am using a Raspberry Pi W which has built in WiFi, I want to setup Wifi out of the box. Thankfully, you can setup Wifi directly into the SD card before you even fire it up, meaning you can skip the tedium of having to plug it into Ethernet, SSH into it, setup Wifi, then move it to it’s headless loaction.</p>
 
-<p>To do this, ensure the SD card with your fresh copy of Raspbian is plugged in and mounted.  Go into the boot partition and create a file called <code class="highlighter-rouge">wpa_supplicant.conf</code>.  This file is referenced in the <code class="highlighter-rouge">/etc/network/interfaces</code> file, meaning you can enter the credentials into this <code class="highlighter-rouge">wpa_supplicant.conf</code> file and it will automatically use them on boot.</p>
+<p>To do this, ensure the SD card with your fresh copy of Raspbian is plugged in and mounted. Go into the boot partition and create a file called <code class="highlighter-rouge">wpa_supplicant.conf</code>. This file is referenced in the <code class="highlighter-rouge">/etc/network/interfaces</code> file, meaning you can enter the credentials into this <code class="highlighter-rouge">wpa_supplicant.conf</code> file and it will automatically use them on boot.</p>
 
 <p>In this file, enter the following lines, ensuring to replace the <code class="highlighter-rouge">ssid</code> and <code class="highlighter-rouge">psk</code> variables with your own Wifi’s SSID and WPA password.</p>
 
@@ -376,9 +412,9 @@
 
 <h2 id="enable-ssh">Enable SSH</h2>
 
-<p>Currently, SSH is disabled by default on a fresh Raspbian install, which is a good security measure.  However, we will want this enabled to connect to our headless device.</p>
+<p>Currently, SSH is disabled by default on a fresh Raspbian install, which is a good security measure. However, we will want this enabled to connect to our headless device.</p>
 
-<p>Simply create a new file on the boot partition named <code class="highlighter-rouge">ssh</code>.  This will ensure SSH is enabled when you boot up.</p>
+<p>Simply create a new file on the boot partition named <code class="highlighter-rouge">ssh</code>. This will ensure SSH is enabled when you boot up.</p>
 
 <p class="text-center"><a href="/assets/images/setup_wifi_ssh_raspi_filebrowser.png "><picture>
     <source srcset="https://voltaicforge.com/assets/images/resize/setup_wifi_ssh_raspi_filebrowser-862by679-7ae913.png" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
@@ -395,7 +431,7 @@
 
 <p>Unmount the SD card, plug it into your Pi, and power it on via the usb power cable (or GPIO if thats your plan).</p>
 
-<p>After it finishes booting you will be able to SSH into it via <code class="highlighter-rouge">ssh pi@raspi-ip-address</code> or using <a href="http://www.putty.org/">PuTTY</a> for Windows.  You could check your Router’s DHCP lease to find its IP, or try using <code class="highlighter-rouge">raspi</code>.  We will give it a static IP address in a subsequent section.</p>
+<p>After it finishes booting you will be able to SSH into it via <code class="highlighter-rouge">ssh pi@raspi-ip-address</code> or using <a href="http://www.putty.org/">PuTTY</a> for Windows. You could check your Router’s DHCP lease to find its IP, or try using <code class="highlighter-rouge">raspi</code>. We will give it a static IP address in a subsequent section.</p>
 
 <p class="text-center"><a href="/assets/images/raspi_zero_w.jpg "><picture>
     <source srcset="https://voltaicforge.com/assets/images/resize/raspi_zero_w-1200by1526-f5e6b5.jpg" media="(min-width: 40em) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 40em) and (min-resolution: 192dpi)" />
@@ -410,7 +446,7 @@
 
 <h2 id="update-system">Update system</h2>
 
-<p>Now to update the Rasbian OS to latest, to ensure we are up to date.  Always update a fresh Linux OS as soon as you boot it, even if its a fresh download!</p>
+<p>Now to update the Rasbian OS to latest, to ensure we are up to date. Always update a fresh Linux OS as soon as you boot it, even if its a fresh download!</p>
 
 <p><code class="highlighter-rouge">sudo apt update &amp;&amp; sudo apt dist-upgrade</code></p>
 
@@ -427,17 +463,18 @@
 
 <h2 id="set-static-wlan-ip-optional">Set static Wlan IP (Optional)</h2>
 
-<p>This is an optional step, however currently the Pi is setup for DHCP, and the address may change.  This may be frustrating if you want to open it up to the outside world or want to ensure your bookmark for it stays the same.  You may prefer to use your router’s DHCP system to give it a static reservation instead of the below.</p>
+<p>This is an optional step, however currently the Pi is setup for DHCP, and the address may change. This may be frustrating if you want to open it up to the outside world or want to ensure your bookmark for it stays the same. You may prefer to use your router’s DHCP system to give it a static reservation instead of the below.</p>
 
 <p>If you wish to proceed and force the Pi to have a static IP that doesn’t change., edit the <code class="highlighter-rouge">/etc/network/interfaces</code> file to change the correct <code class="highlighter-rouge">iface</code> line to static, and give it static details as below.</p>
 
 <p>To ensure you get the right wlan entry if you have multiple entries, you can use <code class="highlighter-rouge">ifconfig</code> to see which wlan is being used.</p>
 
-<p>Replace the line <code class="highlighter-rouge">iface wlan0 inet manual</code> with the below details, substituting the IP’s with your desired static address (in the address line) and the correct netmask and gateway for your network.  It’s best to pick a IP outside your router’s DHCP range if possible to avoid potential conflicts.</p>
+<p>Replace the line <code class="highlighter-rouge">iface wlan0 inet manual</code> with the below details, substituting the IP’s with your desired static address (in the address line) and the correct netmask and gateway for your network. It’s best to pick a IP outside your router’s DHCP range if possible to avoid potential conflicts.</p>
 
 <p>Open the <code class="highlighter-rouge">/etc/network/interfaces</code> file, with <code class="highlighter-rouge">sudo nano /etc/network/interfaces</code>.</p>
 
 <p><em>/etc/network/interfaces</em></p>
+
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iface wlan0 inet static
     address 192.168.2.200
     netmask 255.255.255.0
@@ -473,7 +510,7 @@ iface wlan1 inet manual
 
 <h2 id="change-pi-password-optional-recommended">Change Pi password (Optional, Recommended)</h2>
 
-<p>Next, change the Pi’s default password to a new one.  With a default password and SSH enabled, the Pi is less secure and potentially a victim to automated hacking attemps utilizing default password tables.  Changing the password is one step that absolutely should be done on any Pi regardless of use, as well as any system that ships with a default password.</p>
+<p>Next, change the Pi’s default password to a new one. With a default password and SSH enabled, the Pi is less secure and potentially a victim to automated hacking attemps utilizing default password tables. Changing the password is one step that absolutely should be done on any Pi regardless of use, as well as any system that ships with a default password.</p>
 
 <p>To change it, simply run <code class="highlighter-rouge">passwd</code> and enter the default password <code class="highlighter-rouge">raspberry</code> and your new password.</p>
 
@@ -492,7 +529,7 @@ iface wlan1 inet manual
 
 <p>It is best to secure SSH using a passkey, and then setup the Pi to accept a login using it.</p>
 
-<p>I wont rehash how to create one here, as there are ample guides on the net for creating one locally.  Note these guides are run on your <em>local</em> computer, not the Pi!</p>
+<p>I wont rehash how to create one here, as there are ample guides on the net for creating one locally. Note these guides are run on your <em>local</em> computer, not the Pi!</p>
 
 <p><strong>Linux / Mac</strong>
 (https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)</p>
@@ -515,8 +552,10 @@ sudo nano ~/.ssh/authorized_keys
 
 <p><strong>Linux/Mac</strong>
 From your local computer</p>
+
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-copy-id pi@raspi-ip-address
 </code></pre></div></div>
+
 <p>If using mac, you may need to install <code class="highlighter-rouge">ssh-cop[y-id</code> using Homebrew <code class="highlighter-rouge">brew install ssh-copy-id</code>.</p>
 
 <p class="text-center"><a href="/assets/images/ssh-copy-id.png "><picture>
@@ -534,10 +573,10 @@ From your local computer</p>
 
 <p>Once you confirm that it is working, disable SSH password autentication into the PI</p>
 
-<p>On the Pi, modify the <code class="highlighter-rouge">/etc/sshd/ssh-config</code> file.  There will be an entry for password authentication already there.  Simply remove the comment and change the ‘yes’ to ‘no’.</p>
+<p>On the Pi, modify the <code class="highlighter-rouge">/etc/sshd/ssh-config</code> file. There will be an entry for password authentication already there. Simply remove the comment and change the ‘yes’ to ‘no’.</p>
 
 <p><em>/etc/ssh/ssh_config</em>
-Change the line <code class="highlighter-rouge">#   PasswordAuthentication yes</code> to <code class="highlighter-rouge">PasswordAuthentication no</code></p>
+Change the line <code class="highlighter-rouge"># PasswordAuthentication yes</code> to <code class="highlighter-rouge">PasswordAuthentication no</code></p>
 
 <p class="text-center"><img src="https://voltaicforge.com/assets/images/sshd_disable_pasword_authentication.gif" alt="Animation of disabling SSH password autentication" /></p>
 
@@ -575,6 +614,7 @@ add:
 </code></pre></div></div>
 
 <p>file example</p>
+
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unattended-Upgrade::Origins-Pattern {
 // Codename based matching:
 // This will follow the migration of a release through different
@@ -602,7 +642,7 @@ add:
 
 127.0.1.1	raspberrypi
 
-with 
+with
 
 127.0.1.1   brewpi
 </code></pre></div></div>
@@ -686,8 +726,8 @@ also may need to <code class="highlighter-rouge">sudo apt-get install arduino-co
 
 <div class="footnotes">
   <ol>
-    <li id="fn:PID">
-      <p>‘proportional–integral–derivative’, a method of using a control loop feedback to learn how a system reacts to keep a setpoint constant. <a href="#fnref:PID" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:pid">
+      <p>‘proportional–integral–derivative’, a method of using a control loop feedback to learn how a system reacts to keep a setpoint constant. <a href="#fnref:pid" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -701,7 +741,7 @@ also may need to <code class="highlighter-rouge">sudo apt-get install arduino-co
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-06T17:56:03+10:00">August 06, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-08T11:39:38+10:00">August 08, 2019</time></p>
         
       </footer>
 

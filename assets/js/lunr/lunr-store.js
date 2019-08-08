@@ -210,7 +210,7 @@ var store = [{
         "url": "https://voltaicforge.com/guides/steam_emulators/emulator_list/",
         "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{
         "title": "Setting up emulators in Steam",
-        "excerpt":"Installing Ice On This Page Installing Ice Customise Ice Config Copy ROM’s Run Ice Browse for missing cover art To install Ice, we need to download it and extract it into a folder. I started an ‘Emulation’ folder to store this set up neatly. Download the zip from the Ice...","categories": [],
+        "excerpt":"Installing Ice To install Ice, we need to download it and extract it into a folder. I started an ‘Emulation’ folder to store this set up neatly. Download the zip from the Ice Site, or perhaps check out the Ice Github site for an update. As of writing the app...","categories": [],
         "tags": [],
         "url": "https://voltaicforge.com/guides/steam_emulators/install_ice/",
         "teaser":"https://voltaicforge.com/assets/images/screeps_code.png"},{

@@ -8,7 +8,7 @@ header:
 
 # Ordbod Hardon build
 
-I build my Ordbot back in December 2012, having been inerested in 3D printing for a few years.
+I build my Ordbot back in December 2012, having been interested in 3D printing for a few years.
 I liked the concept of the original Reprap's, but to be honest I was a little put of by how fragile they looked, and I had some concerns about the slop they may have
 
 Upon seeing a Ordbot Hadron at the hackerspace however, I was impressed. It is made out of Makerslide, and at the time in 2012 was far more rigid than other models I had seen.

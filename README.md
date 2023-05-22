@@ -1,3 +1,8 @@
+# Archived - V1 of voltaicforge.com
+This is my original, older version of voltaicforge.com using jekyll.
+
+The new site is build with Hugo and Cloudflare pages, git repo is https://github.com/truxnell/voltaicforg
+
 
 # [Voltaicforge](https://voltaicforge.com)
 
